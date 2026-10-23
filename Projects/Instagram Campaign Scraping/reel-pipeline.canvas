@@ -1,0 +1,27 @@
+{
+ "nodes": [
+  {"id":"t","type":"text","x":0,"y":-200,"width":1700,"height":150,"color":"6","text":"# Reel analysis pipeline (built 2026-10-06)\nReel in, edit spec out. Source: [[reel-analysis-pipeline]]. Green = tool installed. Yellow = needs your answer. Folders under `C:\\dev\\reels\\`."},
+  {"id":"in","type":"text","x":0,"y":0,"width":300,"height":200,"color":"3","text":"## 1-inbox\nYou save reels by hand, or later yt-dlp. Needs: competitor handle (`@wantsandneedsbrand_`?)."},
+  {"id":"au","type":"text","x":360,"y":0,"width":300,"height":200,"color":"4","text":"## Audio\nffmpeg to 16 kHz wav, then faster-whisper large-v3-turbo with word times. INSTALLED."},
+  {"id":"fr","type":"text","x":360,"y":240,"width":300,"height":200,"color":"4","text":"## Frames + cuts\nffmpeg frames, PySceneDetect cut times, OpenCV stats. INSTALLED."},
+  {"id":"ocr","type":"text","x":360,"y":480,"width":300,"height":200,"color":"5","text":"## OCR + vision\nOn-screen text, shot type. OCR lib and vision choice (local Ollama vs Claude in-session) still to decide."},
+  {"id":"mg","type":"text","x":720,"y":120,"width":300,"height":240,"color":"4","text":"## Merge by time\n`timeline.json`: every row has t_start/t_end, voice, text, cut, transition."},
+  {"id":"ru","type":"text","x":1080,"y":0,"width":300,"height":260,"color":"1","text":"## Rubric (Claude)\nHook type, cuts per 10 s, product first seen, CTA position, text amount, voice vs music, format."},
+  {"id":"ed","type":"text","x":1080,"y":300,"width":300,"height":260,"color":"5","text":"## Edit factors\nTransitions, speed ramps, zoom, beat sync (librosa), loudness. Added one per step."},
+  {"id":"sp","type":"text","x":1440,"y":120,"width":300,"height":240,"color":"4","text":"## 4-specs: edit spec JSON\nShots, transitions, text timing, music cue. Same format to analyse or to make a reel."},
+  {"id":"rn","type":"text","x":1800,"y":120,"width":300,"height":240,"color":"5","text":"## 5-renders\nffmpeg + MoviePy rebuild from a spec. Round-trip test: analyse, render, compare."}
+ ],
+ "edges": [
+  {"id":"a","fromNode":"in","toNode":"au","fromSide":"right","toSide":"left"},
+  {"id":"b","fromNode":"in","toNode":"fr","fromSide":"right","toSide":"left"},
+  {"id":"c","fromNode":"fr","toNode":"ocr","fromSide":"bottom","toSide":"top"},
+  {"id":"d","fromNode":"au","toNode":"mg","fromSide":"right","toSide":"left"},
+  {"id":"e","fromNode":"fr","toNode":"mg","fromSide":"right","toSide":"left"},
+  {"id":"f","fromNode":"ocr","toNode":"mg","fromSide":"right","toSide":"left"},
+  {"id":"g","fromNode":"mg","toNode":"ru","fromSide":"right","toSide":"left"},
+  {"id":"h","fromNode":"mg","toNode":"ed","fromSide":"right","toSide":"left"},
+  {"id":"i","fromNode":"ru","toNode":"sp","fromSide":"right","toSide":"left"},
+  {"id":"j","fromNode":"ed","toNode":"sp","fromSide":"right","toSide":"left"},
+  {"id":"k","fromNode":"sp","toNode":"rn","fromSide":"right","toSide":"left"}
+ ]
+}

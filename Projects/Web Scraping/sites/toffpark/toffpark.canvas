@@ -1,0 +1,778 @@
+{
+ "nodes": [
+  {
+   "id": "ec59b37a99250247",
+   "type": "group",
+   "x": 0,
+   "y": 0,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "casual (44 leather items, showing 8)"
+  },
+  {
+   "id": "ba436aad989eff74",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 50,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-trend-pattern-leather-casual-shoe-chocolate/toffpark-british-trend-pattern-leather-casual-shoe-chocolate-1.jpg)\n**British Trend Pattern Leather Casual Shoe – Chocolate**\n৳1425 · toffpark.com"
+  },
+  {
+   "id": "b027a55028999708",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 50,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-winter-trend-mid-top-outdoor-casual-shoes-khaki/toffpark-winter-trend-mid-top-outdoor-casual-shoes-khaki-1.jpg)\n**Winter Trend Mid-top Outdoor Casual Shoes – Khaki**\n৳3460 · toffpark.com"
+  },
+  {
+   "id": "f20f7b00cacc3a0e",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 50,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-style-retro-soft-leather-casual-shoe-coffee-brown/toffpark-british-style-retro-soft-leather-casual-shoe-coffee-brown-1.jpg)\n**British Style Retro Soft Leather Casual Shoe – Coffee Brown**\n৳4200 · toffpark.com"
+  },
+  {
+   "id": "1f83d35f651cfa11",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 50,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-korean-trend-mid-top-leather-casual-shoe-coffee-brown/toffpark-korean-trend-mid-top-leather-casual-shoe-coffee-brown-1.jpg)\n**Korean Trend Mid-top Leather Casual Shoe – Coffee Brown**\n৳3890 · toffpark.com"
+  },
+  {
+   "id": "443f69f0342975d9",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 400,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-urban-edge-comfortable-leather-casual-shoe-gray/toffpark-urban-edge-comfortable-leather-casual-shoe-gray-1.jpg)\n**Urban Edge Comfortable Leather Casual Shoe – Gray**\n৳4830 · toffpark.com"
+  },
+  {
+   "id": "3f3d20d0b5d4e672",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 400,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-lace-up-comfortable-leather-casual-shoe-black/toffpark-lace-up-comfortable-leather-casual-shoe-black-1.jpg)\n**Lace-up Comfortable Leather Casual Shoe – Black**\n৳5780 · toffpark.com"
+  },
+  {
+   "id": "2fbd514a52e65aac",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 400,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-lace-up-embossed-leather-casual-shoe-black/toffpark-lace-up-embossed-leather-casual-shoe-black-1.jpg)\n**Lace-up Embossed Leather Casual Shoe – Black**\n৳5850 · toffpark.com"
+  },
+  {
+   "id": "85c1e6bfd17dec5c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 400,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-foreign-trade-lace-up-tooling-casual-shoes-black/toffpark-foreign-trade-lace-up-tooling-casual-shoes-black-1.jpg)\n**Foreign Trade Lace-up Tooling Casual Shoe – Black**\n৳6180 · toffpark.com"
+  },
+  {
+   "id": "6e0c2b6c16d1cde0",
+   "type": "group",
+   "x": 0,
+   "y": 820,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "loafer (31 leather items, showing 8)"
+  },
+  {
+   "id": "02c1544661816f7d",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 870,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-autumn-trend-slip-on-leather-casual-loafer-gray/toffpark-autumn-trend-slip-on-leather-casual-loafer-gray-1.jpg)\n**Autumn Trend Slip-on Leather Casual Loafer – Gray**\n৳1475 · toffpark.com"
+  },
+  {
+   "id": "a9d0f319914032ee",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 870,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-korean-style-versatile-suede-leather-loafer-maroon/toffpark-korean-style-versatile-suede-leather-loafer-maroon-1.jpg)\n**Korean Style Versatile Suede Leather Loafer – Maroon**\n৳1625 · toffpark.com"
+  },
+  {
+   "id": "1f3590b95f8ad11c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 870,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-trend-lightweight-shiny-leather-loafer-red-wine/toffpark-british-trend-lightweight-shiny-leather-loafer-red-wine-1.jpg)\n**British Trend Lightweight Shiny Leather Loafer – Red Wine**\n৳1875 · toffpark.com"
+  },
+  {
+   "id": "bf807b6aeaadbfee",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 870,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-spring-trend-super-soft-leather-loafer-black/toffpark-spring-trend-super-soft-leather-loafer-black-1.jpg)\n**Spring Trend Super Soft Leather Loafer – Black**\n৳2980 · toffpark.com"
+  },
+  {
+   "id": "c43df7e6d6c1961e",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 1220,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-soft-surface-lightweight-leather-casual-loafer-brown/toffpark-soft-surface-lightweight-leather-casual-loafer-brown-1.jpg)\n**Soft Surface Lightweight Leather Casual Loafer – Brown**\n৳2980 · toffpark.com"
+  },
+  {
+   "id": "9b2a3577c4f03230",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 1220,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-american-retro-flat-heel-leather-loafer-brown/toffpark-american-retro-flat-heel-leather-loafer-brown-1.jpg)\n**American Retro Flat Heel Leather Loafer – Brown**\n৳3950 · toffpark.com"
+  },
+  {
+   "id": "d2c3c6e8a3b14684",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 1220,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-summer-style-lightweight-soft-leather-loafer-black/toffpark-summer-style-lightweight-soft-leather-loafer-black-1.jpg)\n**Summer Style Lightweight Soft Leather Loafer – Black**\n৳5580 · toffpark.com"
+  },
+  {
+   "id": "feb18ff924c18dfd",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 1220,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-embossed-leather-cozy-horsebit-loafer-brown/toffpark-embossed-leather-cozy-horsebit-loafer-brown-1.jpg)\n**Embossed Leather Cozy Horsebit Loafer – Brown**\n৳5650 · toffpark.com"
+  },
+  {
+   "id": "169c64b719ee468f",
+   "type": "group",
+   "x": 0,
+   "y": 1640,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "formal (31 leather items, showing 8)"
+  },
+  {
+   "id": "7a030b46d7c17f8f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 1690,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-genuine-leather-pointed-toe-slip-on-formal-shoe-brown/toffpark-genuine-leather-pointed-toe-slip-on-formal-shoe-brown-1.jpg)\n**Genuine Leather Pointed Toe Slip-on Formal Shoe – Brown**\n৳1950 · toffpark.com"
+  },
+  {
+   "id": "2567678826de7c88",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 1690,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-genuine-leather-pointed-toe-formal-shoe-dark-coffee/toffpark-genuine-leather-pointed-toe-formal-shoe-dark-coffee-1.jpg)\n**Genuine Leather Pointed Toe Formal Shoe – Dark Coffee**\n৳4750 · toffpark.com"
+  },
+  {
+   "id": "e5f044f3565a8c46",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 1690,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-oxford-style-breathable-leather-formal-shoe-brown/toffpark-oxford-style-breathable-leather-formal-shoe-brown-1.jpg)\n**Oxford Style Breathable Leather Formal Shoe – Brown**\n৳4980 · toffpark.com"
+  },
+  {
+   "id": "b22063cca63deaef",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 1690,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-derby-style-premium-soft-leather-formal-shoe-black/toffpark-derby-style-premium-soft-leather-formal-shoe-black-1.jpg)\n**Derby Style Premium Soft Leather Formal Shoe – Black**\n৳5350 · toffpark.com"
+  },
+  {
+   "id": "124739e3ace73d6f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 2040,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-all-match-slip-on-leather-business-formal-shoe-black/toffpark-all-match-slip-on-leather-business-formal-shoe-black-1.jpg)\n**All Match Slip-on Leather Business Formal Shoe – Black**\n৳5590 · toffpark.com"
+  },
+  {
+   "id": "feef23d9ba0842c1",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 2040,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-pointed-toe-slip-on-leather-formal-shoe-chocolate/toffpark-pointed-toe-slip-on-leather-formal-shoe-chocolate-1.jpg)\n**Pointed Toe Slip-on Leather Formal Shoe – Chocolate**\n৳5650 · toffpark.com"
+  },
+  {
+   "id": "5c403ec1bc3a5416",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 2040,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-crocodile-embossed-leather-slip-on-formal-shoe-black/toffpark-crocodile-embossed-leather-slip-on-formal-shoe-black-1.jpg)\n**Crocodile Embossed Leather Slip-On Formal Shoe – Black**\n৳5650 · toffpark.com"
+  },
+  {
+   "id": "f2e30418179d6391",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 2040,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-korean-style-soft-leather-slip-on-formal-shoe-brown/toffpark-korean-style-soft-leather-slip-on-formal-shoe-brown-1.jpg)\n**Korean Style Soft Leather Slip-on Formal Shoe – Brown**\n৳5850 · toffpark.com"
+  },
+  {
+   "id": "2adf995df7702f0c",
+   "type": "group",
+   "x": 0,
+   "y": 2460,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "belt (29 leather items, showing 8)"
+  },
+  {
+   "id": "2383630128a3310d",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 2510,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-rotating-buckle-leather-belt-chocolate/toffpark-toffpark-rotating-buckle-leather-belt-chocolate-1.jpg)\n**TOFFPARK Rotating Buckle Leather Belt – Chocolate**\n৳990 · toffpark.com"
+  },
+  {
+   "id": "f43dd3a803f29cfa",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 2510,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-both-side-leather-belt-brown/toffpark-toffpark-both-side-leather-belt-brown-1.jpg)\n**TOFFPARK Both Side Leather Belt – Brown**\n৳1080 · toffpark.com"
+  },
+  {
+   "id": "5c343e38086b9f16",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 2510,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-leather-double-side-belt-chocolate/toffpark-toffpark-leather-double-side-belt-chocolate-1.jpg)\n**TOFFPARK Leather Double Side Belt – Chocolate**\n৳1160 · toffpark.com"
+  },
+  {
+   "id": "bd12bfa61e479301",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 2510,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-business-class-leather-belt-black/toffpark-toffpark-business-class-leather-belt-black-1.jpg)\n**TOFFPARK Business Class Leather Belt – Black**\n৳1160 · toffpark.com"
+  },
+  {
+   "id": "cf3e5c9ff1bf5db0",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 2860,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-high-end-leather-versatile-belt-brown/toffpark-toffpark-high-end-leather-versatile-belt-brown-1.jpg)\n**TOFFPARK High-end Leather Versatile Belt – Brown**\n৳1240 · toffpark.com"
+  },
+  {
+   "id": "c12ea3f751bc29ee",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 2860,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-genuine-leather-black-pin-buckle-belt-coffee/toffpark-genuine-leather-black-pin-buckle-belt-coffee-1.jpg)\n**Genuine Leather Black Pin Buckle Belt – Coffee**\n৳2350 · toffpark.com"
+  },
+  {
+   "id": "3e87dae2ad872b63",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 2860,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-italian-style-retro-genuine-leather-belt-coffee/toffpark-italian-style-retro-genuine-leather-belt-coffee-1.jpg)\n**Italian Style Retro Genuine Leather Belt – Coffee**\n৳2450 · toffpark.com"
+  },
+  {
+   "id": "ebf203eb35c29511",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 2860,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-high-end-retro-casual-genuine-leather-belt-red-wine/toffpark-high-end-retro-casual-genuine-leather-belt-red-wine-1.jpg)\n**High-end Retro Casual Genuine Leather Belt – Red Wine**\n৳2450 · toffpark.com"
+  },
+  {
+   "id": "4ab8066581749a43",
+   "type": "group",
+   "x": 0,
+   "y": 3280,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "sandal (27 leather items, showing 8)"
+  },
+  {
+   "id": "6b8d89d4d2788d8a",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 3330,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-cross-border-leather-mens-sandal-brown/toffpark-toffpark-cross-border-leather-mens-sandal-brown-1.jpg)\n**TOFFPARK Cross Border Leather Men’s Sandal – Brown**\n৳685 · toffpark.com"
+  },
+  {
+   "id": "aebab35f532e9358",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 3330,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-cross-border-soft-bottom-plain-leather-sandal-black/toffpark-cross-border-soft-bottom-plain-leather-sandal-black-1.jpg)\n**Cross Border Soft Bottom Plain Leather Sandal – Black**\n৳1620 · toffpark.com"
+  },
+  {
+   "id": "8a088676b075bf9c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 3330,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-soft-surface-summer-time-leather-sandal-chocolate/toffpark-soft-surface-summer-time-leather-sandal-chocolate-1.jpg)\n**Soft Surface Summer Time Leather Sandal – Chocolate**\n৳1680 · toffpark.com"
+  },
+  {
+   "id": "591221b59b5856f0",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 3330,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-premium-leather-trendy-outerwear-sandal-black/toffpark-premium-leather-trendy-outerwear-sandal-black-1.jpg)\n**Premium Leather Trendy Outerwear Sandal – Black**\n৳1710 · toffpark.com"
+  },
+  {
+   "id": "2f4dca69b69680b4",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 3680,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-festive-trend-soft-leather-outdoor-sandal-brown/toffpark-festive-trend-soft-leather-outdoor-sandal-brown-1.jpg)\n**Festive Trend Soft Leather Outdoor Sandal – Brown**\n৳2250 · toffpark.com"
+  },
+  {
+   "id": "110e0632195b179a",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 3680,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-foreign-trend-suede-leather-strap-sandal-gray-green/toffpark-foreign-trend-suede-leather-strap-sandal-gray-green-1.jpg)\n**Foreign Trend Suede Leather Strap Sandal – Gray Green**\n৳3850 · toffpark.com"
+  },
+  {
+   "id": "ddc406bf65dd431d",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 3680,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-soft-bottom-closed-leather-casual-sandal-black/toffpark-soft-bottom-closed-leather-casual-sandal-black-1.jpg)\n**Soft Bottom Closed Leather Casual Sandal – Black**\n৳2695 · toffpark.com"
+  },
+  {
+   "id": "fa77900689f67393",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 3680,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-cross-strap-festive-trend-leather-sandal-brown/toffpark-cross-strap-festive-trend-leather-sandal-brown-1.jpg)\n**Cross Strap Festive Trend Leather Sandal – Brown**\n৳2370 · toffpark.com"
+  },
+  {
+   "id": "0370b57baa27cfef",
+   "type": "group",
+   "x": 0,
+   "y": 4100,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "boot (22 leather items, showing 8)"
+  },
+  {
+   "id": "d0078db104a65f3f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 4150,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-retro-style-handcrafted-leather-martin-boot-brown/toffpark-retro-style-handcrafted-leather-martin-boot-brown-1.jpg)\n**Retro Style Handcrafted Leather Martin Boot – Brown**\n৳2190 · toffpark.com"
+  },
+  {
+   "id": "2a1afef5de1b49dc",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 4150,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-retro-style-leather-martin-boot-black/toffpark-retro-style-leather-martin-boot-black-1.jpg)\n**Retro Style Leather Martin Boot – Black**\n৳2690 · toffpark.com"
+  },
+  {
+   "id": "309ff993ac0c21a4",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 4150,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-style-mid-cut-leather-martin-boot-khaki/toffpark-british-style-mid-cut-leather-martin-boot-khaki-1.jpg)\n**British Style Mid-cut Leather Martin Boot – Khaki**\n৳3640 · toffpark.com"
+  },
+  {
+   "id": "4fbb622d33fe2076",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 4150,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-all-match-mid-top-soft-leather-martin-boot-black/toffpark-all-match-mid-top-soft-leather-martin-boot-black-1.jpg)\n**All Match Mid-top Soft Leather Martin Boot – Black**\n৳3465 · toffpark.com"
+  },
+  {
+   "id": "d340e2e0acdfdd1f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 4500,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-urban-style-comfortable-leather-chelsea-boot-black/toffpark-urban-style-comfortable-leather-chelsea-boot-black-1.jpg)\n**Urban Style Comfortable Leather Chelsea Boot – Black**\n৳5350 · toffpark.com"
+  },
+  {
+   "id": "2e501cb341aec48e",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 4500,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-style-pointed-toe-chelsea-boot-coffee/toffpark-british-style-pointed-toe-chelsea-boot-coffee-1.jpg)\n**British Style Pointed Toe Chelsea Boot – Coffee**\n৳4980 · toffpark.com"
+  },
+  {
+   "id": "d818e1f95c78e580",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 4500,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-european-style-versatile-leather-martin-boot-gray/toffpark-european-style-versatile-leather-martin-boot-gray-1.jpg)\n**European Style Versatile Leather Martin Boot – Gray**\n৳4090 · toffpark.com"
+  },
+  {
+   "id": "bab158de3afc0285",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 4500,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-urban-style-versatile-leather-martin-boot-brown/toffpark-urban-style-versatile-leather-martin-boot-brown-1.jpg)\n**Urban Style Versatile Leather Martin Boot – Brown**\n৳6240 · toffpark.com"
+  },
+  {
+   "id": "e3a471413b8635c0",
+   "type": "group",
+   "x": 0,
+   "y": 4920,
+   "width": 1140,
+   "height": 760,
+   "color": "#00C2B8",
+   "label": "wallet (14 leather items, showing 8)"
+  },
+  {
+   "id": "af5b69478f0ee80a",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 4970,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-vintage-leather-card-holder-red-wine/toffpark-vintage-leather-card-holder-red-wine-1.jpg)\n**Vintage Leather Card Holder – Red Wine**\n৳200 · toffpark.com"
+  },
+  {
+   "id": "62bddb7e5d898b68",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 4970,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-vintage-leather-card-holder-dark-chocolate/toffpark-vintage-leather-card-holder-dark-chocolate-1.jpg)\n**Vintage Leather Card Holder – Dark Chocolate**\n৳200 · toffpark.com"
+  },
+  {
+   "id": "ddc87977bcd29df1",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 4970,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-classic-genuine-leather-long-wallet-black/toffpark-toffpark-classic-genuine-leather-long-wallet-black-1.jpg)\n**TOFFPARK Classic Genuine Leather Long Wallet – Black**\n৳540 · toffpark.com"
+  },
+  {
+   "id": "8ea7006cd72d7fe8",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 4970,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-classic-genuine-leather-long-wallet-red-wine/toffpark-toffpark-classic-genuine-leather-long-wallet-red-wine-1.jpg)\n**TOFFPARK Classic Genuine Leather Long Wallet – Red Wine**\n৳540 · toffpark.com"
+  },
+  {
+   "id": "d1deb42999ccda64",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 5320,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-premium-leather-bi-fold-slim-wallet-red-wine/toffpark-toffpark-premium-leather-bi-fold-slim-wallet-red-wine-1.jpg)\n**TOFFPARK Premium Leather Bi-fold Slim Wallet – Red Wine**\n৳850 · toffpark.com"
+  },
+  {
+   "id": "5360cd3b190f9b08",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 5320,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-premium-leather-bi-fold-slim-wallet-black/toffpark-toffpark-premium-leather-bi-fold-slim-wallet-black-1.jpg)\n**TOFFPARK Premium Leather Bi-fold Slim Wallet – Black**\n৳850 · toffpark.com"
+  },
+  {
+   "id": "83fde0dc540ea826",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 5320,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-multi-slot-leather-bi-fold-wallet-red-wine/toffpark-toffpark-multi-slot-leather-bi-fold-wallet-red-wine-1.jpg)\n**TOFFPARK Multi Slot Leather Bi-fold Wallet – Red Wine**\n৳950 · toffpark.com"
+  },
+  {
+   "id": "d61a4bc29792055a",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 5320,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-toffpark-multi-slot-leather-bi-fold-wallet-black/toffpark-toffpark-multi-slot-leather-bi-fold-wallet-black-1.jpg)\n**TOFFPARK Multi Slot Leather Bi-fold Wallet – Black**\n৳950 · toffpark.com"
+  },
+  {
+   "id": "a097510855945880",
+   "type": "group",
+   "x": 0,
+   "y": 5740,
+   "width": 1140,
+   "height": 410,
+   "color": "#00C2B8",
+   "label": "other shoe (4 leather items, showing 4)"
+  },
+  {
+   "id": "10b3c0aefae1b1d0",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 20,
+   "y": 5790,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-trend-thick-sole-penny-half-shoe-chocolate/toffpark-british-trend-thick-sole-penny-half-shoe-chocolate-1.jpg)\n**British Trend Thick Sole Penny Half Shoe – Chocolate**\n৳1790 · toffpark.com"
+  },
+  {
+   "id": "73ceba262cbba30c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 300,
+   "y": 5790,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-british-trend-thick-sole-penny-half-shoe-black/toffpark-british-trend-thick-sole-penny-half-shoe-black-1.jpg)\n**British Trend Thick Sole Penny Half Shoe – Black**\n৳1790 · toffpark.com"
+  },
+  {
+   "id": "2db542b15c581b9f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 580,
+   "y": 5790,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-korean-style-horsebit-lether-half-shoe-black/toffpark-korean-style-horsebit-lether-half-shoe-black-1.jpg)\n**Korean Style Horsebit Leather Half Shoe – Black**\n৳1800 · toffpark.com"
+  },
+  {
+   "id": "5db527ea25e99a45",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 860,
+   "y": 5790,
+   "width": 260,
+   "height": 330,
+   "text": "![](file:///C%3A/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/toffpark/data/photos/toffpark/toffpark-foreign-trade-versatile-lether-tassel-half-shoe-black/toffpark-foreign-trade-versatile-lether-tassel-half-shoe-black-1.jpg)\n**Foreign Trade Versatile Leather Tassel Half Shoe – Black**\n৳1840 · toffpark.com"
+  },
+  {
+   "id": "cff5497121104c2b",
+   "type": "group",
+   "x": 1200,
+   "y": 0,
+   "width": 360,
+   "height": 710,
+   "color": "#00C2B8",
+   "label": "Scraper flow"
+  },
+  {
+   "id": "0b1cdc9fe1f929e4",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1220,
+   "y": 50,
+   "width": 320,
+   "height": 90,
+   "text": "fetch: Store API JSON (3 categories, 5 requests)"
+  },
+  {
+   "id": "8ddf878039b70767",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1220,
+   "y": 180,
+   "width": 320,
+   "height": 90,
+   "text": "parse: price, sizes, material text, photos"
+  },
+  {
+   "id": "fac989447cad2edb",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1220,
+   "y": 310,
+   "width": 320,
+   "height": 90,
+   "text": "filter: leather yes / check / no"
+  },
+  {
+   "id": "c0828e0381730bef",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1220,
+   "y": 440,
+   "width": 320,
+   "height": 90,
+   "text": "save: products.jsonl, products.csv, check.csv"
+  },
+  {
+   "id": "7e7cb6814b74d659",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1220,
+   "y": 570,
+   "width": 320,
+   "height": 90,
+   "text": "photos + SQLite toffpark_market.db"
+  }
+ ],
+ "edges": [
+  {
+   "id": "cd3dc8b6cffb41e4",
+   "fromNode": "0b1cdc9fe1f929e4",
+   "toNode": "8ddf878039b70767",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "68a9e49bbc88c020",
+   "fromNode": "8ddf878039b70767",
+   "toNode": "fac989447cad2edb",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "7ed21b04c0dcde1c",
+   "fromNode": "fac989447cad2edb",
+   "toNode": "c0828e0381730bef",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "38de3f7d221a2910",
+   "fromNode": "c0828e0381730bef",
+   "toNode": "7e7cb6814b74d659",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "color": "#00C2B8"
+  }
+ ]
+}

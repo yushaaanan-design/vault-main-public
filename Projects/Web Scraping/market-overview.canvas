@@ -1,0 +1,760 @@
+{
+ "nodes": [
+  {
+   "id": "n1",
+   "type": "text",
+   "text": "# Blue market map\n\n**1394** leather products\n**5** sites: apex 854, bata 296, toffpark 202, wearszone 36, psleather 6\n\nMen's leather shoes + accessories. Asking prices in BDT, scraped 2026-10-01.",
+   "x": 0,
+   "y": 2060,
+   "width": 420,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n2",
+   "type": "text",
+   "text": "## SHOES\n**1184** products, 11 types",
+   "x": 560,
+   "y": 0,
+   "width": 360,
+   "height": 140,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n3",
+   "type": "text",
+   "text": "### sandal\n**435** products",
+   "x": 1060,
+   "y": 0,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n4",
+   "type": "text",
+   "text": "**sandal**: **BDT 559 / 2,990 / 15,000** (low / median / high)\n\n- Sites: apex 371, bata 36, toffpark 27, psleather 1\n- Colours: brown 251, black 105, other 46\n- Upper: leather (plain) 427, suede 6, cow 2\n- Sole: rubber 179, pu 83, tpr 72\n- Brands: Venturini 194, Apex 161, Toffpark 27",
+   "x": 1500,
+   "y": 0,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n5",
+   "type": "text",
+   "text": "### loafer\n**247** products",
+   "x": 1060,
+   "y": 290,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n6",
+   "type": "text",
+   "text": "**loafer**: **BDT 1,475 / 3,990 / 50,000** (low / median / high)\n\n- Sites: apex 131, bata 54, toffpark 37, wearszone 20, psleather 5\n- Colours: brown 101, black 49, other 42\n- Upper: leather (plain) 219, nubuck 12, cow 11\n- Sole: rubber 110, tpr 88, eva 25\n- Brands: Venturini 50, Apex 44, Toffpark 37",
+   "x": 1500,
+   "y": 290,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n7",
+   "type": "text",
+   "text": "### slip-on\n**168** products",
+   "x": 1060,
+   "y": 580,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n8",
+   "type": "text",
+   "text": "**slip-on**: **BDT 1,990 / 4,647 / 18,000** (low / median / high)\n\n- Sites: apex 112, bata 41, toffpark 15\n- Colours: brown 65, black 51, other 49\n- Upper: leather (plain) 147, cow 9, nubuck 7\n- Sole: rubber 84, tpr 38, pu 22\n- Brands: Venturini 60, Apex 37, Hush Puppies 20",
+   "x": 1500,
+   "y": 580,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n9",
+   "type": "text",
+   "text": "### formal (other)\n**129** products",
+   "x": 1060,
+   "y": 870,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n10",
+   "type": "text",
+   "text": "**formal (other)**: **BDT 1,599 / 5,599 / 18,000** (low / median / high)\n\n- Sites: apex 71, bata 54, wearszone 4\n- Colours: brown 41, black 38, other 35\n- Upper: leather (plain) 120, full grain 4, suede 3\n- Sole: tpr 51, rubber 50, pu 12\n- Brands: Bata 41, Venturini 40, Apex 31",
+   "x": 1500,
+   "y": 870,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n11",
+   "type": "text",
+   "text": "### casual (other)\n**96** products",
+   "x": 1060,
+   "y": 1160,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n12",
+   "type": "text",
+   "text": "**casual (other)**: **BDT 1,425 / 5,280 / 12,799** (low / median / high)\n\n- Sites: bata 48, toffpark 44, apex 2, wearszone 2\n- Colours: brown 34, black 31, tan 14\n- Upper: leather (plain) 82, suede 6, cow 5\n- Sole: rubber 52, tpr 17, pu 10\n- Brands: Toffpark 44, Hush Puppies 37, Bata 11",
+   "x": 1500,
+   "y": 1160,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n13",
+   "type": "text",
+   "text": "### boot\n**46** products",
+   "x": 1060,
+   "y": 1450,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n14",
+   "type": "text",
+   "text": "**boot**: **BDT 2,190 / 4,302 / 15,000** (low / median / high)\n\n- Sites: toffpark 22, apex 19, bata 3, wearszone 2\n- Colours: brown 15, black 7, other 6\n- Upper: leather (plain) 25, suede 13, nubuck 5\n- Sole: tpr 20, rubber 9, eva 2\n- Brands: Toffpark 22, Maverick 17, Apex 2",
+   "x": 1500,
+   "y": 1450,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n15",
+   "type": "text",
+   "text": "### derby\n**24** products",
+   "x": 1060,
+   "y": 1740,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n16",
+   "type": "text",
+   "text": "**derby**: **BDT 2,315 / 5,350 / 50,000** (low / median / high)\n\n- Sites: apex 12, toffpark 9, bata 3\n- Colours: brown 11, black 7, other 6\n- Upper: leather (plain) 24\n- Sole: rubber 19, tpr 4, leather 1\n- Brands: Venturini 10, Toffpark 9, Apex 2",
+   "x": 1500,
+   "y": 1740,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n17",
+   "type": "text",
+   "text": "### oxford\n**21** products",
+   "x": 1060,
+   "y": 2030,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n18",
+   "type": "text",
+   "text": "**oxford**: **BDT 1,990 / 4,750 / 50,000** (low / median / high)\n\n- Sites: apex 16, toffpark 5\n- Colours: other 8, black 7, tan 3\n- Upper: leather (plain) 19, cow 2\n- Sole: rubber 15, tpr 2, pvc 2\n- Brands: Venturini 11, Apex 5, Toffpark 5",
+   "x": 1500,
+   "y": 2030,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n19",
+   "type": "text",
+   "text": "### sneaker\n**11** products",
+   "x": 1060,
+   "y": 2320,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n20",
+   "type": "text",
+   "text": "**sneaker**: **BDT 3,199 / 4,799 / 15,000** (low / median / high)\n\n- Sites: apex 6, bata 5\n- Colours: brown 5, other 3, black 2\n- Upper: leather (plain) 8, nubuck 3\n- Sole: tpr 6, rubber 3, eva 1\n- Brands: Hush Puppies 4, Maverick 3, Venturini 2",
+   "x": 1500,
+   "y": 2320,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n21",
+   "type": "text",
+   "text": "### slipper\n**6** products",
+   "x": 1060,
+   "y": 2610,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n22",
+   "type": "text",
+   "text": "**slipper**: **BDT 1,599 / 2,200 / 4,000** (low / median / high)\n\n- Sites: wearszone 4, apex 1, bata 1\n- Colours: brown 2\n- Upper: cow 3, leather (plain) 1\n- Sole: rubber 2, pu 1, tpr 1\n- Brands: Apex 1, Bata 1",
+   "x": 1500,
+   "y": 2610,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n23",
+   "type": "text",
+   "text": "### monk strap\n**1** products",
+   "x": 1060,
+   "y": 2900,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n24",
+   "type": "text",
+   "text": "**monk strap**: **BDT 8,990 / 8,990 / 8,990** (low / median / high)\n\n- Sites: apex 1\n- Colours: other 1\n- Upper: leather (plain) 1\n- Sole: rubber 1\n- Brands: Venturini 1",
+   "x": 1500,
+   "y": 2900,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n25",
+   "type": "text",
+   "text": "## ACCESSORIES\n**210** products, 3 types",
+   "x": 560,
+   "y": 3350,
+   "width": 360,
+   "height": 140,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n26",
+   "type": "text",
+   "text": "### belt\n**145** products",
+   "x": 1060,
+   "y": 3350,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n27",
+   "type": "text",
+   "text": "**belt**: **BDT 639 / 1,690 / 30,000** (low / median / high)\n\n- Sites: apex 82, bata 31, toffpark 29, wearszone 3\n- Colours: black 70, brown 61, other 8\n- Upper: leather (plain) 144\n- Sole: pu 11, tpr 10, pvc 10\n- Brands: Apex 41, Venturini 31, Toffpark 29",
+   "x": 1500,
+   "y": 3350,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n28",
+   "type": "text",
+   "text": "### wallet\n**57** products",
+   "x": 1060,
+   "y": 3640,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n29",
+   "type": "text",
+   "text": "**wallet**: **BDT 200 / 1,039 / 25,000** (low / median / high)\n\n- Sites: apex 27, bata 15, toffpark 14, wearszone 1\n- Colours: black 32, brown 16, other 9\n- Upper: leather (plain) 57\n- Sole: other 2\n- Brands: Apex 14, Toffpark 14, Venturini 12",
+   "x": 1500,
+   "y": 3640,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n30",
+   "type": "text",
+   "text": "### bag\n**8** products",
+   "x": 1060,
+   "y": 3930,
+   "width": 380,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n31",
+   "type": "text",
+   "text": "**bag**: **BDT 2,990 / 5,999 / 9,990** (low / median / high)\n\n- Sites: bata 5, apex 3\n- Colours: black 5, brown 2, other 1\n- Upper: leather (plain) 8\n- Sole: n/a\n- Brands: Bata 5, Apex 1, Police 1",
+   "x": 1500,
+   "y": 3930,
+   "width": 640,
+   "height": 250,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n32",
+   "type": "text",
+   "text": "# Product KEYS\n\nEnter a product with these keys and it can be compared with every shop.\n\n**Coverage** = share of the 1394 products with that key filled.",
+   "x": 2400,
+   "y": 2060,
+   "width": 420,
+   "height": 220,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n33",
+   "type": "text",
+   "text": "### category  (100%)\nshoe / accessory",
+   "x": 2920,
+   "y": 0,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n34",
+   "type": "text",
+   "text": "### type  (100%)\noxford, derby, loafer, boot, sandal, slipper, sneaker, slip-on, monk strap, belt, wallet, bag",
+   "x": 2920,
+   "y": 190,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n35",
+   "type": "text",
+   "text": "### price (BDT, what the buyer pays)  (99%)\nlow / median / high per type",
+   "x": 2920,
+   "y": 380,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n36",
+   "type": "text",
+   "text": "### colour  (92%)\nblack, brown, tan, navy, grey, white, other",
+   "x": 2920,
+   "y": 570,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n37",
+   "type": "text",
+   "text": "### upper material  (99%)\nsuede, nubuck, full grain, cow, leather (plain)",
+   "x": 2920,
+   "y": 760,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n38",
+   "type": "text",
+   "text": "### sole  (84%)\nrubber, TPR, EVA, PU, leather, other (only where the site says)",
+   "x": 2920,
+   "y": 950,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n39",
+   "type": "text",
+   "text": "### closure  (22%)\nlace-up, slip-on, strap/buckle, zip (guessed from the name)",
+   "x": 2920,
+   "y": 1140,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n40",
+   "type": "text",
+   "text": "### toe shape, heel, welt  (0%)\nNOT captured yet: needs the photo (see the lookup plan)",
+   "x": 2920,
+   "y": 1330,
+   "width": 640,
+   "height": 150,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "dapex",
+   "type": "file",
+   "file": "Projects/Web Scraping/data/apex-products.md",
+   "x": 2400,
+   "y": 1640,
+   "width": 400,
+   "height": 300,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "dbata",
+   "type": "file",
+   "file": "Projects/Web Scraping/data/bata-products.md",
+   "x": 2820,
+   "y": 1640,
+   "width": 400,
+   "height": 300,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "dtoffpark",
+   "type": "file",
+   "file": "Projects/Web Scraping/data/toffpark-products.md",
+   "x": 3240,
+   "y": 1640,
+   "width": 400,
+   "height": 300,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "dwearszone",
+   "type": "file",
+   "file": "Projects/Web Scraping/data/wearszone-products.md",
+   "x": 2400,
+   "y": 1980,
+   "width": 400,
+   "height": 300,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "dpsleather",
+   "type": "file",
+   "file": "Projects/Web Scraping/data/psleather-products.md",
+   "x": 2820,
+   "y": 1980,
+   "width": 400,
+   "height": 300,
+   "color": "#00C2B8"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e1",
+   "fromNode": "n1",
+   "fromSide": "right",
+   "toNode": "n2",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e2",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n3",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e3",
+   "fromNode": "n3",
+   "fromSide": "right",
+   "toNode": "n4",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e4",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n5",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e5",
+   "fromNode": "n5",
+   "fromSide": "right",
+   "toNode": "n6",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e6",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n7",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e7",
+   "fromNode": "n7",
+   "fromSide": "right",
+   "toNode": "n8",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e8",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n9",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e9",
+   "fromNode": "n9",
+   "fromSide": "right",
+   "toNode": "n10",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e10",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n11",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e11",
+   "fromNode": "n11",
+   "fromSide": "right",
+   "toNode": "n12",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e12",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n13",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e13",
+   "fromNode": "n13",
+   "fromSide": "right",
+   "toNode": "n14",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e14",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n15",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e15",
+   "fromNode": "n15",
+   "fromSide": "right",
+   "toNode": "n16",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e16",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n17",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e17",
+   "fromNode": "n17",
+   "fromSide": "right",
+   "toNode": "n18",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e18",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n19",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e19",
+   "fromNode": "n19",
+   "fromSide": "right",
+   "toNode": "n20",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e20",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n21",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e21",
+   "fromNode": "n21",
+   "fromSide": "right",
+   "toNode": "n22",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e22",
+   "fromNode": "n2",
+   "fromSide": "right",
+   "toNode": "n23",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e23",
+   "fromNode": "n23",
+   "fromSide": "right",
+   "toNode": "n24",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e24",
+   "fromNode": "n1",
+   "fromSide": "right",
+   "toNode": "n25",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e25",
+   "fromNode": "n25",
+   "fromSide": "right",
+   "toNode": "n26",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e26",
+   "fromNode": "n26",
+   "fromSide": "right",
+   "toNode": "n27",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e27",
+   "fromNode": "n25",
+   "fromSide": "right",
+   "toNode": "n28",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e28",
+   "fromNode": "n28",
+   "fromSide": "right",
+   "toNode": "n29",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e29",
+   "fromNode": "n25",
+   "fromSide": "right",
+   "toNode": "n30",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e30",
+   "fromNode": "n30",
+   "fromSide": "right",
+   "toNode": "n31",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e31",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n33",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e32",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n34",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e33",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n35",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e34",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n36",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e35",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n37",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e36",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n38",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e37",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n39",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "e38",
+   "fromNode": "n32",
+   "fromSide": "right",
+   "toNode": "n40",
+   "toSide": "left",
+   "color": "#00C2B8"
+  }
+ ]
+}

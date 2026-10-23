@@ -1,0 +1,596 @@
+{
+  "nodes": [
+    {
+      "id": "90f869c95d4c40f4",
+      "type": "text",
+      "x": 0,
+      "y": 800,
+      "width": 420,
+      "height": 400,
+      "color": "#FF6D5A",
+      "text": "# Blue by Fable market database\n\n## 5 sites\n## 1,394 products\n## 7,428 photos"
+    },
+    {
+      "id": "ab00f41f764b425c",
+      "type": "group",
+      "x": 500,
+      "y": 0,
+      "width": 1700,
+      "height": 360,
+      "color": "#7C6AF7",
+      "label": "Apex"
+    },
+    {
+      "id": "3c134d1ece57d9a9",
+      "type": "text",
+      "x": 540,
+      "y": 40,
+      "width": 340,
+      "height": 280,
+      "color": "#EA4B71",
+      "text": "# Apex\n## 854 products\n### 4,948 photos\n\n- Venturini (414)\n- Apex (339)\n- Maverick (78)"
+    },
+    {
+      "id": "0264cdc08bf184c5",
+      "type": "text",
+      "x": 920,
+      "y": 40,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Raw data\n`data/apex`\n\nproducts.jsonl\nproducts.csv"
+    },
+    {
+      "id": "0feedf008b9ec18a",
+      "type": "text",
+      "x": 1260,
+      "y": 40,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Photos\n`data/photos/apex`\n\n4,948 files\none folder per product"
+    },
+    {
+      "id": "1996e682708710f7",
+      "type": "text",
+      "x": 1600,
+      "y": 40,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Database\n`market.db`\n\nproducts\nproduct_photos\nprice_snapshots"
+    },
+    {
+      "id": "2a58973c190dc7b4",
+      "type": "text",
+      "x": 1940,
+      "y": 40,
+      "width": 220,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Note\n`apex-products.md`"
+    },
+    {
+      "id": "a5407fba6bb75223",
+      "type": "group",
+      "x": 500,
+      "y": 400,
+      "width": 1700,
+      "height": 360,
+      "color": "#7C6AF7",
+      "label": "Bata"
+    },
+    {
+      "id": "cae542fe948af8fd",
+      "type": "text",
+      "x": 540,
+      "y": 440,
+      "width": 340,
+      "height": 280,
+      "color": "#EA4B71",
+      "text": "# Bata\n## 296 products\n### 1,234 photos\n\n- Bata (137)\n- Hush Puppies (128)\n- Scholl (12)"
+    },
+    {
+      "id": "45d034ee0082a652",
+      "type": "text",
+      "x": 920,
+      "y": 440,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Raw data\n`sites/bata/data`\n\nproducts.jsonl\nproducts.csv"
+    },
+    {
+      "id": "27b09f7c189a9922",
+      "type": "text",
+      "x": 1260,
+      "y": 440,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Photos\n`sites/bata/data/photos`\n\n1,234 files\none folder per product"
+    },
+    {
+      "id": "dc378880e4bf872b",
+      "type": "text",
+      "x": 1600,
+      "y": 440,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Database\n`sites/bata/bata_market.db`\n\nproducts\nproduct_photos\nprice_snapshots"
+    },
+    {
+      "id": "f3aea2b41d0f18d4",
+      "type": "text",
+      "x": 1940,
+      "y": 440,
+      "width": 220,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Note\n`bata-products.md`"
+    },
+    {
+      "id": "8854903b674369ed",
+      "type": "group",
+      "x": 500,
+      "y": 800,
+      "width": 1700,
+      "height": 360,
+      "color": "#7C6AF7",
+      "label": "Toffpark"
+    },
+    {
+      "id": "c5c8ea9f6636313e",
+      "type": "text",
+      "x": 540,
+      "y": 840,
+      "width": 340,
+      "height": 280,
+      "color": "#EA4B71",
+      "text": "# Toffpark\n## 202 products\n### 1,107 photos\n\n- Toffpark (202)"
+    },
+    {
+      "id": "a5f53497b5bb6533",
+      "type": "text",
+      "x": 920,
+      "y": 840,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Raw data\n`sites/toffpark/data`\n\nproducts.jsonl\nproducts.csv"
+    },
+    {
+      "id": "c45f2e608bd009aa",
+      "type": "text",
+      "x": 1260,
+      "y": 840,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Photos\n`sites/toffpark/data/photos`\n\n1,107 files\none folder per product"
+    },
+    {
+      "id": "d4acc9fa1b09f34f",
+      "type": "text",
+      "x": 1600,
+      "y": 840,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Database\n`sites/toffpark/toffpark_market.db`\n\nproducts\nproduct_photos\nprice_snapshots"
+    },
+    {
+      "id": "581acbbf084f6681",
+      "type": "text",
+      "x": 1940,
+      "y": 840,
+      "width": 220,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Note\n`toffpark-products.md`"
+    },
+    {
+      "id": "6c7e6ae3f614037e",
+      "type": "group",
+      "x": 500,
+      "y": 1200,
+      "width": 1700,
+      "height": 360,
+      "color": "#7C6AF7",
+      "label": "Wears Zone"
+    },
+    {
+      "id": "79fac4da19635c90",
+      "type": "text",
+      "x": 540,
+      "y": 1240,
+      "width": 340,
+      "height": 280,
+      "color": "#EA4B71",
+      "text": "# Wears Zone\n## 36 products\n### 110 photos\n\n- (no brand listed) (36)"
+    },
+    {
+      "id": "1580082a28f32863",
+      "type": "text",
+      "x": 920,
+      "y": 1240,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Raw data\n`sites/wearszone/data`\n\nproducts.jsonl\nproducts.csv"
+    },
+    {
+      "id": "e63e28761dcf50fd",
+      "type": "text",
+      "x": 1260,
+      "y": 1240,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Photos\n`sites/wearszone/data/photos`\n\n110 files\none folder per product"
+    },
+    {
+      "id": "da629f8398edf9d3",
+      "type": "text",
+      "x": 1600,
+      "y": 1240,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Database\n`sites/wearszone/wearszone_market.db`\n\nproducts\nproduct_photos\nprice_snapshots"
+    },
+    {
+      "id": "d32c0cbe434a5b08",
+      "type": "text",
+      "x": 1940,
+      "y": 1240,
+      "width": 220,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Note\n`wearszone-products.md`"
+    },
+    {
+      "id": "3d08581dacfbc08c",
+      "type": "group",
+      "x": 500,
+      "y": 1600,
+      "width": 1700,
+      "height": 360,
+      "color": "#7C6AF7",
+      "label": "PS Leather"
+    },
+    {
+      "id": "eee9a0a72bbb5e6e",
+      "type": "text",
+      "x": 540,
+      "y": 1640,
+      "width": 340,
+      "height": 280,
+      "color": "#EA4B71",
+      "text": "# PS Leather\n## 6 products\n### 29 photos\n\n- PS Leather (6)"
+    },
+    {
+      "id": "39428a422a3a15ab",
+      "type": "text",
+      "x": 920,
+      "y": 1640,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Raw data\n`sites/psleather/data`\n\nproducts.jsonl\nproducts.csv"
+    },
+    {
+      "id": "3579f177c53a30d6",
+      "type": "text",
+      "x": 1260,
+      "y": 1640,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Photos\n`sites/psleather/data/photos`\n\n29 files\none folder per product"
+    },
+    {
+      "id": "40e4826022d77a13",
+      "type": "text",
+      "x": 1600,
+      "y": 1640,
+      "width": 300,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Database\n`sites/psleather/psleather_market.db`\n\nproducts\nproduct_photos\nprice_snapshots"
+    },
+    {
+      "id": "15623d34e25891dc",
+      "type": "text",
+      "x": 1940,
+      "y": 1640,
+      "width": 220,
+      "height": 280,
+      "color": "#FF6D5A",
+      "text": "## Note\n`psleather-products.md`"
+    },
+    {
+      "id": "274c842b791c633c",
+      "type": "text",
+      "x": 2340,
+      "y": 800,
+      "width": 460,
+      "height": 400,
+      "color": "#FF6D5A",
+      "text": "# CLIP index\n\n`data/clip/`\n\n## 7,428 photos\n512 numbers each"
+    }
+  ],
+  "edges": [
+    {
+      "id": "d9ccd8779fe662a4",
+      "fromNode": "90f869c95d4c40f4",
+      "fromSide": "right",
+      "toNode": "3c134d1ece57d9a9",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "a16a37968c161aa9",
+      "fromNode": "3c134d1ece57d9a9",
+      "fromSide": "right",
+      "toNode": "0264cdc08bf184c5",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "1fa61a8427fdbb37",
+      "fromNode": "0264cdc08bf184c5",
+      "fromSide": "right",
+      "toNode": "0feedf008b9ec18a",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "f0b467e0015606a0",
+      "fromNode": "0feedf008b9ec18a",
+      "fromSide": "right",
+      "toNode": "1996e682708710f7",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "cf8aff58832fba2b",
+      "fromNode": "1996e682708710f7",
+      "fromSide": "right",
+      "toNode": "2a58973c190dc7b4",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "fd42e2dcdad356b6",
+      "fromNode": "90f869c95d4c40f4",
+      "fromSide": "right",
+      "toNode": "cae542fe948af8fd",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "b30eb1ccda79bb3a",
+      "fromNode": "cae542fe948af8fd",
+      "fromSide": "right",
+      "toNode": "45d034ee0082a652",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "5a492788caafdc4c",
+      "fromNode": "45d034ee0082a652",
+      "fromSide": "right",
+      "toNode": "27b09f7c189a9922",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "8a7052fa9ea0ac45",
+      "fromNode": "27b09f7c189a9922",
+      "fromSide": "right",
+      "toNode": "dc378880e4bf872b",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "25f8f342052884b2",
+      "fromNode": "dc378880e4bf872b",
+      "fromSide": "right",
+      "toNode": "f3aea2b41d0f18d4",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "d2b2f6daccc16074",
+      "fromNode": "90f869c95d4c40f4",
+      "fromSide": "right",
+      "toNode": "c5c8ea9f6636313e",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "92a8a7b886719847",
+      "fromNode": "c5c8ea9f6636313e",
+      "fromSide": "right",
+      "toNode": "a5f53497b5bb6533",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "e0d892d9f4ca94e8",
+      "fromNode": "a5f53497b5bb6533",
+      "fromSide": "right",
+      "toNode": "c45f2e608bd009aa",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "2bbc20ee33ca7c80",
+      "fromNode": "c45f2e608bd009aa",
+      "fromSide": "right",
+      "toNode": "d4acc9fa1b09f34f",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "65c73b8284e692a2",
+      "fromNode": "d4acc9fa1b09f34f",
+      "fromSide": "right",
+      "toNode": "581acbbf084f6681",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "29a71d582bbd4ceb",
+      "fromNode": "90f869c95d4c40f4",
+      "fromSide": "right",
+      "toNode": "79fac4da19635c90",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "dca0ab7ce34fbc41",
+      "fromNode": "79fac4da19635c90",
+      "fromSide": "right",
+      "toNode": "1580082a28f32863",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "41d78560d3255b12",
+      "fromNode": "1580082a28f32863",
+      "fromSide": "right",
+      "toNode": "e63e28761dcf50fd",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "469274fdbb4e9b0a",
+      "fromNode": "e63e28761dcf50fd",
+      "fromSide": "right",
+      "toNode": "da629f8398edf9d3",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "22b356899af35499",
+      "fromNode": "da629f8398edf9d3",
+      "fromSide": "right",
+      "toNode": "d32c0cbe434a5b08",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "dfa0995fc87b113f",
+      "fromNode": "90f869c95d4c40f4",
+      "fromSide": "right",
+      "toNode": "eee9a0a72bbb5e6e",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "006e137201ff9fdb",
+      "fromNode": "eee9a0a72bbb5e6e",
+      "fromSide": "right",
+      "toNode": "39428a422a3a15ab",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "178c4e05b8fe6582",
+      "fromNode": "39428a422a3a15ab",
+      "fromSide": "right",
+      "toNode": "3579f177c53a30d6",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "be0ae9dc1e382e0c",
+      "fromNode": "3579f177c53a30d6",
+      "fromSide": "right",
+      "toNode": "40e4826022d77a13",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "bb658f893419285e",
+      "fromNode": "40e4826022d77a13",
+      "fromSide": "right",
+      "toNode": "15623d34e25891dc",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "8dcf8e2e7b8232f0",
+      "fromNode": "1996e682708710f7",
+      "fromSide": "right",
+      "toNode": "274c842b791c633c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "3e1c1608877f9544",
+      "fromNode": "dc378880e4bf872b",
+      "fromSide": "right",
+      "toNode": "274c842b791c633c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "3124b8306040b181",
+      "fromNode": "d4acc9fa1b09f34f",
+      "fromSide": "right",
+      "toNode": "274c842b791c633c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "683ad16cdb5c5229",
+      "fromNode": "da629f8398edf9d3",
+      "fromSide": "right",
+      "toNode": "274c842b791c633c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    },
+    {
+      "id": "313e55b3ec66570b",
+      "fromNode": "40e4826022d77a13",
+      "fromSide": "right",
+      "toNode": "274c842b791c633c",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#FF6D5A"
+    }
+  ]
+}

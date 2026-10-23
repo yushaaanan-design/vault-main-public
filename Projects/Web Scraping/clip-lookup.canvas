@@ -1,0 +1,528 @@
+{
+  "nodes": [
+    {
+      "id": "b7a56d16b8c50db6",
+      "type": "text",
+      "x": 40,
+      "y": -330,
+      "width": 1520,
+      "height": 240,
+      "text": "# CLIP lookup: photo in, market price package out\n\nRead top to bottom. **1** what CLIP is, **2** build the index once, **3** what happens on every lookup, **4** the tests that prove it works, **5** build order, **6** limits.\n\nData it runs on: 1,394 leather products, 7,428 photos, 5 site databases. Prices are asking prices, not sales.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "48071a520c5b3d1e",
+      "type": "group",
+      "x": 0,
+      "y": 0,
+      "width": 1600,
+      "height": 470,
+      "label": "1. What CLIP does (the one idea)",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "e509f17429860991",
+      "type": "text",
+      "x": 40,
+      "y": 70,
+      "width": 320,
+      "height": 300,
+      "text": "## A photo goes in\n\nAny shoe photo: ours from the scrape, or one you upload.\n\nCLIP only looks at **pixels**: shape, colour, texture, style. It never reads our price or material text.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "a83455cc5f93ebec",
+      "type": "text",
+      "x": 440,
+      "y": 70,
+      "width": 320,
+      "height": 300,
+      "text": "## CLIP image encoder\n\nA neural network trained on hundreds of millions of photo + caption pairs.\n\nIt turns the photo into a list of **512 numbers** (a vector). Same input = same numbers every time.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "fce650d721e4c5cb",
+      "type": "text",
+      "x": 840,
+      "y": 70,
+      "width": 320,
+      "height": 300,
+      "text": "## Where the numbers land\n\nTraining pushed photos that *look alike* to land **close together** in number space, unlike photos far apart.\n\nTwo brown loafers = close. A loafer and a belt = far.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "7aa77ef2dfae0c72",
+      "type": "text",
+      "x": 1240,
+      "y": 70,
+      "width": 320,
+      "height": 300,
+      "text": "## Cosine similarity = the closeness score\n\nThe angle between two vectors. **1.0** = same direction (near identical look), **0** = unrelated.\n\nTo find similar shoes: score the query against every stored photo, sort high to low. This is plain maths, no AI call at search time.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "691762b462beb353",
+      "type": "group",
+      "x": 0,
+      "y": 570,
+      "width": 1600,
+      "height": 470,
+      "label": "2. Build the index ONCE (offline, local, free)",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "f3d88984900c2cee",
+      "type": "text",
+      "x": 40,
+      "y": 640,
+      "width": 320,
+      "height": 300,
+      "text": "## Read what we already have\n\n`product_photos.file_path` in the 5 databases:\n\n- Apex 4,948 photos\n- Bata 1,234\n- Toffpark 1,107\n- Wears Zone 110\n- PS Leather 29\n\n= **7,428** photos",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "d89d90377988648e",
+      "type": "text",
+      "x": 440,
+      "y": 640,
+      "width": 320,
+      "height": 300,
+      "text": "## Encode every photo\n\nOpen the file (Pillow), run it through the CLIP encoder, get 512 numbers.\n\nSlow part: roughly 10 to 30 min on CPU (estimate, timed at step 2). Runs once. Resumes if stopped, skipping photos already done.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "698dd3f50e5d5989",
+      "type": "text",
+      "x": 840,
+      "y": 640,
+      "width": 320,
+      "height": 300,
+      "text": "## Save the vectors\n\n`data/clip/vectors.npy`: a 7,428 x 512 table (about 15 MB).\n\n`data/clip/index.json`: row number to `site`, `product_id`, `photo path`.\n\nNo vector database needed at this size.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "3f754b3f09f92e86",
+      "type": "text",
+      "x": 1240,
+      "y": 640,
+      "width": 320,
+      "height": 300,
+      "text": "## Check it\n\nPrint the row count (must equal the photo count) and the shape. A photo that failed to open is listed, never silently skipped.\n\nClose Chrome first: an earlier run died on low memory.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "6aa8c983ba2ee63b",
+      "type": "group",
+      "x": 0,
+      "y": 1140,
+      "width": 1600,
+      "height": 900,
+      "label": "3. Lookup (every time you give a photo)",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "b2056dcb0ebc064e",
+      "type": "text",
+      "x": 40,
+      "y": 1210,
+      "width": 320,
+      "height": 300,
+      "text": "## 1. Your photo\n\nA file path for now (web app and phone come later).",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "ec5e0acd34618c3e",
+      "type": "text",
+      "x": 440,
+      "y": 1210,
+      "width": 320,
+      "height": 300,
+      "text": "## 2. Encode it\n\nSame CLIP encoder as step 2. Gives 512 numbers for your photo.\n\n**Must be the same model**, or the numbers are not comparable.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "b06bb4c50c3b18f6",
+      "type": "text",
+      "x": 840,
+      "y": 1210,
+      "width": 320,
+      "height": 300,
+      "text": "## 3. Score against all\n\nOne matrix multiply: your vector x the 7,428 stored vectors = 7,428 scores.\n\nMilliseconds.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "06d7719eaa2009e3",
+      "type": "text",
+      "x": 1240,
+      "y": 1210,
+      "width": 320,
+      "height": 300,
+      "text": "## 4. Take the top 30 photos\n\nHighest scores first. Several photos can belong to the same product.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "602575011151a5ab",
+      "type": "text",
+      "x": 1240,
+      "y": 1630,
+      "width": 320,
+      "height": 300,
+      "text": "## 5. Photo to product\n\nLook up each photo in `index.json`, then join `products` and the latest `price_snapshots` row (price, sale price) in that site's database.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "2a67711073800246",
+      "type": "text",
+      "x": 840,
+      "y": 1630,
+      "width": 320,
+      "height": 300,
+      "text": "## 6. One row per product\n\nKeep each product's best score only, so 4 photos of one shoe do not count as 4 comparables. Keep the top 10 to 15 products.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "8f81a0360fd69545",
+      "type": "text",
+      "x": 440,
+      "y": 1630,
+      "width": 320,
+      "height": 300,
+      "text": "## 7. Optional key filter\n\nUse [[attribute-keys]] (type, material) to drop obvious misses, e.g. sandals for a loafer. **Only added if tests in section 4 show junk.**",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "080b62e1983b5a51",
+      "type": "text",
+      "x": 40,
+      "y": 1630,
+      "width": 320,
+      "height": 300,
+      "text": "## 8. Price package\n\n- low / median / high price\n- the comparable photos + links\n- sources (sites)\n- number of comparables\n- confidence note: **fewer than about 10 = say the range is weak**",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "071b44f83452f13c",
+      "type": "group",
+      "x": 0,
+      "y": 2140,
+      "width": 1600,
+      "height": 560,
+      "label": "4. Proof it works (the tests, written BEFORE we trust it)",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "19fe0d2fb20d43c0",
+      "type": "text",
+      "x": 40,
+      "y": 2210,
+      "width": 320,
+      "height": 400,
+      "text": "## Test 1: self-match\n\nUse a stored photo as the query. It must come back **rank 1**, score about 1.0.\n\nFails = encoder or index is broken (wrong order, wrong model).",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "04d3adfef9fa8dd8",
+      "type": "text",
+      "x": 440,
+      "y": 2210,
+      "width": 320,
+      "height": 400,
+      "text": "## Test 2: same-shoe match\n\nQuery with photo #1 of a product that has several photos. Its other photos should appear in the top 10.\n\nFails = CLIP is not seeing the shoe.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "7b904455672c78f6",
+      "type": "text",
+      "x": 840,
+      "y": 2210,
+      "width": 320,
+      "height": 400,
+      "text": "## Test 3: type precision\n\nTake 50 random products, query each, check how many of the top 5 share the same `type` (oxford, loafer, sandal...).\n\nWe print the percentage. If it is low, add the key filter (7).",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "fc783d87db6feb27",
+      "type": "text",
+      "x": 1240,
+      "y": 2210,
+      "width": 320,
+      "height": 400,
+      "text": "## Test 4: you try to break it\n\nYou pick 5 shoes by eye (a loafer, a boot, a sandal, a belt, a wallet), run them, and judge the matches yourself.\n\nThe real test: do the comparables look right to you, and is the price range sensible?",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "5454b3e1b6ccc26d",
+      "type": "group",
+      "x": 0,
+      "y": 2800,
+      "width": 1600,
+      "height": 620,
+      "label": "5. Build order (one idea per step, you read each script and say 'I understand')",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "40f375d106066c94",
+      "type": "text",
+      "x": 40,
+      "y": 2870,
+      "width": 320,
+      "height": 450,
+      "text": "## Step 1: install + smoke test\n\n`pip install` torch + a CLIP library (recommended: `sentence-transformers`, model `clip-ViT-B-32`, 512 numbers; confirm install works on this PC).\n\nEncode ONE photo, print the first 5 numbers. Nothing else.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "493934e7eb853fac",
+      "type": "text",
+      "x": 440,
+      "y": 2870,
+      "width": 320,
+      "height": 450,
+      "text": "## Step 2: embed all photos\n\n`clip_index.py`. Resumable. Output: vectors.npy + index.json.\n\nChecks: row count = photo count.\nRuns tests 1.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "d3e1686b8ab48ced",
+      "type": "text",
+      "x": 840,
+      "y": 2870,
+      "width": 320,
+      "height": 450,
+      "text": "## Step 3: search\n\n`lookup.py photo.jpg` prints the top 10 products with score, price, site, photo path.\n\nRuns tests 2 and 3.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "93476f018c851f0d",
+      "type": "text",
+      "x": 1240,
+      "y": 2870,
+      "width": 320,
+      "height": 450,
+      "text": "## Step 4: price package\n\nAdd low/median/high, count, sources, weak-range note. Run test 4 together.\n\n**Then** (later, not now) the web app on top, which needs auth first.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "3b58f6010e62b155",
+      "type": "group",
+      "x": 0,
+      "y": 3520,
+      "width": 1600,
+      "height": 420,
+      "label": "6. Limits (so we are not surprised)",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "21f1aaff50fb6b19",
+      "type": "text",
+      "x": 40,
+      "y": 3590,
+      "width": 320,
+      "height": 280,
+      "text": "## Similar, not identical\n\nCLIP finds look-alikes. It cannot confirm the exact same model.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "8e9504720f18f4fb",
+      "type": "text",
+      "x": 440,
+      "y": 3590,
+      "width": 320,
+      "height": 280,
+      "text": "## Weak on fine detail\n\nStitching, sole type and toe shape are hard for it. Backgrounds, lighting and angle can shift scores.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "9a370757a2c6dfa9",
+      "type": "text",
+      "x": 840,
+      "y": 3590,
+      "width": 320,
+      "height": 280,
+      "text": "## Cannot see material\n\nIt cannot tell leather from PU in a photo. The leather filter stays on the text side, already done in the scrape.",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "2d825df2b786866e",
+      "type": "text",
+      "x": 1240,
+      "y": 3590,
+      "width": 320,
+      "height": 280,
+      "text": "## Only our 1,394 products\n\nThe answer is only as good as the 5 sites we scraped. Few comparables = weak range. Web search is only a fallback. Never scrape Google Images/Shopping.",
+      "color": "#00C2B8"
+    }
+  ],
+  "edges": [
+    {
+      "id": "5ab24888a64b2e33",
+      "fromNode": "e509f17429860991",
+      "fromSide": "right",
+      "toNode": "a83455cc5f93ebec",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "82f5037b15cf09be",
+      "fromNode": "a83455cc5f93ebec",
+      "fromSide": "right",
+      "toNode": "fce650d721e4c5cb",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8",
+      "label": "512 numbers"
+    },
+    {
+      "id": "7c24e39d61f00177",
+      "fromNode": "fce650d721e4c5cb",
+      "fromSide": "right",
+      "toNode": "7aa77ef2dfae0c72",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "64dd65e273857fe3",
+      "fromNode": "f3d88984900c2cee",
+      "fromSide": "right",
+      "toNode": "d89d90377988648e",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "54909170d6863a12",
+      "fromNode": "d89d90377988648e",
+      "fromSide": "right",
+      "toNode": "698dd3f50e5d5989",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "48201c190df271d3",
+      "fromNode": "698dd3f50e5d5989",
+      "fromSide": "right",
+      "toNode": "3f754b3f09f92e86",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "8f38127d2cebb116",
+      "fromNode": "b2056dcb0ebc064e",
+      "fromSide": "right",
+      "toNode": "ec5e0acd34618c3e",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "a33043b9cc501000",
+      "fromNode": "ec5e0acd34618c3e",
+      "fromSide": "right",
+      "toNode": "b06bb4c50c3b18f6",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "c9288a9a482e6537",
+      "fromNode": "b06bb4c50c3b18f6",
+      "fromSide": "right",
+      "toNode": "06d7719eaa2009e3",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "1365b04afc8e35d1",
+      "fromNode": "06d7719eaa2009e3",
+      "fromSide": "bottom",
+      "toNode": "602575011151a5ab",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "20ffdcec35a4c48d",
+      "fromNode": "602575011151a5ab",
+      "fromSide": "left",
+      "toNode": "2a67711073800246",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "8b959a4ef2d1c4fc",
+      "fromNode": "2a67711073800246",
+      "fromSide": "left",
+      "toNode": "8f81a0360fd69545",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "21604db588310766",
+      "fromNode": "8f81a0360fd69545",
+      "fromSide": "left",
+      "toNode": "080b62e1983b5a51",
+      "toSide": "right",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "d58222af3028cc70",
+      "fromNode": "19fe0d2fb20d43c0",
+      "fromSide": "right",
+      "toNode": "04d3adfef9fa8dd8",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "bb565f0384deac3f",
+      "fromNode": "04d3adfef9fa8dd8",
+      "fromSide": "right",
+      "toNode": "7b904455672c78f6",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "4d6ec1a6b648ec24",
+      "fromNode": "7b904455672c78f6",
+      "fromSide": "right",
+      "toNode": "fc783d87db6feb27",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "1b062199c2a1eeeb",
+      "fromNode": "40f375d106066c94",
+      "fromSide": "right",
+      "toNode": "493934e7eb853fac",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "34271d5ed8389f69",
+      "fromNode": "493934e7eb853fac",
+      "fromSide": "right",
+      "toNode": "d3e1686b8ab48ced",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    },
+    {
+      "id": "3601820e6c861a8c",
+      "fromNode": "d3e1686b8ab48ced",
+      "fromSide": "right",
+      "toNode": "93476f018c851f0d",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#00C2B8"
+    }
+  ]
+}

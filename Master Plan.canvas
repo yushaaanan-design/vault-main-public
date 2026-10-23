@@ -1,0 +1,38 @@
+{
+ "nodes": [
+  {"id":"title","type":"text","x":0,"y":-220,"width":1500,"height":160,"color":"6","text":"# Master plan (built 2026-10-06, while the user was away)\nEvery open track, what it needs, and what is already prepared. Green = ready to start at home. Yellow = needs you. Red = blocked.\nSource of truth: [[Central To-Do List]]."},
+
+  {"id":"g_learn","type":"group","x":0,"y":0,"width":480,"height":620,"label":"1. Learning track","color":"4"},
+  {"id":"learn1","type":"text","x":20,"y":50,"width":440,"height":240,"color":"4","text":"## System architecture FIRST\nOne idea per step: client, server, database, how a request travels, where auth sits. You read and question each step. No caching/Docker/scaling yet.\n**Prepared:** nothing to install. Start by asking me for lesson 1."},
+  {"id":"learn2","type":"text","x":20,"y":310,"width":440,"height":270,"color":"4","text":"## Security and authentication SECOND\nFirst a login flow: bcrypt-hashed passwords, sessions, httpOnly cookie, CSRF, rate limit. I write small examples, you read every line.\n**Prepared:** Gym Tracker S10 is the real-world target (hard gate before any other user)."},
+
+  {"id":"g_ig","type":"group","x":540,"y":0,"width":480,"height":900,"label":"2. Instagram reel analysis","color":"4"},
+  {"id":"ig1","type":"text","x":560,"y":50,"width":440,"height":260,"color":"4","text":"## Tools: ALL INSTALLED\ninstaloader, yt-dlp, imageio-ffmpeg, scenedetect, faster-whisper, opencv.\nWhisper models cached: small + large-v3-turbo. Folders `C:\\dev\\reels\\` (0-index, 1-inbox, 3-analysed) exist."},
+  {"id":"ig2","type":"text","x":560,"y":330,"width":440,"height":230,"color":"3","text":"## Needs you (2 answers)\n1. Confirm competitor handle (`@wantsandneedsbrand_`?).\n2. Your own Instagram login stays manual; I never type passwords."},
+  {"id":"ig3","type":"text","x":560,"y":580,"width":440,"height":290,"color":"5","text":"## Then\nanalyze_reel.py on inbox, Claude loop over analysed reels, hook/top-performer report. Optional: Telegram bot intake (needs @BotFather token, never pasted in chat)."},
+
+  {"id":"g_gym","type":"group","x":1080,"y":0,"width":480,"height":900,"label":"3. Gym Tracker Vision","color":"1"},
+  {"id":"gym1","type":"text","x":1100,"y":50,"width":440,"height":260,"color":"4","text":"## Vision env: INSTALLED to `C:\\dev\\gym-vision\\.venv`\nCUDA torch (RTX 3060, 6 GB), MediaPipe, OpenCV, Ultralytics YOLO. Separate venv so the global Python is untouched. Check `install.log` there for the OK line."},
+  {"id":"gym2","type":"text","x":1100,"y":330,"width":440,"height":230,"color":"3","text":"## Needs you\nFilm 5 to 10 side-view reps on your phone, pick the first exercise (squat or deadlift). Phase 1 prototype (joint angles + rep count) starts from those clips."},
+  {"id":"gym3","type":"text","x":1100,"y":580,"width":440,"height":290,"color":"1","text":"## Gym Tracker app (node_modules present)\nRevoke leaked `sk-...` key FIRST (only you can, at the provider). Then S9 (.env, migrate, seed) and S10 auth + security-auditor review."},
+
+  {"id":"g_3d","type":"group","x":1620,"y":0,"width":480,"height":620,"label":"4. Three.js / shoes 3D","color":"2"},
+  {"id":"d1","type":"text","x":1640,"y":50,"width":440,"height":240,"color":"4","text":"## img2threejs skill: installed\nWorkflow canvas: [[Resources/img2threejs-workflow.canvas]]. Lessons: Resources/3d-sculpting-lessons.md (read first)."},
+  {"id":"d2","type":"text","x":1640,"y":310,"width":440,"height":270,"color":"3","text":"## Needs you\nWhich Blue by Fable shoe photo, plus tech-pack measurements, BEFORE any modelling."},
+
+  {"id":"g_other","type":"group","x":0,"y":960,"width":1020,"height":560,"label":"5. Other tracks","color":"5"},
+  {"id":"o1","type":"text","x":20,"y":1010,"width":300,"height":240,"color":"3","text":"## MUN vault\nBackfill done. Needs: pilot resolution (242?), rename decision, which documents beyond resolutions."},
+  {"id":"o2","type":"text","x":340,"y":1010,"width":300,"height":240,"color":"3","text":"## N8N\nNeeds Telegram bot token, Gemini key, VPS work. All account steps are yours."},
+  {"id":"o3","type":"text","x":660,"y":1010,"width":340,"height":240,"color":"3","text":"## Fable Clothing\nBlocked on owner content (photos, prices, logo, policies) and accounts."},
+  {"id":"o4","type":"text","x":20,"y":1270,"width":620,"height":220,"color":"3","text":"## Documentary for nextwork.io plan\nOne hour, infographics only. Need their plan details, script outline, infographic style, assembly tool. Not started."},
+  {"id":"o5","type":"text","x":660,"y":1270,"width":340,"height":220,"color":"1","text":"## Ares / Jarvis fix\nTest on the real phone, read the Voice log. Needs you in person."}
+ ],
+ "edges": [
+  {"id":"e1","fromNode":"title","toNode":"g_learn","fromSide":"bottom","toSide":"top"},
+  {"id":"e2","fromNode":"title","toNode":"g_ig","fromSide":"bottom","toSide":"top"},
+  {"id":"e3","fromNode":"title","toNode":"g_gym","fromSide":"bottom","toSide":"top"},
+  {"id":"e4","fromNode":"title","toNode":"g_3d","fromSide":"bottom","toSide":"top"},
+  {"id":"e5","fromNode":"learn1","toNode":"learn2","fromSide":"bottom","toSide":"top"},
+  {"id":"e6","fromNode":"learn2","toNode":"gym3","fromSide":"right","toSide":"left","label":"auth lessons feed S10"}
+ ]
+}

@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"id":"c0a1000000000001","type":"text","x":-170,"y":-80,"width":340,"height":160,"color":"#1fb8c9","text":"# Content Creation\n\n[[Content Creation]]"},
+		{"id":"c0a1000000000002","type":"text","x":-170,"y":-620,"width":340,"height":160,"color":"#cc9900","text":"# Fable Clothing\n\n[[Fable Clothing]]"},
+		{"id":"c0a1000000000003","type":"text","x":-1000,"y":-400,"width":340,"height":160,"color":"#6aa84f","text":"# Fable Content\n\nBelongs to both\n\n[[Fable Content]]"},
+		{"id":"c0a1000000000010","type":"text","x":-1500,"y":-620,"width":320,"height":140,"color":"#6aa84f","text":"## Strategy\n\n[[social-content-strategy]]"},
+		{"id":"c0a1000000000011","type":"text","x":-1500,"y":-430,"width":320,"height":140,"color":"#6aa84f","text":"## Week 1 scripts\n\n[[week-1-scripts]]"},
+		{"id":"c0a1000000000004","type":"text","x":-1500,"y":-240,"width":320,"height":140,"color":"#6aa84f","text":"## Avatars\n\nFemale + male, South Asian, 20s, ultra realistic, labeled AI"},
+		{"id":"c0a1000000000005","type":"text","x":-1500,"y":-50,"width":320,"height":140,"color":"#6aa84f","text":"## Pillars\n\nStyling advice, OOTD, do's and don'ts"},
+		{"id":"c0a1000000000006","type":"text","x":-170,"y":300,"width":340,"height":150,"color":"#1fb8c9","text":"## Tools and budget\n\nHiggsfield, HeyGen, Hedra, ElevenLabs. Free first, up to USD 100/mo"},
+		{"id":"c0a1000000000007","type":"text","x":300,"y":300,"width":300,"height":150,"color":"#1fb8c9","text":"## Platforms and timing\n\nFB, IG, TikTok, Shorts. 3-4/week, ~9 PM Dhaka"},
+		{"id":"c0a1000000000008","type":"text","x":-600,"y":300,"width":300,"height":150,"color":"#1fb8c9","text":"## Tracker\n\nViews, saves, shares, follows per post"},
+		{"id":"c0a1000000000009","type":"text","x":600,"y":-80,"width":300,"height":150,"color":"#1fb8c9","text":"## STATE\n\n[[STATE]]"}
+	],
+	"edges":[
+		{"id":"c0e1000000000001","fromNode":"c0a1000000000001","toNode":"c0a1000000000003","color":"#6aa84f","fromSide":"left","toSide":"bottom"},
+		{"id":"c0e1000000000002","fromNode":"c0a1000000000002","toNode":"c0a1000000000003","color":"#6aa84f","fromSide":"left","toSide":"top"},
+		{"id":"c0e1000000000005","fromNode":"c0a1000000000001","toNode":"c0a1000000000002","color":"#cc9900","fromSide":"top","toSide":"bottom"},
+		{"id":"c0e1000000000010","fromNode":"c0a1000000000003","toNode":"c0a1000000000010","color":"#6aa84f","fromSide":"left","toSide":"right"},
+		{"id":"c0e1000000000011","fromNode":"c0a1000000000003","toNode":"c0a1000000000011","color":"#6aa84f","fromSide":"left","toSide":"right"},
+		{"id":"c0e1000000000003","fromNode":"c0a1000000000003","toNode":"c0a1000000000004","color":"#6aa84f","fromSide":"left","toSide":"right"},
+		{"id":"c0e1000000000004","fromNode":"c0a1000000000003","toNode":"c0a1000000000005","color":"#6aa84f","fromSide":"left","toSide":"right"},
+		{"id":"c0e1000000000006","fromNode":"c0a1000000000001","toNode":"c0a1000000000006","color":"#1fb8c9","fromSide":"bottom","toSide":"top"},
+		{"id":"c0e1000000000007","fromNode":"c0a1000000000001","toNode":"c0a1000000000007","color":"#1fb8c9","fromSide":"bottom","toSide":"top"},
+		{"id":"c0e1000000000008","fromNode":"c0a1000000000001","toNode":"c0a1000000000008","color":"#1fb8c9","fromSide":"bottom","toSide":"top"},
+		{"id":"c0e1000000000009","fromNode":"c0a1000000000001","toNode":"c0a1000000000009","color":"#1fb8c9","fromSide":"right","toSide":"left"}
+	]
+}

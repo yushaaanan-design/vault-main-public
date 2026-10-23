@@ -1,0 +1,200 @@
+{
+  "nodes": [
+    {
+      "id": "ef44590b69155691",
+      "type": "group",
+      "x": 0,
+      "y": 0,
+      "width": 460,
+      "height": 1100,
+      "color": "#C6FF00",
+      "label": "1. You and your partner"
+    },
+    {
+      "id": "489f1850c8362c9a",
+      "type": "text",
+      "x": 40,
+      "y": 60,
+      "width": 380,
+      "height": 300,
+      "color": "#C6FF00",
+      "text": "# Phone or PC browser\n\n## React app\n`client/`\n\nLogin, Photo, Text, Browse, History.\nSaved to the home screen like an app.\n\n[[client-app]]"
+    },
+    {
+      "id": "8d7e97030fe7c002",
+      "type": "text",
+      "x": 40,
+      "y": 420,
+      "width": 380,
+      "height": 280,
+      "color": "#C6FF00",
+      "text": "# Tailscale\n\n## Private network\n\nOnly invited devices can reach the server. Never on the public internet. Gives HTTPS.\n\n[[tailscale-setup]]"
+    },
+    {
+      "id": "62d3672ca1ab8920",
+      "type": "group",
+      "x": 560,
+      "y": 0,
+      "width": 1300,
+      "height": 1100,
+      "color": "#C6FF00",
+      "label": "2. Marketlens server (Python FastAPI, server/)"
+    },
+    {
+      "id": "911d5964d7928984",
+      "type": "text",
+      "x": 600,
+      "y": 60,
+      "width": 360,
+      "height": 300,
+      "color": "#C6FF00",
+      "text": "# main.py\n\n## All the routes\n\nChecks every request, then calls the files on the right. Also serves the built React app.\n\n[[server-main]]"
+    },
+    {
+      "id": "ad14a848dcd47643",
+      "type": "text",
+      "x": 600,
+      "y": 420,
+      "width": 360,
+      "height": 280,
+      "color": "#C6FF00",
+      "text": "# auth.py\n\n## Who are you?\n\nAccess code, scrypt hash, signed httpOnly cookie, lockout after 5 wrong tries.\n\n[[server-auth]]"
+    },
+    {
+      "id": "53f68b697777a82a",
+      "type": "text",
+      "x": 1020,
+      "y": 60,
+      "width": 360,
+      "height": 300,
+      "color": "#C6FF00",
+      "text": "# engine.py\n\n## CLIP\n\nPhoto or text to 512 numbers, then the closest stored photos.\n\n[[server-engine]]"
+    },
+    {
+      "id": "b8094b76b46718d6",
+      "type": "text",
+      "x": 1020,
+      "y": 420,
+      "width": 360,
+      "height": 280,
+      "color": "#C6FF00",
+      "text": "# catalog.py\n\n## Products + price package\n\n1,394 products in memory. Low, median, high.\n\n[[server-catalog]]"
+    },
+    {
+      "id": "fe3ece9c90434a96",
+      "type": "text",
+      "x": 1020,
+      "y": 780,
+      "width": 380,
+      "height": 300,
+      "color": "#C6FF00",
+      "text": "# history.py\n\n## Saved lookups\n\nMarketlens' own small database. Each person sees only their own.\n\n[[server-history]]"
+    },
+    {
+      "id": "76597405a9cc2d90",
+      "type": "text",
+      "x": 1440,
+      "y": 780,
+      "width": 380,
+      "height": 280,
+      "color": "#C6FF00",
+      "text": "# tests/\n\n## 7 checks\n\nLogin, safety, a real lookup, privacy. Run with pytest.\n\n[[tests]]"
+    },
+    {
+      "id": "a2569721f8f449e1",
+      "type": "group",
+      "x": 1960,
+      "y": 0,
+      "width": 520,
+      "height": 1100,
+      "color": "#C6FF00",
+      "label": "3. Web Scraping data (read-only)"
+    },
+    {
+      "id": "67b69ff5f4ca5c1b",
+      "type": "text",
+      "x": 2000,
+      "y": 420,
+      "width": 440,
+      "height": 280,
+      "color": "#C6FF00",
+      "text": "# 5 site databases\n\n## 1,394 products\n\nNames, brands, types, prices. Opened read-only: Marketlens cannot change them.\n\n[[limits]]"
+    },
+    {
+      "id": "3664ac89905eba35",
+      "type": "text",
+      "x": 2000,
+      "y": 60,
+      "width": 440,
+      "height": 300,
+      "color": "#C6FF00",
+      "text": "# CLIP index + photos\n\n## 7,428 photos\n\nvectors.npy, index.json and the image files. Photos are private research only.\n\n[[data-flow]]"
+    }
+  ],
+  "edges": [
+    {
+      "id": "d754494c33190ebe",
+      "fromNode": "489f1850c8362c9a",
+      "fromSide": "bottom",
+      "toNode": "8d7e97030fe7c002",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    },
+    {
+      "id": "908ca3c926bed80b",
+      "fromNode": "8d7e97030fe7c002",
+      "fromSide": "right",
+      "toNode": "911d5964d7928984",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#C6FF00",
+      "label": "HTTPS + cookie"
+    },
+    {
+      "id": "f32597266a6905bf",
+      "fromNode": "911d5964d7928984",
+      "fromSide": "bottom",
+      "toNode": "ad14a848dcd47643",
+      "toSide": "top",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    },
+    {
+      "id": "c731054d6b1c2600",
+      "fromNode": "911d5964d7928984",
+      "fromSide": "right",
+      "toNode": "53f68b697777a82a",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    },
+    {
+      "id": "c743a091192af083",
+      "fromNode": "911d5964d7928984",
+      "fromSide": "bottom",
+      "toNode": "b8094b76b46718d6",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    },
+    {
+      "id": "5b98f660bf3c2920",
+      "fromNode": "b8094b76b46718d6",
+      "fromSide": "right",
+      "toNode": "67b69ff5f4ca5c1b",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    },
+    {
+      "id": "c09790713f490e11",
+      "fromNode": "53f68b697777a82a",
+      "fromSide": "right",
+      "toNode": "3664ac89905eba35",
+      "toSide": "left",
+      "toEnd": "arrow",
+      "color": "#C6FF00"
+    }
+  ]
+}

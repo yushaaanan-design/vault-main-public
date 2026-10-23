@@ -1,0 +1,22 @@
+{
+ "nodes": [
+  {"id":"t","type":"text","x":0,"y":-200,"width":1500,"height":150,"color":"6","text":"# Learning track: system architecture first (built 2026-10-06)\nOne idea per lesson. You read, question, say \"I understand\", then we move on. No caching, Docker or scaling until a real feature needs them. Anchored on your own Gym Tracker (React + Express + PostgreSQL/Prisma)."},
+  {"id":"l1","type":"text","x":0,"y":0,"width":340,"height":260,"color":"4","text":"## 1. Client and server\nBrowser asks, server answers. What lives where. Show it in Gym Tracker: `client/` vs `server/`."},
+  {"id":"l2","type":"text","x":400,"y":0,"width":340,"height":260,"color":"4","text":"## 2. One request, end to end\nClick, fetch, route, handler, database, response, render. Trace one real Gym Tracker call."},
+  {"id":"l3","type":"text","x":800,"y":0,"width":340,"height":260,"color":"4","text":"## 3. The database layer\nTables, relations, Prisma schema, why the server (never the client) talks to the DB."},
+  {"id":"l4","type":"text","x":1200,"y":0,"width":340,"height":260,"color":"4","text":"## 4. API contract\nRoutes, methods, status codes, validation at the trust boundary. See api-contract.md."},
+  {"id":"s1","type":"text","x":0,"y":320,"width":340,"height":260,"color":"1","text":"## 5. Identity: who is calling?\nPasswords, hashing (bcrypt), sessions vs tokens, httpOnly cookies."},
+  {"id":"s2","type":"text","x":400,"y":320,"width":340,"height":260,"color":"1","text":"## 6. Authorization\nWhat a logged-in user may touch. Every row belongs to a user. Never trust the client."},
+  {"id":"s3","type":"text","x":800,"y":320,"width":340,"height":260,"color":"1","text":"## 7. Attacks to know\nCSRF, XSS, injection, rate limiting, leaked secrets (your `sk-` key). Maps to Gym Tracker S10."},
+  {"id":"later","type":"text","x":1200,"y":320,"width":340,"height":260,"color":"2","text":"## Later, only when needed\nCaching, Docker, scaling, queues. Not before a real feature demands them."}
+ ],
+ "edges": [
+  {"id":"a","fromNode":"l1","toNode":"l2","fromSide":"right","toSide":"left"},
+  {"id":"b","fromNode":"l2","toNode":"l3","fromSide":"right","toSide":"left"},
+  {"id":"c","fromNode":"l3","toNode":"l4","fromSide":"right","toSide":"left"},
+  {"id":"d","fromNode":"l4","toNode":"s1","fromSide":"bottom","toSide":"top"},
+  {"id":"e","fromNode":"s1","toNode":"s2","fromSide":"right","toSide":"left"},
+  {"id":"f","fromNode":"s2","toNode":"s3","fromSide":"right","toSide":"left"},
+  {"id":"g","fromNode":"s3","toNode":"later","fromSide":"right","toSide":"left"}
+ ]
+}

@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"title","type":"text","x":-40,"y":-260,"width":1500,"height":140,"text":"# Assistant workflow (one loop)\nAres = face · Orchestrator = brain (queue, schedule, budgets, approvals) · Workers = hands (plain scripts).\nActive this month: Clipping, YouTube documentaries, Fable / 3D content. Parked = nightly research only. Every post and reply waits for the user's approval.","color":"6"},
+		{"id":"s1","type":"text","x":-40,"y":0,"width":330,"height":260,"text":"## 1 Research (nightly 2:00 AM)\nReddit RSS/JSON, YouTube search + comments, GitHub/RSS, web. Later X, IG, TikTok.\nLocal Ollama reads and scores. Resume-safe, one source at a time.","color":"5"},
+		{"id":"s2","type":"text","x":360,"y":0,"width":330,"height":260,"text":"## 1b Digest (4:30 AM)\nClaude Haiku writes one digest per topic into Obsidian.\n7:00 AM: Telegram summary + Ares morning briefing.","color":"5"},
+		{"id":"ideas","type":"text","x":760,"y":0,"width":360,"height":260,"text":"## Idea Orchestrator (WEEKLY, a few hours)\nYou + Ares sit together. Ranked board: what is popular, what you can credibly talk about, format, hook, why now, effort. Pick a batch.","color":"2"},
+		{"id":"s3","type":"text","x":1190,"y":0,"width":330,"height":260,"text":"## 2 Script writing\nRuns inside the session on the chosen batch, and on demand.\nClaude Sonnet. Style guide + hook database.","color":"2"},
+		{"id":"s4","type":"text","x":-40,"y":380,"width":330,"height":260,"text":"## 3 Edit + voiceover\nScript -> Kokoro voice -> HyperFrames / ffmpeg.\nOnly after an approved script. One render at a time (11:00 PM).","color":"4"},
+		{"id":"s5","type":"text","x":360,"y":380,"width":330,"height":260,"text":"## 4 Post queue (APPROVAL)\nVideo + caption + hashtags + time. YouTube API first; Meta and TikTok need app approval, so by hand until then.","color":"1"},
+		{"id":"s6","type":"text","x":760,"y":380,"width":360,"height":260,"text":"## 5 Feedback + community (APPROVAL)\nPull comments, draft replies from guide PDFs, you approve. Sunday: performance note and topic reset.","color":"1"},
+		{"id":"loop","type":"text","x":1190,"y":380,"width":330,"height":260,"text":"## Loop back\nAnalytics (views, retention, comments) -> decides which topics and formats the next nightly sweep favours. Hits AND flops.","color":"5"},
+		{"id":"daily","type":"text","x":-40,"y":740,"width":330,"height":220,"text":"## Daily extras\n15-min learning slot. Morning academics check (needs a logged-in desktop, separate from 2 AM). Reel inbox. To-do briefing.","color":"3"},
+		{"id":"week","type":"text","x":360,"y":740,"width":330,"height":220,"text":"## Weekly extras\nBlocked-items chase list (nextwork.ai details, Fable owner content). MUN mission batch. Model-log + lessons review. Backup check.","color":"3"},
+		{"id":"gaps","type":"text","x":760,"y":740,"width":360,"height":220,"text":"## Add before posting\nRights + platform check. AI-label rule. Content calendar (e.g. 9 PM Dhaka). Voice + avatar asset library. Decision log.","color":"1"},
+		{"id":"risk","type":"text","x":1190,"y":740,"width":330,"height":220,"text":"## Limits and risks\nClaude Pro usage (hybrid keeps it small). Platforms block scrapers: drop the source, never evade. PC resets: git repo, config in files, OneDrive Reset Kit.","color":"1"}
+	],
+	"edges":[
+		{"id":"e_s1_s2","fromNode":"s1","fromSide":"right","toNode":"s2","toSide":"left"},
+		{"id":"e_s2_ideas","fromNode":"s2","fromSide":"right","toNode":"ideas","toSide":"left"},
+		{"id":"e_ideas_s3","fromNode":"ideas","fromSide":"right","toNode":"s3","toSide":"left"},
+		{"id":"e_s3_s4","fromNode":"s3","fromSide":"bottom","toNode":"s4","toSide":"top"},
+		{"id":"e_s4_s5","fromNode":"s4","fromSide":"right","toNode":"s5","toSide":"left"},
+		{"id":"e_s5_s6","fromNode":"s5","fromSide":"right","toNode":"s6","toSide":"left"},
+		{"id":"e_s6_loop","fromNode":"s6","fromSide":"right","toNode":"loop","toSide":"left"},
+		{"id":"e_loop_s1","fromNode":"loop","fromSide":"top","toNode":"s1","toSide":"top","label":"feeds topics"}
+	]
+}

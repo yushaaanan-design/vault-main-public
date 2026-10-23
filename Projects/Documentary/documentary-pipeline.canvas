@@ -1,0 +1,55 @@
+{
+ "nodes": [
+  {"id":"t","type":"text","x":0,"y":-260,"width":2200,"height":200,"color":"6","text":"# Documentary pipeline: one hour of infographic film, rendered part by part\nMy own design from the page's public outline ([[page-contents]]), not their paid kit. **Green = installed and tested. Yellow = decision or input from you. Red = not built yet.** Rule: the film is ~480 small scenes; each is rendered alone, cached by a hash of its inputs, and joined at the end. Folder: `C:\\dev\\documentary\\`."},
+
+  {"id":"g1","type":"group","x":0,"y":0,"width":460,"height":1180,"label":"1. Research + script","color":"1"},
+  {"id":"a1","type":"text","x":20,"y":50,"width":420,"height":250,"color":"3","text":"## Topic + brief (YOU)\nnextwork.io's new plan: what it is, who it is for, deadline, tone. Without this nothing real can be written."},
+  {"id":"a2","type":"text","x":20,"y":330,"width":420,"height":260,"color":"1","text":"## Research ledger\nEvery fact gets a source and a date in `ledger.json`. No source = cannot appear in the script. Web reading only for nextwork's public pages."},
+  {"id":"a3","type":"text","x":20,"y":620,"width":420,"height":260,"color":"1","text":"## Script written for the ear\nHook, open loops, one idea per scene, numbers spelled out for speech (digits live on screen, not in narration)."},
+  {"id":"a4","type":"text","x":20,"y":910,"width":420,"height":240,"color":"1","text":"## Scene manifest\n`manifest.json`: ordered scenes, each with id, type, narration text, on-screen data. The single source of truth."},
+
+  {"id":"g2","type":"group","x":520,"y":0,"width":460,"height":1180,"label":"2. Validator (before any render)","color":"3"},
+  {"id":"b1","type":"text","x":540,"y":50,"width":420,"height":340,"color":"1","text":"## Manifest validator\nFails fast, half a second, zero GPU: unknown scene type, digits in narration, three identical scene types in a row, chart with no data or unreadable, missing source for a claim, scene over N seconds, text outside safe margin."},
+  {"id":"b2","type":"text","x":540,"y":420,"width":420,"height":260,"color":"1","text":"## Draft gate\nQuarter-size pass (480x270, 10 fps) checks pacing, wording and sound. The full render only runs once the draft is approved."},
+  {"id":"b3","type":"text","x":540,"y":710,"width":420,"height":240,"color":"3","text":"## Your approval (YOU)\nYou read the script and watch the draft. Nothing renders full-size without your go."},
+
+  {"id":"g3","type":"group","x":1040,"y":0,"width":460,"height":1180,"label":"3. Audio first (the voice sets the length)","color":"4"},
+  {"id":"c1","type":"text","x":1060,"y":50,"width":420,"height":280,"color":"4","text":"## Voice: one WAV per scene\nKokoro (`bm_fable`, already on this PC in the Ares venv, GPU) or Piper fallback. Cached by hash of narration text + voice; only edited lines are re-spoken."},
+  {"id":"c2","type":"text","x":1060,"y":360,"width":420,"height":280,"color":"4","text":"## Scene length = voice length\nframes = ceil((lead + voice + tail) * FPS - 1e-6); pad scene audio to exactly that. Kills drift across 480 scenes."},
+  {"id":"c3","type":"text","x":1060,"y":670,"width":420,"height":240,"color":"4","text":"## Captions\nfaster-whisper word times (installed) mapped onto MY script words. Burned in + a real .srt."},
+  {"id":"c4","type":"text","x":1060,"y":940,"width":420,"height":220,"color":"4","text":"## Sound\nWhooshes, hits, bed made with ffmpeg (anoisesrc, sine), ducked with sidechaincompress, loudnorm to -14 LUFS. All filters verified present."},
+
+  {"id":"g4","type":"group","x":1560,"y":0,"width":460,"height":1180,"label":"4. Render, part by part","color":"5"},
+  {"id":"d1","type":"text","x":1580,"y":50,"width":420,"height":280,"color":"4","text":"## Scene library (9 types)\ntitle, big number, chart, timeline, diagram, comparison, list, photo, quote. Each is a pure `renderFrame(t, data)`. Only title cards exist so far."},
+  {"id":"d2","type":"text","x":1580,"y":360,"width":420,"height":280,"color":"4","text":"## Harness: TESTED\nPuppeteer + system Chrome, canvas to PNG, `C:\\dev\\documentary\\render.mjs`. Measured: 331 frames in 9.9 s (about 33 fps)."},
+  {"id":"d3","type":"text","x":1580,"y":670,"width":420,"height":240,"color":"1","text":"## Cache + parallel + resume\nHash(scene data + code version + font) names each clip. Changed scene = re-render that one. Workers in parallel; crash = rerun resumes. NOT built."},
+  {"id":"d4","type":"text","x":1580,"y":940,"width":420,"height":220,"color":"4","text":"## Encode\nlibx264 CRF 18 or h264_nvenc (GPU). ffmpeg copy at `C:\\dev\\documentary\\bin\\`. TESTED: 11 s test MP4 made."},
+
+  {"id":"g5","type":"group","x":2080,"y":0,"width":460,"height":1180,"label":"5. Assemble + publish","color":"2"},
+  {"id":"e1","type":"text","x":2100,"y":50,"width":420,"height":260,"color":"1","text":"## Join\nConcat ~480 scene clips + mixed audio into the master MP4. Draft first, then full."},
+  {"id":"e2","type":"text","x":2100,"y":340,"width":420,"height":260,"color":"1","text":"## Edit by chat\nScene ids are handles: \"make scene s042's number bigger\" = one safe JSON edit + one re-render."},
+  {"id":"e3","type":"text","x":2100,"y":630,"width":420,"height":260,"color":"3","text":"## Package (YOU decide)\nChapters, thumbnail, vertical cuts. Platform and AI-disclosure rules checked at the time, not assumed."},
+  {"id":"e4","type":"text","x":2100,"y":920,"width":420,"height":240,"color":"5","text":"## Skills to import (next step, you said)\nTo be chosen after the pipeline skeleton exists. Third-party skills run with my permissions, so each one is vetted and logged before install."}
+ ],
+ "edges": [
+  {"id":"1","fromNode":"a1","toNode":"a2","fromSide":"bottom","toSide":"top"},
+  {"id":"2","fromNode":"a2","toNode":"a3","fromSide":"bottom","toSide":"top"},
+  {"id":"3","fromNode":"a3","toNode":"a4","fromSide":"bottom","toSide":"top"},
+  {"id":"4","fromNode":"a4","toNode":"b1","fromSide":"right","toSide":"left"},
+  {"id":"5","fromNode":"b1","toNode":"b2","fromSide":"bottom","toSide":"top"},
+  {"id":"6","fromNode":"b2","toNode":"b3","fromSide":"bottom","toSide":"top"},
+  {"id":"7","fromNode":"b3","toNode":"c1","fromSide":"right","toSide":"left","label":"approved"},
+  {"id":"8","fromNode":"c1","toNode":"c2","fromSide":"bottom","toSide":"top"},
+  {"id":"9","fromNode":"c2","toNode":"c3","fromSide":"bottom","toSide":"top"},
+  {"id":"10","fromNode":"c3","toNode":"c4","fromSide":"bottom","toSide":"top"},
+  {"id":"11","fromNode":"c2","toNode":"d1","fromSide":"right","toSide":"left","label":"frame counts"},
+  {"id":"12","fromNode":"d1","toNode":"d2","fromSide":"bottom","toSide":"top"},
+  {"id":"13","fromNode":"d2","toNode":"d3","fromSide":"bottom","toSide":"top"},
+  {"id":"14","fromNode":"d3","toNode":"d4","fromSide":"bottom","toSide":"top"},
+  {"id":"15","fromNode":"d4","toNode":"e1","fromSide":"right","toSide":"left"},
+  {"id":"16","fromNode":"c4","toNode":"e1","fromSide":"right","toSide":"left"},
+  {"id":"17","fromNode":"e1","toNode":"e2","fromSide":"bottom","toSide":"top"},
+  {"id":"18","fromNode":"e2","toNode":"e3","fromSide":"bottom","toSide":"top"},
+  {"id":"19","fromNode":"e3","toNode":"e4","fromSide":"bottom","toSide":"top"}
+ ]
+}

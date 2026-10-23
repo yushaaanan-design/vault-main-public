@@ -1,0 +1,39 @@
+{
+	"nodes":[
+		{"id":"3ef3ad27256f7225","type":"group","x":-940,"y":-400,"width":380,"height":710,"color":"#5a7d9a","label":"Listings"},
+		{"id":"241001e94cc756bc","type":"group","x":-480,"y":-400,"width":380,"height":500,"color":"#5a7d9a","label":"Product Pages"},
+		{"id":"2a6734f9b41b26f5","type":"group","x":-20,"y":-400,"width":380,"height":500,"color":"#5a7d9a","label":"Cart / Checkout / About"},
+		{"id":"52a6514cfd13a395","type":"group","x":-1400,"y":-400,"width":380,"height":290,"color":"#5a7d9a","label":"Home"},
+		{"id":"c7f62d81d89aa1c1","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-home-desktop.png","x":-1380,"y":-340,"width":160,"height":90},
+		{"id":"2a3a616bf736e38e","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-home-mobile.png","x":-1200,"y":-340,"width":88,"height":190},
+		{"id":"35bb7e0dd6e824f8","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-apparel-listing-desktop.png","x":-920,"y":-340,"width":160,"height":90},
+		{"id":"b70a413d443618b1","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-apparel-listing-mobile.png","x":-740,"y":-340,"width":88,"height":190},
+		{"id":"9ab582244a47f394","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-rings-listing-desktop.png","x":-920,"y":-130,"width":160,"height":100},
+		{"id":"7a613619349e661a","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-leather-listing-desktop.png","x":-740,"y":-130,"width":160,"height":100},
+		{"id":"3e0cfb12e481afd7","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-gifts-listing-desktop.png","x":-920,"y":80,"width":160,"height":100},
+		{"id":"ed3d445a17964822","type":"text","text":"# Get The Juice\n\n[[getthejuice]]","x":-160,"y":-60,"width":320,"height":120,"color":"#5a7d9a"},
+		{"id":"931a5c9c33311747","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-apparel-product-desktop.png","x":-460,"y":-340,"width":160,"height":100},
+		{"id":"765f97b77f343023","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-apparel-product-mobile.png","x":-280,"y":-340,"width":88,"height":190},
+		{"id":"b3c0100cfddde208","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-ring-product-desktop.png","x":-460,"y":-130,"width":160,"height":100},
+		{"id":"017952d0f0e068dc","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-wallet-product-desktop.png","x":-280,"y":-130,"width":160,"height":100},
+		{"id":"4b9d2003620568f7","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-cart-desktop.png","x":0,"y":-340,"width":160,"height":100},
+		{"id":"d4b46cab21a0ca51","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-checkout-start-desktop.png","x":180,"y":-340,"width":160,"height":100},
+		{"id":"7f305132bdf4b798","type":"file","file":"Projects/Web Design/design-references/screenshots/getthejuice-about-desktop.png","x":0,"y":-130,"width":160,"height":100}
+	],
+	"edges":[
+		{"id":"088afc1e76b17a37","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"c7f62d81d89aa1c1","toSide":"right","color":"#5a7d9a"},
+		{"id":"8765c11b78856b7d","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"2a3a616bf736e38e","toSide":"right","color":"#5a7d9a"},
+		{"id":"e1b2f0d482ac3568","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"35bb7e0dd6e824f8","toSide":"right","color":"#5a7d9a"},
+		{"id":"d777f4dfded9f61c","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"b70a413d443618b1","toSide":"right","color":"#5a7d9a"},
+		{"id":"bf3625be86c8e983","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"9ab582244a47f394","toSide":"right","color":"#5a7d9a"},
+		{"id":"1e82ae59c77af621","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"7a613619349e661a","toSide":"right","color":"#5a7d9a"},
+		{"id":"287f5b66e0fb8f9c","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"3e0cfb12e481afd7","toSide":"right","color":"#5a7d9a"},
+		{"id":"f7e2b326ca3671e2","fromNode":"ed3d445a17964822","fromSide":"top","toNode":"931a5c9c33311747","toSide":"right","color":"#5a7d9a"},
+		{"id":"d314455c0abf48e3","fromNode":"ed3d445a17964822","fromSide":"top","toNode":"765f97b77f343023","toSide":"bottom","color":"#5a7d9a"},
+		{"id":"78c684e6028bbb08","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"b3c0100cfddde208","toSide":"right","color":"#5a7d9a"},
+		{"id":"a4a60216d1d317fd","fromNode":"ed3d445a17964822","fromSide":"left","toNode":"017952d0f0e068dc","toSide":"right","color":"#5a7d9a"},
+		{"id":"052f6ee4a16e49ce","fromNode":"ed3d445a17964822","fromSide":"top","toNode":"4b9d2003620568f7","toSide":"bottom","color":"#5a7d9a"},
+		{"id":"da123d8f3de839a3","fromNode":"ed3d445a17964822","fromSide":"top","toNode":"d4b46cab21a0ca51","toSide":"left","color":"#5a7d9a"},
+		{"id":"5a89b07ba9c43748","fromNode":"ed3d445a17964822","fromSide":"top","toNode":"7f305132bdf4b798","toSide":"left","color":"#5a7d9a"}
+	]
+}

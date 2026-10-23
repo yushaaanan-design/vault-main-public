@@ -1,0 +1,215 @@
+{
+ "nodes": [
+  {
+   "id": "10eecf19f262fc66",
+   "type": "text",
+   "x": -560,
+   "y": 80,
+   "width": 420,
+   "height": 190,
+   "text": "## products.jsonl (RAW)\nOne line per product as scraped. Append-only. Rebuild market.db from this any time.",
+   "color": "2"
+  },
+  {
+   "id": "c968d36ebb9365ed",
+   "type": "text",
+   "x": 0,
+   "y": 0,
+   "width": 340,
+   "height": 200,
+   "text": "## sites\n- id\n- name\n- url\n- scraped_first_on",
+   "color": "3"
+  },
+  {
+   "id": "75a1c3a827b8992e",
+   "type": "text",
+   "x": 0,
+   "y": 280,
+   "width": 420,
+   "height": 330,
+   "text": "## products  (PK: id e.g. apex-oxford-204)\n- site_id  (links to sites)\n- url, name, brand\n- category (shoe / accessory)\n- type (oxford, loafer, wallet, belt...)\n- colour\n- material_text (raw words)\n- is_leather (yes / no / check)\n- sole, closure, toe_shape\n- attributes_source",
+   "color": "5"
+  },
+  {
+   "id": "8b675bbd1f7edb93",
+   "type": "text",
+   "x": 620,
+   "y": 0,
+   "width": 400,
+   "height": 300,
+   "text": "## product_photos\n- id\n- product_id  (links to products)\n- file_path\n- source_url\n- role (front / side / back / detail)\n- position\n- sha256  (fingerprint)\n- width, height\n- downloaded_on",
+   "color": "6"
+  },
+  {
+   "id": "912a874368310976",
+   "type": "text",
+   "x": 620,
+   "y": 420,
+   "width": 400,
+   "height": 280,
+   "text": "## price_snapshots\n- id\n- product_id  (links to products)\n- scraped_on\n- price, sale_price\n- in_stock, sizes_in_stock\n- review_count, rating, badge\n- best_seller_rank",
+   "color": "4"
+  },
+  {
+   "id": "53e01edae8054c56",
+   "type": "text",
+   "x": 1220,
+   "y": 0,
+   "width": 420,
+   "height": 240,
+   "text": "## data/photos/apex/<product_id>/\napex-oxford-204-1-front.jpg\napex-oxford-204-2-side.jpg\n\nFilename carries the product id, so a photo is traceable even without the database.",
+   "color": "2"
+  },
+  {
+   "id": "947f8894bded5e6f",
+   "type": "text",
+   "x": 1220,
+   "y": 420,
+   "width": 420,
+   "height": 140,
+   "text": "## Later columns (not now)\nour_cost, margin, image embedding (vectors) for look-alike ranking.",
+   "color": "1"
+  },
+  {
+   "id": "97de2ce2c025fae1",
+   "type": "text",
+   "x": -560,
+   "y": 800,
+   "width": 260,
+   "height": 110,
+   "text": "**You send** a photo or description",
+   "color": "4"
+  },
+  {
+   "id": "89cc99a5f6f7e470",
+   "type": "text",
+   "x": -240,
+   "y": 800,
+   "width": 300,
+   "height": 110,
+   "text": "**I extract** attributes: type, colour, material, sole, closure, toe shape",
+   "color": "4"
+  },
+  {
+   "id": "86ad8eae3e07de34",
+   "type": "text",
+   "x": 120,
+   "y": 800,
+   "width": 340,
+   "height": 130,
+   "text": "**Query:** products matching attributes + is_leather = yes, joined to the LATEST snapshot",
+   "color": "4"
+  },
+  {
+   "id": "64a52b8f36bacbfd",
+   "type": "text",
+   "x": 520,
+   "y": 800,
+   "width": 420,
+   "height": 130,
+   "text": "**Market package:** low / median / high price, number of comparables, comparable photos side by side, sources, confidence",
+   "color": "4"
+  }
+ ],
+ "edges": [
+  {
+   "id": "0afb961ae93a93de",
+   "fromNode": "10eecf19f262fc66",
+   "toNode": "75a1c3a827b8992e",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left",
+   "label": "load / rebuild"
+  },
+  {
+   "id": "5cbce59faa47b5a3",
+   "fromNode": "c968d36ebb9365ed",
+   "toNode": "75a1c3a827b8992e",
+   "toEnd": "arrow",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "label": "1 site has many products"
+  },
+  {
+   "id": "1315d7ef6a750d2a",
+   "fromNode": "75a1c3a827b8992e",
+   "toNode": "8b675bbd1f7edb93",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left",
+   "label": "1 product has many photos (product_id)"
+  },
+  {
+   "id": "1fbca5459a02b0bf",
+   "fromNode": "75a1c3a827b8992e",
+   "toNode": "912a874368310976",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left",
+   "label": "1 product has many snapshots over time"
+  },
+  {
+   "id": "8ba4a23be13a7b71",
+   "fromNode": "8b675bbd1f7edb93",
+   "toNode": "53e01edae8054c56",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left",
+   "label": "file_path points to the file"
+  },
+  {
+   "id": "ddbebe8b3574c8b8",
+   "fromNode": "75a1c3a827b8992e",
+   "toNode": "947f8894bded5e6f",
+   "toEnd": "arrow",
+   "fromSide": "bottom",
+   "toSide": "left",
+   "label": "extra columns later",
+   "color": "1"
+  },
+  {
+   "id": "db187aff4e0fc1eb",
+   "fromNode": "97de2ce2c025fae1",
+   "toNode": "89cc99a5f6f7e470",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "77cb168b3ec1e314",
+   "fromNode": "89cc99a5f6f7e470",
+   "toNode": "86ad8eae3e07de34",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "553180fed3d17be8",
+   "fromNode": "86ad8eae3e07de34",
+   "toNode": "64a52b8f36bacbfd",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "c2423414fc49aa1d",
+   "fromNode": "86ad8eae3e07de34",
+   "toNode": "75a1c3a827b8992e",
+   "toEnd": "arrow",
+   "fromSide": "top",
+   "toSide": "bottom",
+   "label": "reads",
+   "color": "5"
+  },
+  {
+   "id": "218e44a27a497bb3",
+   "fromNode": "86ad8eae3e07de34",
+   "toNode": "912a874368310976",
+   "toEnd": "arrow",
+   "fromSide": "right",
+   "toSide": "bottom",
+   "label": "latest row",
+   "color": "4"
+  }
+ ]
+}

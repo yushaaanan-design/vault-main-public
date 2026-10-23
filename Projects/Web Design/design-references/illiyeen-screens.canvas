@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"1b020b09bacc49ff","type":"group","x":-940,"y":-400,"width":380,"height":920,"color":"#cc9900","label":"Category Listings"},
+		{"id":"c9427a329e613e6b","type":"group","x":-480,"y":-400,"width":380,"height":710,"color":"#cc9900","label":"Product Pages"},
+		{"id":"45d7572db0c83804","type":"group","x":-1400,"y":-400,"width":380,"height":290,"color":"#cc9900","label":"Home"},
+		{"id":"e1617233871a2481","type":"group","x":-20,"y":-400,"width":380,"height":290,"color":"#cc9900","label":"Cart"},
+		{"id":"fe1e795a024d70cc","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-product-mobile.png","x":-280,"y":-340,"width":88,"height":190},
+		{"id":"36dfe55ad5ab1cd7","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-footwear-product-desktop.png","x":-280,"y":-130,"width":160,"height":100},
+		{"id":"8cdde76f5b73d9e6","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-womens-listing-mobile.png","x":-740,"y":-340,"width":88,"height":190},
+		{"id":"4d1a9cd2c05776e7","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-women-listing-desktop.png","x":-920,"y":-340,"width":160,"height":100},
+		{"id":"b145250c15a8f62e","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-home-mobile.png","x":-1200,"y":-340,"width":88,"height":190},
+		{"id":"18fe115f2ee90cff","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-home-desktop.png","x":-1380,"y":-340,"width":160,"height":100},
+		{"id":"c0538e326a64d62a","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-furniture-listing-desktop.png","x":-920,"y":290,"width":160,"height":100},
+		{"id":"ef9a226498362032","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-footwear-listing-desktop.png","x":-732,"y":-80,"width":160,"height":100},
+		{"id":"bec45d4f563f3c06","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-product-desktop.png","x":-460,"y":-340,"width":160,"height":100},
+		{"id":"493d6b55d30b6f19","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-womens-product-desktop.png","x":-460,"y":-130,"width":160,"height":100},
+		{"id":"aba0c5f6acba344e","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-furniture-product-desktop.png","x":-460,"y":80,"width":160,"height":100},
+		{"id":"9e78f372d21292cc","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-cart-panel-desktop.png","x":0,"y":-340,"width":160,"height":100},
+		{"id":"fd96c5daec4e157f","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-accessories-listing-desktop.png","x":-740,"y":80,"width":160,"height":100},
+		{"id":"49aaf2d4d343b452","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-kids-listing-desktop.png","x":-920,"y":-130,"width":160,"height":100},
+		{"id":"b2b23e63cdc31478","type":"file","file":"Projects/Web Design/design-references/screenshots/illiyeen-fragrance-listing-desktop.png","x":-920,"y":80,"width":160,"height":100},
+		{"id":"f658c6820a537948","type":"text","text":"# ILLIYEEN\n\n[[illiyeen]]","x":280,"y":230,"width":320,"height":120,"color":"#cc9900"}
+	],
+	"edges":[
+		{"id":"94c54100017ab959","fromNode":"f658c6820a537948","fromSide":"left","toNode":"18fe115f2ee90cff","toSide":"right","color":"#cc9900"},
+		{"id":"f76f1efaa3e78b04","fromNode":"f658c6820a537948","fromSide":"left","toNode":"b145250c15a8f62e","toSide":"right","color":"#cc9900"},
+		{"id":"e566a7bf40a33558","fromNode":"f658c6820a537948","fromSide":"left","toNode":"4d1a9cd2c05776e7","toSide":"right","color":"#cc9900"},
+		{"id":"562e184c0e4f7298","fromNode":"f658c6820a537948","fromSide":"left","toNode":"8cdde76f5b73d9e6","toSide":"right","color":"#cc9900"},
+		{"id":"b8e50eeb3a3d4947","fromNode":"f658c6820a537948","fromSide":"left","toNode":"49aaf2d4d343b452","toSide":"right","color":"#cc9900"},
+		{"id":"381621cb0e8c5e25","fromNode":"f658c6820a537948","fromSide":"left","toNode":"ef9a226498362032","toSide":"right","color":"#cc9900"},
+		{"id":"3481849d2832568a","fromNode":"f658c6820a537948","fromSide":"left","toNode":"b2b23e63cdc31478","toSide":"right","color":"#cc9900"},
+		{"id":"8df6aa752d292a39","fromNode":"f658c6820a537948","fromSide":"left","toNode":"fd96c5daec4e157f","toSide":"right","color":"#cc9900"},
+		{"id":"7e1a72ac8c319152","fromNode":"f658c6820a537948","fromSide":"bottom","toNode":"c0538e326a64d62a","toSide":"right","color":"#cc9900"},
+		{"id":"60b328b3543d20a7","fromNode":"f658c6820a537948","fromSide":"top","toNode":"bec45d4f563f3c06","toSide":"right","color":"#cc9900"},
+		{"id":"630cd491701a812b","fromNode":"f658c6820a537948","fromSide":"top","toNode":"fe1e795a024d70cc","toSide":"bottom","color":"#cc9900"},
+		{"id":"2878ac945aee4252","fromNode":"f658c6820a537948","fromSide":"left","toNode":"493d6b55d30b6f19","toSide":"right","color":"#cc9900"},
+		{"id":"3ba617c06f3cf588","fromNode":"f658c6820a537948","fromSide":"left","toNode":"36dfe55ad5ab1cd7","toSide":"right","color":"#cc9900"},
+		{"id":"6920b65bdef3dae1","fromNode":"f658c6820a537948","fromSide":"bottom","toNode":"aba0c5f6acba344e","toSide":"right","color":"#cc9900"},
+		{"id":"e561b05d7a62592c","fromNode":"f658c6820a537948","fromSide":"top","toNode":"9e78f372d21292cc","toSide":"bottom","color":"#cc9900"}
+	]
+}

@@ -1,0 +1,178 @@
+{
+ "nodes": [
+  {
+   "id": "77a664e4a07db217",
+   "type": "group",
+   "label": "Loafers (5)",
+   "x": 0,
+   "y": 0,
+   "width": 1740,
+   "height": 520,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "858ba2f607ffb81e",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-casual-loafer-01m\\psleather-casual-loafer-01m-1.jpg)\n**Comfortable Genuine Leather Loafer**\n1700 Tk (list 2200)\nsource: psleather.com",
+   "x": 20,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "a08c0bc0571e5505",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-casual-loafer-1b\\psleather-casual-loafer-1b-1.jpg)\n**Casual Black Loafer**\n1700 Tk (list 2200)\nsource: psleather.com",
+   "x": 360,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "33c854b61fad7fe8",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-casual-loafer-merun\\psleather-casual-loafer-merun-1.jpg)\n**Casual Loafer Merun**\n1700 Tk (list 2200)\nsource: psleather.com",
+   "x": 700,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "cdf6d925d09870ae",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-premium-leather-loafer-black\\psleather-premium-leather-loafer-black-1.jpg)\n**Premium Leather Loafer Black**\n1990 Tk (list 2500)\nsource: psleather.com",
+   "x": 1040,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "70bac90ae26cff48",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-premium-leather-loafer-chocolate\\psleather-premium-leather-loafer-chocolate-1.jpg)\n**Premium Leather Loafer Chocolate**\n1990 Tk (list 2500)\nsource: psleather.com",
+   "x": 1380,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "9841990475a2c22b",
+   "type": "group",
+   "label": "Sandals (1)",
+   "x": 1800,
+   "y": 0,
+   "width": 380,
+   "height": 520,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "169db79cc29570c8",
+   "type": "text",
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/psleather/data/photos\\psleather\\psleather-executive-doctor-sandal\\psleather-executive-doctor-sandal-1.jpg)\n**Executive Doctor Sandal**\n1490 Tk (list 1990)\nsource: psleather.com",
+   "x": 1820,
+   "y": 40,
+   "width": 320,
+   "height": 450,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "0a44185acd66c8fb",
+   "type": "group",
+   "label": "Scraper flow",
+   "x": 0,
+   "y": 600,
+   "width": 1540,
+   "height": 200,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "8935488b07766dd5",
+   "type": "text",
+   "text": "1 urls: read shop + 2 category pages",
+   "x": 20,
+   "y": 650,
+   "width": 260,
+   "height": 100,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "f8385f83afc767c1",
+   "type": "text",
+   "text": "2 fetch: 6 product pages (requests + bs4)",
+   "x": 320,
+   "y": 650,
+   "width": 260,
+   "height": 100,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "22e1a0e8a087bbb3",
+   "type": "text",
+   "text": "3 clean: Bengali material text -> leather yes/check/no",
+   "x": 620,
+   "y": 650,
+   "width": 260,
+   "height": 100,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "c99af0a56da715df",
+   "type": "text",
+   "text": "4 photos: kept items, 1000px",
+   "x": 920,
+   "y": 650,
+   "width": 260,
+   "height": 100,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "856dc3df7e28bbb0",
+   "type": "text",
+   "text": "5 db: psleather_market.db + checks",
+   "x": 1220,
+   "y": 650,
+   "width": 260,
+   "height": 100,
+   "color": "#00C2B8"
+  }
+ ],
+ "edges": [
+  {
+   "id": "b3c3c0cbb7bc8ab2",
+   "fromNode": "8935488b07766dd5",
+   "fromSide": "right",
+   "toNode": "f8385f83afc767c1",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "c78afdd0df851904",
+   "fromNode": "f8385f83afc767c1",
+   "fromSide": "right",
+   "toNode": "22e1a0e8a087bbb3",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "43f2d038a670b500",
+   "fromNode": "22e1a0e8a087bbb3",
+   "fromSide": "right",
+   "toNode": "c99af0a56da715df",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "806a644753b28190",
+   "fromNode": "c99af0a56da715df",
+   "fromSide": "right",
+   "toNode": "856dc3df7e28bbb0",
+   "toSide": "left",
+   "color": "#00C2B8"
+  }
+ ]
+}

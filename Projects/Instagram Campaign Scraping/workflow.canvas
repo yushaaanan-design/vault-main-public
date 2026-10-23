@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"n1","type":"group","label":"BEFORE ANYTHING RUNS (teal)","color":"#00C2B8","x":-40,"y":-70,"width":1420,"height":440},
+		{"id":"n2","type":"text","text":"# 1 BRIEF\nname the **brand** and the **campaign**\nwhat you want to learn","color":"#00C2B8","x":0,"y":0,"width":420,"height":330},
+		{"id":"n3","type":"text","text":"# 2 APPROACH\n**you decide**\n- Meta Ad Library / Content Library\n- Graph API (own accounts)\n- manual saving","color":"#00C2B8","x":460,"y":0,"width":420,"height":330},
+		{"id":"n4","type":"text","text":"# 3 REGISTER\nread `scraping-rules`\nadd Instagram to `sites.md`\nsay **go**","color":"#00C2B8","x":920,"y":0,"width":420,"height":330},
+		{"id":"n5","type":"group","label":"WORK (sky blue)","color":"#40C4FF","x":-40,"y":450,"width":1420,"height":440},
+		{"id":"n6","type":"text","text":"# 4 COLLECT\nposts + videos of the campaign\nprivate folder only","color":"#40C4FF","x":0,"y":520,"width":420,"height":330},
+		{"id":"n7","type":"text","text":"# 5 TRANSCRIBE\nWhisper (faster-whisper)\n`large-v3-turbo` for music, accents","color":"#40C4FF","x":460,"y":520,"width":420,"height":330},
+		{"id":"n8","type":"text","text":"# 6 ANALYSE\nhooks, formats, timing,\ncaptions, engagement","color":"#40C4FF","x":920,"y":520,"width":420,"height":330},
+		{"id":"n9","type":"group","label":"OUTPUT (amber)","color":"#FFB300","x":-40,"y":970,"width":960,"height":440},
+		{"id":"n10","type":"text","text":"# 7 REPORT\ncampaign breakdown\nin the vault","color":"#FFB300","x":0,"y":1040,"width":420,"height":330},
+		{"id":"n11","type":"text","text":"# 8 CONTENT CREATION\nfeeds [[Content Creation]]\nscripts, formats to try","color":"#FFB300","x":460,"y":1040,"width":420,"height":330},
+		{"id":"n12","type":"group","label":"WATCH OUT (red)","color":"#FF5252","x":1300,"y":-70,"width":500,"height":440},
+		{"id":"n13","type":"text","text":"# Risks\nInstagram terms limit automated collection\nlogged-in scraping can get **your account** blocked\nnever paste credentials in chat","color":"#FF5252","x":1340,"y":0,"width":420,"height":330}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"n2","fromSide":"right","toNode":"n3","toSide":"left","color":"#00C2B8"},
+		{"id":"e2","fromNode":"n3","fromSide":"right","toNode":"n4","toSide":"left","color":"#00C2B8"},
+		{"id":"e3","fromNode":"n4","fromSide":"bottom","toNode":"n6","toSide":"top","color":"#00C2B8"},
+		{"id":"e4","fromNode":"n6","fromSide":"right","toNode":"n7","toSide":"left","color":"#40C4FF"},
+		{"id":"e5","fromNode":"n7","fromSide":"right","toNode":"n8","toSide":"left","color":"#40C4FF"},
+		{"id":"e6","fromNode":"n8","fromSide":"bottom","toNode":"n10","toSide":"top","color":"#FFB300"},
+		{"id":"e7","fromNode":"n10","fromSide":"right","toNode":"n11","toSide":"left","color":"#FFB300"}
+	]
+}

@@ -1,0 +1,554 @@
+{
+ "nodes": [
+  {
+   "id": "0370b57baa27cfef",
+   "type": "group",
+   "x": 0,
+   "y": 0,
+   "width": 1350,
+   "height": 440,
+   "label": "boot (2)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "54c21cc3d65dfeb6",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 70,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00576/wearszone-00576-1.jpg)\n**Arrival Top-Layer Cowhide Martin Shoes**\n\nTk 4550 (was 6800)\nWears Zone | First layer of cowhide"
+  },
+  {
+   "id": "4eb904c153f8965c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 70,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00677/wearszone-00677-1.jpg)\n**Comfortable and Stylish Men’s Shoes**\n\nTk 7500\nWears Zone | First layer of cowhide"
+  },
+  {
+   "id": "6e0c2b6c16d1cde0",
+   "type": "group",
+   "x": 0,
+   "y": 520,
+   "width": 1350,
+   "height": 2290,
+   "label": "loafer (22)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "71b4fe93f9d1572f",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 590,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00546/wearszone-00546-1.jpg)\n**Arrival new Stylish Mens Shoes**\n\nTk 3800 (was 5450)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "f53988fe5783812b",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 590,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00685/wearszone-00685-1.jpg)\n**Arrival new Stylish Mens Shoes**\n\nTk 4000 (was 5450)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "eab0628b48809b89",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 590,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00688/wearszone-00688-1.jpg)\n**Breathable and Easy to Wear, First-Layer Cowhide**\n\nTk 3700 (was 6400)\nWears Zone | Top-grain cowhide"
+  },
+  {
+   "id": "4fd15a614c3e0eb3",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 590,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-wz002537/wearszone-wz002537-1.jpg)\n**First-Layer Cowhide Thick-Soled Mule Shoes for Men**\n\nTk 4000 (was 6400)\nWears Zone | Top-grain cowhide"
+  },
+  {
+   "id": "1538d68abce36b81",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-first-layer-cowhide-thick-soled-mule-shoes-for-men/wearszone-first-layer-cowhide-thick-soled-mule-shoes-for-men-1.jpg)\n**First-Layer Cowhide Thick-Soled Mule Shoes for Men**\n\nTk 4000 (was 6400)\nWears Zone | Top-grain cowhide"
+  },
+  {
+   "id": "706e2a755627610c",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00660/wearszone-00660-1.jpg)\n**Arrival New Model Genuine Leather lightweight Moccasins**\n\nTk 4200 (was 6400)\nWears Zone | Top-grain cowhide"
+  },
+  {
+   "id": "85fbef0cb9764f35",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-634/wearszone-634-1.jpg)\n**Brown Genuine Plain Leather Casual shoes**\n\nTk 3700 (was 4850)\nWears Zone | Genuine Leather"
+  },
+  {
+   "id": "a45967e1acd76a25",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-633/wearszone-633-1.jpg)\n**Black Genuine Plain Leather Casual shoes**\n\nTk 3700 (was 4850)\nWears Zone | Genuine Leather"
+  },
+  {
+   "id": "62059205bcfe3975",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 1330,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00582/wearszone-00582-1.jpg)\n**Casual Leather Shoes Retro Outdoor Work Shoes Strappy Flats for Men**\n\nTk 4600 (was 7400)\nWears Zone | Top layer cowhide (except cowhide)"
+  },
+  {
+   "id": "55d30235b6bc04ad",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 1330,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-first-layer-cowhide-shoes-for-men-super-soft/wearszone-first-layer-cowhide-shoes-for-men-super-soft-1.jpg)\n**First-Layer Cowhide Shoes for Men Super Soft**\n\nTk 3500 (was 5200)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "e47ecd757199bf37",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 1330,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00725/wearszone-00725-1.jpg)\n**New Fashion Trend Men Shoes**\n\nTk 3800 (was 5600)\nWears Zone | Genuine Leather"
+  },
+  {
+   "id": "fc3c41ef0c76510a",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 1330,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00537/wearszone-00537-1.jpg)\n**Arival New Style Men Shoes**\n\nTk 3600 (was 5400)\nWears Zone | Genuine Single part Leather"
+  },
+  {
+   "id": "0642135fbda2ff18",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 1700,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00628/wearszone-00628-1.jpg)\n**Arival New Men Shoe**\n\nTk 3700 (was 5300)\nWears Zone | Genuine Single part Leather"
+  },
+  {
+   "id": "584faddbd1765c62",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 1700,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00589/wearszone-00589-1.jpg)\n**New. Stylish Mens Shoes**\n\nTk 4000 (was 4950)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "f7b712c3f08550bb",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 1700,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00753/wearszone-00753-1.jpg)\n**Arrival Mens Shoes Leather Loafer**\n\nTk 4000 (was 5500)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "1d11c01c3512968d",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 1700,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00770/wearszone-00770-1.jpg)\n**Arrival Luxury Leather Loafer**\n\nTk 4500 (was 6400)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "0a828f9bd8a0a9f2",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 2070,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00771/wearszone-00771-1.jpg)\n**Arrival Luxury Leather**\n\nTk 6900\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "c7074b487cd31408",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 2070,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00536/wearszone-00536-1.jpg)\n**Arrival Premium Leather Loafer**\n\nTk 3699 (was 5400)\nWears Zone | Genuine Leather"
+  },
+  {
+   "id": "ef3a5d017eba90c6",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 2070,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00533/wearszone-00533-1.jpg)\n**Black Genuine Plain Leather Casual shoes**\n\nTk 3500 (was 4850)\nWears Zone | Genuine Leather"
+  },
+  {
+   "id": "19829a5a021836ec",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 2070,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00530/wearszone-00530-1.jpg)\n**Men’s Leather Loafer shoes**\n\nTk 4050\nWears Zone | Cow Leather"
+  },
+  {
+   "id": "63f1468e4ed8fcf9",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 2440,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-573/wearszone-573-1.jpg)\n**Soft Leather casual shoes**\n\nTk 3280 (was 4550)\nWears Zone | Cow Leather"
+  },
+  {
+   "id": "f3df49c239349d98",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 2440,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-529/wearszone-529-1.jpg)\n**Genuine Leather Casual shoes**\n\nTk 4850\nWears Zone | Plain Genuine Leather"
+  },
+  {
+   "id": "2adf995df7702f0c",
+   "type": "group",
+   "x": 0,
+   "y": 2890,
+   "width": 1350,
+   "height": 440,
+   "label": "belt (3)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "852542faea6d0753",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 2960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-genuine-leather-handmade-top-layer-leather-belt-unisex/wearszone-genuine-leather-handmade-top-layer-leather-belt-unisex-1.jpg)\n**Genuine Leather Handmade Top-Layer Leather Belt, Unisex**\n\nTk 2200 (was 2950)\nWears Zone | Genuine leather"
+  },
+  {
+   "id": "49897269ba80d739",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 2960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-wz0022b/wearszone-wz0022b-1.jpg)\n**Frist Layer Cowhide Pin Buckle Belt for Men**\n\nTk 1600 (was 2300)\nWears Zone | 100% Genuine leather"
+  },
+  {
+   "id": "7b9c04d20b37d4fd",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 2960,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-322/wearszone-322-1.jpg)\n**Men’s Genuine Leather Light Weight Sleeper with Flexible Belt**\n\nTk ?\nWears Zone | material n/a"
+  },
+  {
+   "id": "7abcce4595f31602",
+   "type": "group",
+   "x": 0,
+   "y": 3410,
+   "width": 1350,
+   "height": 440,
+   "label": "slipper / sleeper (2)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "69f39ddd8100262e",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 3480,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-321/wearszone-321-1.jpg)\n**Grain Leather Light Weight Slipper**\n\nTk 2200 (was 2995)\nWears Zone | material n/a"
+  },
+  {
+   "id": "8ee40046ffeb6a64",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 3480,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-320/wearszone-320-1.jpg)\n**Grain Leather Light Weight Slipper**\n\nTk 2200 (was 2995)\nWears Zone | material n/a"
+  },
+  {
+   "id": "6aa61742a1c68c6a",
+   "type": "group",
+   "x": 0,
+   "y": 3930,
+   "width": 1350,
+   "height": 810,
+   "label": "other shoe (casual / formal) (6)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "a4ecd385e02c7c61",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 4000,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00640/wearszone-00640-1.jpg)\n**First-Layer Cowhide Soft Shoes**\n\nTk 3400 (was 4850)\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "ec91e9a06901d4d7",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 4000,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-1000/wearszone-1000-1.jpg)\n**Stylish Desert shoes Finished leather**\n\nTk 7990\nWears Zone | Grain Raw Leather"
+  },
+  {
+   "id": "570fa1bafd791922",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 690,
+   "y": 4000,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00512/wearszone-00512-1.jpg)\n**Suede Brown Leather Casual Shoes**\n\nTk 3780 (was 5450)\nWears Zone | Suede Leather"
+  },
+  {
+   "id": "56160d7d6489eb81",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 1020,
+   "y": 4000,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00513/wearszone-00513-1.jpg)\n**Suede Leather Casual Shoes**\n\nTk 3780 (was 5450)\nWears Zone | Suede Leather"
+  },
+  {
+   "id": "0c8a20265aa587d3",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 4370,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-00510/wearszone-00510-1.jpg)\n**New Arrival Men’s Casual Suede Leather shoe**\n\nTk 3500 (was 5170)\nWears Zone | Cow Suede Leather"
+  },
+  {
+   "id": "9ae82d90bf5972c5",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 360,
+   "y": 4370,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-580/wearszone-580-1.jpg)\n**Stylish Genuine Leather Shoes for Men’s**\n\nTk 5950\nWears Zone | Cow Leather"
+  },
+  {
+   "id": "e3a471413b8635c0",
+   "type": "group",
+   "x": 0,
+   "y": 4820,
+   "width": 1350,
+   "height": 440,
+   "label": "wallet (1)",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "4dc2363debbd5476",
+   "type": "text",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 4890,
+   "width": 300,
+   "height": 340,
+   "text": "![](file:///C:/Users/yusha/OneDrive/Desktop/Web Scraping/sites/wearszone/data/photos/wearszone/wearszone-wz00010/wearszone-wz00010-1.jpg)\n**Genuine Leather Plain Wallet**\n\nTk 850\nWears Zone | Grain Leather"
+  },
+  {
+   "id": "e5bb23797bfea314",
+   "type": "group",
+   "x": 0,
+   "y": 5340,
+   "width": 1990,
+   "height": 200,
+   "label": "Scraper flow",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "7ba653f330525378",
+   "type": "text",
+   "text": "Store API (4 categories)",
+   "color": "#00C2B8",
+   "x": 30,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "1d2910f085de173a",
+   "type": "text",
+   "text": "flatten + parse spec table",
+   "color": "#00C2B8",
+   "x": 310,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "4b84482374e94af6",
+   "type": "text",
+   "text": "products.jsonl (raw)",
+   "color": "#00C2B8",
+   "x": 590,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "90bb49d0b4b43cb6",
+   "type": "text",
+   "text": "clean: leather verdict",
+   "color": "#00C2B8",
+   "x": 870,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "b5bf34d553580fc1",
+   "type": "text",
+   "text": "products.csv / check.csv",
+   "color": "#00C2B8",
+   "x": 1150,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "9d4f6351113eaa5b",
+   "type": "text",
+   "text": "photos (kept only)",
+   "color": "#00C2B8",
+   "x": 1430,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  },
+  {
+   "id": "62370b1b034e6c55",
+   "type": "text",
+   "text": "wearszone_market.db + checks",
+   "color": "#00C2B8",
+   "x": 1710,
+   "y": 5400,
+   "width": 240,
+   "height": 90
+  }
+ ],
+ "edges": [
+  {
+   "id": "f36cedf67671807a",
+   "fromNode": "7ba653f330525378",
+   "toNode": "1d2910f085de173a",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "16c898a28f5b6c48",
+   "fromNode": "1d2910f085de173a",
+   "toNode": "4b84482374e94af6",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "f152cc1072276910",
+   "fromNode": "4b84482374e94af6",
+   "toNode": "90bb49d0b4b43cb6",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "28299d8e7d96301e",
+   "fromNode": "90bb49d0b4b43cb6",
+   "toNode": "b5bf34d553580fc1",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "2e6800a5466feed8",
+   "fromNode": "b5bf34d553580fc1",
+   "toNode": "9d4f6351113eaa5b",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "1511b40490f815c5",
+   "fromNode": "9d4f6351113eaa5b",
+   "toNode": "62370b1b034e6c55",
+   "fromSide": "right",
+   "toSide": "left",
+   "color": "#00C2B8"
+  }
+ ]
+}

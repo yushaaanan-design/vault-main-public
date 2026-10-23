@@ -1,0 +1,32 @@
+{
+ "nodes": [
+  {"id":"t","type":"text","x":0,"y":-240,"width":2300,"height":190,"color":"6","text":"# Documentary EDITING pipeline (built 2026-10-07, after reading the NextWork editor)\nHow one hour is edited part by part. Ideas borrowed from the NextWork editor (MIT): file contracts between stages, stills approved before render, chunked parallel render + join, a taste file, automatic plan and render checks. Green = ready to use. Yellow = needs your choice. Red = not built. Overview of the whole project: [[documentary-pipeline.canvas]]. Details: [[nextwork-editor-deep-dive]]."},
+
+  {"id":"a","type":"text","x":0,"y":0,"width":400,"height":300,"color":"1","text":"## 1. manifest.json\nOrdered scenes (about 480): id, type, narration text, on-screen data, sources. Single source of truth. Contract = file shape (like their CONTRACTS.md). NOT built."},
+  {"id":"b","type":"text","x":460,"y":0,"width":400,"height":300,"color":"1","text":"## 2. Validator (instant, no render)\nunknown scene type, digits in narration, 3 same scenes in a row, empty chart, claim without source, text outside safe margin. Same idea as their `check.py plan`. NOT built."},
+  {"id":"c","type":"text","x":920,"y":0,"width":400,"height":300,"color":"3","text":"## 3. Voice per scene (YOU choose)\nOne WAV per scene, cached by hash of text+voice. Tools ready: Kokoro (GPU, bm_fable), Piper. Free voices are good, not studio. Audition first: same paragraph in each voice, you pick. See [[voice-options]]."},
+  {"id":"d","type":"text","x":1380,"y":0,"width":400,"height":300,"color":"4","text":"## 4. Word timings + captions\nfaster-whisper word times (small model installed) mapped onto MY script text, so words stay right and timing comes from audio. Frames per scene = ceil(duration*fps - 1e-6)."},
+  {"id":"e","type":"text","x":1840,"y":0,"width":400,"height":300,"color":"4","text":"## 5. plan.json per scene\nScene type + data + frame count + captions + sound cues. Remotion reads it. Renderer installed (Remotion 4.0.530 + Chrome headless shell), no scenes written yet."},
+
+  {"id":"f","type":"text","x":0,"y":360,"width":400,"height":300,"color":"3","text":"## 6. Stills first (YOU approve)\nOne still per scene type + a contact sheet before any video renders. You approve or send ONE batched list of changes. Their rule, and it saves hours."},
+  {"id":"g","type":"text","x":460,"y":360,"width":400,"height":300,"color":"1","text":"## 7. Draft pass\nQuarter size, low fps, whole film. Checks pacing, wording and sound fast. You watch it. Full render only after OK."},
+  {"id":"h","type":"text","x":920,"y":360,"width":400,"height":300,"color":"1","text":"## 8. Chunked render, resumable\nChunks of about 2 minutes, workers in parallel, each chunk h264 + PCM audio, cache key = hash(scene data + code version + font). Crash = rerun skips finished chunks. Their GitHub-Actions version is free but limited to 2,000 min/month on a private repo; local workers first."},
+  {"id":"i","type":"text","x":1380,"y":360,"width":400,"height":300,"color":"1","text":"## 9. Join\nConcatenate chunk videos with `-c copy`, encode the audio once (no gap), loudnorm -14 LUFS, master MP4 + .srt."},
+  {"id":"j","type":"text","x":1840,"y":360,"width":400,"height":300,"color":"1","text":"## 10. Render check\nAutomatic: silence gaps, text off-screen, scenes that hold still too long, caption words vs script. FAILs go back to plan or script, max 2 fix rounds, then show you."},
+
+  {"id":"k","type":"text","x":0,"y":720,"width":1100,"height":220,"color":"4","text":"## Taste file (documentary style)\n`taste.md` + `taste.json`: your rules in plain words (font sizes, palette, how long a chart holds, how fast numbers count). Beats defaults; saved once, applied to every scene. Same idea as their taste skill."},
+  {"id":"l","type":"text","x":1160,"y":720,"width":1080,"height":220,"color":"1","text":"## Skills to import after this (vet each)\nRemotion official skills (captions, charts, maps, transitions) already cloned; install into the Remotion project. Their editor plugin is cloned and vetted; most of it (face, talking head, creator teardown) is NOT needed for infographics."}
+ ],
+ "edges": [
+  {"id":"1","fromNode":"a","toNode":"b","fromSide":"right","toSide":"left"},
+  {"id":"2","fromNode":"b","toNode":"c","fromSide":"right","toSide":"left"},
+  {"id":"3","fromNode":"c","toNode":"d","fromSide":"right","toSide":"left"},
+  {"id":"4","fromNode":"d","toNode":"e","fromSide":"right","toSide":"left"},
+  {"id":"5","fromNode":"e","toNode":"f","fromSide":"bottom","toSide":"top"},
+  {"id":"6","fromNode":"f","toNode":"g","fromSide":"right","toSide":"left"},
+  {"id":"7","fromNode":"g","toNode":"h","fromSide":"right","toSide":"left"},
+  {"id":"8","fromNode":"h","toNode":"i","fromSide":"right","toSide":"left"},
+  {"id":"9","fromNode":"i","toNode":"j","fromSide":"right","toSide":"left"},
+  {"id":"10","fromNode":"k","toNode":"e","fromSide":"top","toSide":"bottom","label":"style rules"}
+ ]
+}

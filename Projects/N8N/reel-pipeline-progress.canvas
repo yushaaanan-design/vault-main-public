@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"0000000000000002","type":"group","x":-80,"y":-60,"width":1500,"height":340,"color":"6","label":"Phase 1 — Setup (do in order)"},
+		{"id":"0000000000000020","type":"group","x":-80,"y":330,"width":1500,"height":260,"color":"5","label":"Phase 1 — Build workflow (after 1-4 all ✅)"},
+		{"id":"0000000000000040","type":"group","x":-80,"y":740,"width":1500,"height":140,"color":"2","label":"Later (unscoped)"},
+		{"id":"0000000000000001","type":"text","text":"# 🎬 Reel-to-Knowledge Pipeline — Live Progress\nLegend: 🟩 done · 🟧 in progress · ⬜ not started · 🟦 build phase (later)","x":-80,"y":-220,"width":1500,"height":100,"color":"5"},
+		{"id":"0000000000000010","type":"text","text":"### 🟩 1. yt-dlp + ffmpeg — DONE\n**Where:** Hostinger VPS\n\nRan as root (no sudo), used `--break-system-packages` for pip.\n\n**Confirmed:** ffmpeg 6.1.1, yt-dlp 2026.08.19","x":-40,"y":0,"width":330,"height":260,"color":"4"},
+		{"id":"0000000000000011","type":"text","text":"### 🟧 2. whisper.cpp\n**Where:** Hostinger VPS\n\nClone + build + download a small/base model.\n\n**Verify:** transcribe one local test audio file from the shell first.\n\n**Status:** up next.","x":330,"y":0,"width":330,"height":260,"color":"3"},
+		{"id":"0000000000000012","type":"text","text":"### ⬜ 3. Telegram bot\n**Where:** Telegram app (@BotFather)\n\nCreate bot → get token → add as n8n credential.\n\n**Verify:** Telegram Trigger node authenticates.\n\n**Status:** not started, no dependency on 1/2.","x":700,"y":0,"width":330,"height":260,"color":"6"},
+		{"id":"0000000000000013","type":"text","text":"### ⬜ 4. Gemini API credential\n**Where:** n8n credentials\n\nGet free API key (Google AI Studio) → add credential → model: **Gemini 2.5 Flash (free tier)**.\n\n**Why switched from Claude:** user needs $0 cost, personal use. Free tier: 1,500 req/day, no card.\n\n**Verify:** trivial text-only HTTP Request call succeeds.\n\n**Status:** not started, no dependency on 1/2/3.","x":1070,"y":0,"width":330,"height":260,"color":"6"},
+		{"id":"0000000000000030","type":"text","text":"**Telegram Trigger**","x":-40,"y":390,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000031","type":"text","text":"**IF has video?**\nfalse → reply \"send a reel\"","x":210,"y":390,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000035","type":"text","text":"**ffmpeg**\nextract key frames","x":-40,"y":510,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000032","type":"text","text":"**yt-dlp**\ndownload → .mp4","x":460,"y":390,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000033","type":"text","text":"**ffmpeg**\nextract audio → .mp3","x":710,"y":390,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000034","type":"text","text":"**whisper.cpp**\ntranscribe (self-hosted, not API)","x":960,"y":390,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000036","type":"text","text":"**Code node**\nbuild multimodal prompt","x":210,"y":510,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000037","type":"text","text":"**Gemini 2.5 Flash**\nvision call (free tier) → key points","x":460,"y":510,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000038","type":"text","text":"**Edit Fields**\nshape output","x":710,"y":510,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000039","type":"text","text":"**Telegram reply**\nsend summary ✅ phase 1 ends","x":960,"y":510,"width":220,"height":100,"color":"5"},
+		{"id":"0000000000000041","type":"text","text":"**Phase 2:** skill vs. to-do branch, install/verify skill, write to Obsidian to-do file","x":-40,"y":780,"width":400,"height":80,"color":"2"},
+		{"id":"0000000000000042","type":"text","text":"**Phase 3+:** email, \"whatnot\" — expand once 1+2 work","x":380,"y":780,"width":300,"height":80,"color":"2"}
+	],
+	"edges":[
+		{"id":"1000000000000001","fromNode":"0000000000000010","fromSide":"right","toNode":"0000000000000011","toSide":"left"},
+		{"id":"1000000000000002","fromNode":"0000000000000011","fromSide":"right","toNode":"0000000000000012","toSide":"left"},
+		{"id":"1000000000000003","fromNode":"0000000000000012","fromSide":"right","toNode":"0000000000000013","toSide":"left"},
+		{"id":"1000000000000004","fromNode":"0000000000000013","fromSide":"left","toNode":"0000000000000030","toSide":"right","label":"all ✅ → build"},
+		{"id":"1000000000000010","fromNode":"0000000000000030","fromSide":"right","toNode":"0000000000000031","toSide":"left"},
+		{"id":"1000000000000011","fromNode":"0000000000000031","fromSide":"right","toNode":"0000000000000032","toSide":"left"},
+		{"id":"1000000000000012","fromNode":"0000000000000032","fromSide":"right","toNode":"0000000000000033","toSide":"left"},
+		{"id":"1000000000000013","fromNode":"0000000000000033","fromSide":"right","toNode":"0000000000000034","toSide":"left"},
+		{"id":"1000000000000014","fromNode":"0000000000000034","fromSide":"bottom","toNode":"0000000000000035","toSide":"top"},
+		{"id":"1000000000000015","fromNode":"0000000000000035","fromSide":"right","toNode":"0000000000000036","toSide":"left"},
+		{"id":"1000000000000016","fromNode":"0000000000000036","fromSide":"right","toNode":"0000000000000037","toSide":"left"},
+		{"id":"1000000000000017","fromNode":"0000000000000037","fromSide":"right","toNode":"0000000000000038","toSide":"left"},
+		{"id":"1000000000000018","fromNode":"0000000000000038","fromSide":"right","toNode":"0000000000000039","toSide":"left"},
+		{"id":"1000000000000020","fromNode":"0000000000000039","fromSide":"bottom","toNode":"0000000000000041","toSide":"top","label":"later"},
+		{"id":"1000000000000021","fromNode":"0000000000000041","fromSide":"right","toNode":"0000000000000042","toSide":"left"}
+	]
+}

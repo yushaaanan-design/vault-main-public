@@ -1,0 +1,30 @@
+{
+	"nodes":[
+		{"id":"grp-home","type":"group","x":-60,"y":-60,"width":1240,"height":2080,"color":"#8A7355","label":"Home page, top to bottom (built 2026-09-26)"},
+		{"id":"legend","type":"text","text":"**Motion rules**\nONE GSAP moment (red node)\nONE marquee\nEverything else: IntersectionObserver reveal (`useScrollReveal` + `.reveal`)\nNo scroll listeners\nprefers-reduced-motion respected everywhere","x":1260,"y":0,"width":420,"height":200,"color":"6"},
+		{"id":"s-header","type":"text","text":"# Header\nTransparent over the hero, frosted once you scroll\nIntersectionObserver on `.hero` (Home only)","x":0,"y":0,"width":520,"height":140,"color":"#8A7355"},
+		{"id":"s-hero","type":"text","text":"# Hero\nFull-bleed photo (picsum 1005), headline, subtext, Shop the Drop / Coming Soon\nPulled under the sticky header","x":0,"y":220,"width":520,"height":160,"color":"#8A7355"},
+		{"id":"s-edit","type":"text","text":"# The Edit\nActive products, asymmetric 2-up (second card dropped lower)\nReuses ProductCard (hover crossfade)","x":0,"y":460,"width":520,"height":160,"color":"#8A7355"},
+		{"id":"s-tiles","type":"text","text":"# Category Tiles\nHenleys / Tees / Hoodies / Pants, 4 full-bleed tiles → /shop?category=\nAdded from competitor re-scrape","x":0,"y":700,"width":520,"height":160,"color":"#8A7355"},
+		{"id":"s-scarcity","type":"text","text":"# Scarcity Strip (signature moment)\nIntro card \"Not everything stays.\" then one card per coming_soon / sold_out product\nCSS sticky pins the cards; GSAP ScrollTrigger scrubs the outgoing card's scale + opacity\nOnly file that imports GSAP","x":0,"y":940,"width":520,"height":220,"color":"1"},
+		{"id":"s-statement","type":"text","text":"# Brand Statement\n\"Fewer pieces. Worn longer.\" editorial manifesto","x":0,"y":1240,"width":520,"height":140,"color":"#8A7355"},
+		{"id":"s-trust","type":"text","text":"# Trust Strip\nCOD / bKash, Nagad, card / Easy exchanges / Free delivery over ৳1,500\nChanged from planned column strip to a marquee (taste-skill bans equal-card rows)","x":0,"y":1460,"width":520,"height":180,"color":"#8A7355"},
+		{"id":"s-ig","type":"text","text":"# Instagram CTA\n\"Questions? Send us a DM.\" + DM on Instagram button (placeholder URL)\nStatic fallback chosen over an email-capture backend","x":0,"y":1720,"width":520,"height":160,"color":"#8A7355"},
+		{"id":"d-products","type":"text","text":"**Data:** one `GET /api/products` in Home.jsx\nsplit client-side: active → The Edit, coming_soon + sold_out → Scarcity Strip","x":640,"y":700,"width":480,"height":140,"color":"6"},
+		{"id":"d-static","type":"text","text":"**Data:** static copy / hardcoded tiles (no API)","x":640,"y":1460,"width":480,"height":100,"color":"6"},
+		{"id":"s-footer","type":"text","text":"# Footer (every page)\nShop links, order info, giant faded FABLE wordmark (from re-scrape)","x":640,"y":1720,"width":480,"height":160,"color":"#8A7355"}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"s-header","fromSide":"bottom","toNode":"s-hero","toSide":"top","color":"#8A7355","label":"IntersectionObserver"},
+		{"id":"e2","fromNode":"s-hero","fromSide":"bottom","toNode":"s-edit","toSide":"top","color":"#8A7355","label":"CSS entrance animation"},
+		{"id":"e3","fromNode":"s-edit","fromSide":"bottom","toNode":"s-tiles","toSide":"top","color":"#8A7355","label":"IntersectionObserver reveal"},
+		{"id":"e4","fromNode":"s-tiles","fromSide":"bottom","toNode":"s-scarcity","toSide":"top","color":"#8A7355","label":"IntersectionObserver stagger"},
+		{"id":"e5","fromNode":"s-scarcity","fromSide":"bottom","toNode":"s-statement","toSide":"top","color":"1","label":"GSAP ScrollTrigger scrub"},
+		{"id":"e6","fromNode":"s-statement","fromSide":"bottom","toNode":"s-trust","toSide":"top","color":"#8A7355","label":"IntersectionObserver reveal"},
+		{"id":"e7","fromNode":"s-trust","fromSide":"bottom","toNode":"s-ig","toSide":"top","color":"#8A7355","label":"CSS marquee"},
+		{"id":"e8","fromNode":"s-ig","fromSide":"right","toNode":"s-footer","toSide":"left","color":"#8A7355","label":"IntersectionObserver reveal"},
+		{"id":"e9","fromNode":"d-products","fromSide":"left","toNode":"s-edit","toSide":"right","color":"6"},
+		{"id":"e10","fromNode":"d-products","fromSide":"left","toNode":"s-scarcity","toSide":"right","color":"6"},
+		{"id":"e11","fromNode":"d-static","fromSide":"left","toNode":"s-trust","toSide":"right","color":"6"}
+	]
+}

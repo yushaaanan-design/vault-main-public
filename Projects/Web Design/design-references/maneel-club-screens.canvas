@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"d3174e3fb40e2a89","type":"group","x":-940,"y":-400,"width":380,"height":710,"color":"#c4283c","label":"Category Listings"},
+		{"id":"35d0fd2bf265bae7","type":"group","x":-20,"y":-400,"width":380,"height":710,"color":"#c4283c","label":"Cart / Policy / About"},
+		{"id":"8b611e19ae40771b","type":"group","x":-1400,"y":-400,"width":380,"height":500,"color":"#c4283c","label":"Home"},
+		{"id":"af8a13ad30e24d90","type":"group","x":-480,"y":-400,"width":380,"height":500,"color":"#c4283c","label":"Product Pages"},
+		{"id":"5e29fffd43d7e649","type":"text","text":"# Maneel Club\n\n[[maneel-club]]","x":-160,"y":-60,"width":320,"height":120,"color":"#c4283c"},
+		{"id":"ef7a715ff66d8881","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-home-desktop.png","x":-1380,"y":-340,"width":160,"height":90},
+		{"id":"c9bc619d24073ce1","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-home-desktop2.png","x":-1200,"y":-340,"width":160,"height":100},
+		{"id":"2ae89b74561137f3","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-home-mobile.png","x":-1380,"y":-130,"width":88,"height":190},
+		{"id":"0a38098d514e7443","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-shop-listing-desktop.png","x":-920,"y":-340,"width":160,"height":100},
+		{"id":"b4099e41a426e8bb","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-shop-listing-mobile.png","x":-740,"y":-340,"width":88,"height":190},
+		{"id":"fd6286e468302eda","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-jeans-category-desktop.png","x":-920,"y":-130,"width":160,"height":100},
+		{"id":"3e0f4fbae8b98368","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-stock-clearance-desktop.png","x":-740,"y":-130,"width":160,"height":100},
+		{"id":"485b6b0e1394be76","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-hoodie-category-desktop.png","x":-920,"y":80,"width":160,"height":100},
+		{"id":"52b4ce9893a28894","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-product-desktop.png","x":-460,"y":-340,"width":160,"height":90},
+		{"id":"e9a14f2ea1ba03b2","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-jeans-product-desktop.png","x":-280,"y":-340,"width":160,"height":100},
+		{"id":"52e0be1fb90a4520","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-henley-chinese-collar-desktop.png","x":-460,"y":-130,"width":160,"height":100},
+		{"id":"bf6567ab65091958","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-cart-desktop.png","x":0,"y":-340,"width":160,"height":90},
+		{"id":"4ffbe647a11bf6eb","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-cart-populated-desktop.png","x":180,"y":-340,"width":160,"height":100},
+		{"id":"db2ddc7ba604056d","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-about-desktop.png","x":0,"y":-130,"width":160,"height":100},
+		{"id":"eba2ae17985e5784","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-reviews-desktop.png","x":180,"y":-130,"width":160,"height":100},
+		{"id":"5709cf5e325115fa","type":"file","file":"Projects/Web Design/design-references/screenshots/maneel-faq-desktop.png","x":0,"y":80,"width":160,"height":100}
+	],
+	"edges":[
+		{"id":"040d9ea6b81aaad4","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"ef7a715ff66d8881","toSide":"right","color":"#c4283c"},
+		{"id":"365554b703ad6774","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"c9bc619d24073ce1","toSide":"right","color":"#c4283c"},
+		{"id":"e0ef3764c0bc6ebd","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"2ae89b74561137f3","toSide":"right","color":"#c4283c"},
+		{"id":"a8c324dfd35ce1bc","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"0a38098d514e7443","toSide":"right","color":"#c4283c"},
+		{"id":"ced47e0105d3f2a1","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"b4099e41a426e8bb","toSide":"right","color":"#c4283c"},
+		{"id":"dba46afe5bfbd5b9","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"fd6286e468302eda","toSide":"right","color":"#c4283c"},
+		{"id":"6e63cf213b634c72","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"3e0f4fbae8b98368","toSide":"right","color":"#c4283c"},
+		{"id":"d24e3063ea2385a9","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"485b6b0e1394be76","toSide":"right","color":"#c4283c"},
+		{"id":"de98efed67bdfc20","fromNode":"5e29fffd43d7e649","fromSide":"top","toNode":"52b4ce9893a28894","toSide":"right","color":"#c4283c"},
+		{"id":"9225c320af4fa9c1","fromNode":"5e29fffd43d7e649","fromSide":"top","toNode":"e9a14f2ea1ba03b2","toSide":"bottom","color":"#c4283c"},
+		{"id":"1eb6b2d032dc1597","fromNode":"5e29fffd43d7e649","fromSide":"left","toNode":"52e0be1fb90a4520","toSide":"right","color":"#c4283c"},
+		{"id":"37f36a65a4ed0f67","fromNode":"5e29fffd43d7e649","fromSide":"top","toNode":"bf6567ab65091958","toSide":"bottom","color":"#c4283c"},
+		{"id":"0d0c6ac77406255a","fromNode":"5e29fffd43d7e649","fromSide":"top","toNode":"4ffbe647a11bf6eb","toSide":"left","color":"#c4283c"},
+		{"id":"16993e9236456f61","fromNode":"5e29fffd43d7e649","fromSide":"top","toNode":"db2ddc7ba604056d","toSide":"left","color":"#c4283c"},
+		{"id":"ca5a51b4a911928a","fromNode":"5e29fffd43d7e649","fromSide":"right","toNode":"eba2ae17985e5784","toSide":"left","color":"#c4283c"},
+		{"id":"5291e79507884fb6","fromNode":"5e29fffd43d7e649","fromSide":"bottom","toNode":"5709cf5e325115fa","toSide":"top","color":"#c4283c"}
+	]
+}

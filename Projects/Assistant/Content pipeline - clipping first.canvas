@@ -1,0 +1,181 @@
+{
+ "nodes": [
+  {
+   "id": "title",
+   "type": "text",
+   "x": 0,
+   "y": -520,
+   "width": 1840,
+   "height": 170,
+   "text": "# Content pipeline v1: CLIPPING FIRST\nModelled on the colton.ai.dean reel (research > scripting > edit > publish > inbox, one chief of staff), adapted: no filming, no face. Source = long streams, output = short vertical clips.\nColour: green = built, yellow = partly, orange = not built, cyan = control, purple = you, red = gate before launch. Every post and reply waits for your approval.",
+   "color": "6"
+  },
+  {
+   "id": "chief",
+   "type": "text",
+   "x": 0,
+   "y": -320,
+   "width": 1840,
+   "height": 230,
+   "text": "## 0. Chief of Staff = the Orchestrator (+ Brand Brain)\nOne job table (SQLite: role, input, status, result), Windows Task Scheduler starts the roles in order, retries, writes STOP on a block, Telegram message. Brand Brain = shared notes the roles read: Format Catalog, hook notes, per-streamer playbooks, your taste rules.\nStatus: job table partly (clips.db), scheduler not built. Portable: plain Python + SQLite, no Windows-only code.",
+   "color": "5"
+  },
+  {
+   "id": "r1",
+   "type": "text",
+   "x": 0,
+   "y": 0,
+   "width": 440,
+   "height": 360,
+   "text": "## 1. Research (nightly)\n**Scout** finds streamers and clips (yt-dlp): BUILT.\n**Competitor Watch**: new VODs and clips of chosen streamers, what is trending now: NOT BUILT.\n**Trend Scout**: Reddit, YouTube comments, news per streamer: NOT BUILT.\n**Researcher**: payout and platform rule pages, diffed weekly: NOT BUILT.",
+   "color": "3"
+  },
+  {
+   "id": "r2",
+   "type": "text",
+   "x": 480,
+   "y": 0,
+   "width": 440,
+   "height": 360,
+   "text": "## 2. Analyst + Strategist\n**Analyst** downloads, measures audio and frames, makes the contact sheet, then READS it (hook, layout, captions): measuring BUILT, local vision reader NOT BUILT.\n**Strategist** weekly: what works per streamer: done by hand (Caedrel 8/38 read).\nFeeds Brand Brain.",
+   "color": "3"
+  },
+  {
+   "id": "r3",
+   "type": "text",
+   "x": 960,
+   "y": 0,
+   "width": 440,
+   "height": 360,
+   "text": "## 3. Moment Finder + Cutter (the Editor)\n**Moment Finder**: transcript + audio peaks + chat/comment spikes + scene stability, scored by the virality notes (segmentation.md, virality-scoring.md): rules written, code NOT BUILT.\n**Cutter**: ffmpeg cut, vertical reframe with face tracking, burned captions (Whisper), safe margins: NOT BUILT.",
+   "color": "2"
+  },
+  {
+   "id": "r4",
+   "type": "text",
+   "x": 1440,
+   "y": 0,
+   "width": 400,
+   "height": 360,
+   "text": "## 4. Hook Writer + Voice Check\n**Hook Writer**: 3 hook and title options per clip from the winning patterns (Hook Measurements, Format Catalog).\n**Voice Check**: compares each against your rules and the streamer playbook, flags weak or risky ones (the Reviewer).\nQuality note: a 7B local model is average; Claude writes final lines.\nNOT BUILT.",
+   "color": "2"
+  },
+  {
+   "id": "g1",
+   "type": "text",
+   "x": 0,
+   "y": 430,
+   "width": 440,
+   "height": 330,
+   "text": "## You: weekly approval (human gate)\nOpen the review file: clips + 3 hooks each + why flagged. Approve, change, reject. Nothing moves to publishing without you. Also the weekly idea session: which streamer and which format next.",
+   "color": "6"
+  },
+  {
+   "id": "r5",
+   "type": "text",
+   "x": 480,
+   "y": 430,
+   "width": 440,
+   "height": 330,
+   "text": "## 5. Publishing (approval first)\n**Cross-Poster + Scheduler**: YouTube Shorts via the official API first; Instagram and TikTok need approved apps or a paid tool, so by hand until then. Best-slot calendar. Package = video + caption + tags + time.\nNOT BUILT.",
+   "color": "2"
+  },
+  {
+   "id": "r6",
+   "type": "text",
+   "x": 960,
+   "y": 430,
+   "width": 440,
+   "height": 330,
+   "text": "## 6. Inbox + Stats\n**Comment Reader and Replier (drafts only)**, **Lead Logger** (people asking for more), and a **stats puller** (views, retention, comments per clip). Results go back into the Analyst so hits AND flops teach it.\nNOT BUILT.",
+   "color": "2"
+  },
+  {
+   "id": "gate",
+   "type": "text",
+   "x": 1440,
+   "y": 430,
+   "width": 400,
+   "height": 330,
+   "text": "## RED gates before launch\n1. **Rights and permission** to use each streamer's footage; how it earns (open decision).\n2. Platform rules per site (Research/platform-rules.md).\n3. No auto-posting and no auto-DM at first.\n4. Check Blotato-type tools for price and terms before using.",
+   "color": "1"
+  },
+  {
+   "id": "order",
+   "type": "text",
+   "x": 0,
+   "y": 830,
+   "width": 1840,
+   "height": 300,
+   "text": "## Build order (clipping first, one step at a time, you read every line)\n1. **Chief + job table + scheduler** (small, everything else plugs into it). 2. **Competitor Watch + Trend Scout** nightly into the table (this is the research engine). 3. **Analyst reader** (local vision model, check against clips Claude read by eye). 4. **Moment Finder** (score a 4-hour stream, you judge the top 10). 5. **Cutter** (one clip end to end). 6. **Hook Writer + Voice Check** with the approval file. 7. **Publishing by hand-off package**, then YouTube API. 8. **Inbox + stats** and the feedback loop.\nAfter clipping works: reuse departments 0, 1, 4, 5, 6 for documentaries, then Fable / 3D content.",
+   "color": "5"
+  }
+ ],
+ "edges": [
+  {
+   "id": "e_r1_r2",
+   "fromNode": "r1",
+   "fromSide": "right",
+   "toNode": "r2",
+   "toSide": "left"
+  },
+  {
+   "id": "e_r2_r3",
+   "fromNode": "r2",
+   "fromSide": "right",
+   "toNode": "r3",
+   "toSide": "left"
+  },
+  {
+   "id": "e_r3_r4",
+   "fromNode": "r3",
+   "fromSide": "right",
+   "toNode": "r4",
+   "toSide": "left"
+  },
+  {
+   "id": "e_r4_g1",
+   "fromNode": "r4",
+   "fromSide": "bottom",
+   "toNode": "g1",
+   "toSide": "top"
+  },
+  {
+   "id": "e_g1_r5",
+   "fromNode": "g1",
+   "fromSide": "right",
+   "toNode": "r5",
+   "toSide": "left",
+   "label": "approved"
+  },
+  {
+   "id": "e_r5_r6",
+   "fromNode": "r5",
+   "fromSide": "right",
+   "toNode": "r6",
+   "toSide": "left"
+  },
+  {
+   "id": "e_r6_gate",
+   "fromNode": "r6",
+   "fromSide": "right",
+   "toNode": "gate",
+   "toSide": "left"
+  },
+  {
+   "id": "e_r6_r1",
+   "fromNode": "r6",
+   "fromSide": "bottom",
+   "toNode": "r1",
+   "toSide": "bottom",
+   "label": "hits and flops feed research"
+  },
+  {
+   "id": "e_chief_r1",
+   "fromNode": "chief",
+   "fromSide": "bottom",
+   "toNode": "r1",
+   "toSide": "top"
+  }
+ ]
+}

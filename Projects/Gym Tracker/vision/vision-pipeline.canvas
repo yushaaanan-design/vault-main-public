@@ -1,0 +1,19 @@
+{
+ "nodes": [
+  {"id":"t","type":"text","x":0,"y":-200,"width":1800,"height":150,"color":"6","text":"# Gym Tracker Vision pipeline (built 2026-10-06)\nPhone video to form feedback. Plan: [[Projects/Gym Tracker/vision/Vision plan|Vision plan]]. Env: `C:\\dev\\gym-vision\\.venv` (CUDA torch, MediaPipe, OpenCV, YOLO). Green = env ready. Yellow = needs you. Red = hard gate."},
+  {"id":"p0","type":"text","x":0,"y":0,"width":340,"height":320,"color":"1","text":"## Phase 0: basics + AUTH (hard gate)\nRevoke leaked key, S9 database, S10 auth + security review. Videos are personal data, so no uploads before this."},
+  {"id":"clip","type":"text","x":0,"y":360,"width":340,"height":240,"color":"3","text":"## Test clips (you)\n5 to 10 reps, side view, phone leaned still, same spot. Pick squat or deadlift."},
+  {"id":"p1","type":"text","x":400,"y":0,"width":340,"height":320,"color":"4","text":"## Phase 1: pose\nMediaPipe on one clip: joint angles, rep count, depth, tempo. Python script, you read every line. 1 to 2 weeks."},
+  {"id":"p2","type":"text","x":800,"y":0,"width":340,"height":320,"color":"4","text":"## Phase 2: bar path\nYOLO fine-tuned on a few hundred of your frames; fits the 6 GB RTX 3060. 2 to 4 weeks."},
+  {"id":"p3","type":"text","x":1200,"y":0,"width":340,"height":320,"color":"5","text":"## Phase 3: form rules\nPer-exercise rules, feedback drawn on the video. 2 to 3 weeks each."},
+  {"id":"p4","type":"text","x":1600,"y":0,"width":340,"height":320,"color":"5","text":"## Phase 4 to 5: app\nNew tables (video, rep, bar-path points, metrics), charts, before/after compare, phone upload over Tailscale, background worker."},
+  {"id":"lim","type":"text","x":400,"y":360,"width":1540,"height":160,"color":"2","text":"Honest limits: one 2D angle, plates and clothing hide joints, camera placement must repeat. Informational only, not medical advice. Phase 6 (learned good/bad rep classifier) needs hundreds of labelled reps, months away."}
+ ],
+ "edges": [
+  {"id":"a","fromNode":"p0","toNode":"p1","fromSide":"right","toSide":"left","label":"gate before upload"},
+  {"id":"b","fromNode":"clip","toNode":"p1","fromSide":"right","toSide":"bottom"},
+  {"id":"c","fromNode":"p1","toNode":"p2","fromSide":"right","toSide":"left"},
+  {"id":"d","fromNode":"p2","toNode":"p3","fromSide":"right","toSide":"left"},
+  {"id":"e","fromNode":"p3","toNode":"p4","fromSide":"right","toSide":"left"}
+ ]
+}

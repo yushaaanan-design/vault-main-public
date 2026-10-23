@@ -1,0 +1,576 @@
+{
+ "nodes": [
+  {
+   "id": "3f98e2774cbd87ad",
+   "type": "group",
+   "x": 1120,
+   "y": 2917,
+   "width": 480,
+   "height": 459,
+   "label": "Output and honesty",
+   "color": "3"
+  },
+  {
+   "id": "ec66a78795e761d1",
+   "type": "group",
+   "x": 560,
+   "y": 2917,
+   "width": 480,
+   "height": 540,
+   "label": "Variants and profiles",
+   "color": "6"
+  },
+  {
+   "id": "c6f877186d76b07e",
+   "type": "group",
+   "x": 0,
+   "y": 2917,
+   "width": 480,
+   "height": 567,
+   "label": "Hard rules",
+   "color": "2"
+  },
+  {
+   "id": "8f6d05584ef8aa38",
+   "type": "group",
+   "x": 0,
+   "y": 1861,
+   "width": 1700,
+   "height": 906,
+   "label": "STEP 8 DEEP DIVE: deterministic gates before AI vision",
+   "color": "1"
+  },
+  {
+   "id": "922766581e27a1c0",
+   "type": "group",
+   "x": 2080,
+   "y": 0,
+   "width": 480,
+   "height": 852,
+   "label": "E. Decide + close",
+   "color": "3"
+  },
+  {
+   "id": "8e81973e0becd7b0",
+   "type": "group",
+   "x": 1560,
+   "y": 0,
+   "width": 480,
+   "height": 1164,
+   "label": "D. Review (per pass)",
+   "color": "1"
+  },
+  {
+   "id": "a170b33839263059",
+   "type": "group",
+   "x": 1040,
+   "y": 0,
+   "width": 480,
+   "height": 642,
+   "label": "C. Build",
+   "color": "4"
+  },
+  {
+   "id": "0f21ddb66cad4a26",
+   "type": "group",
+   "x": 520,
+   "y": 0,
+   "width": 480,
+   "height": 1611,
+   "label": "B. Spec",
+   "color": "6"
+  },
+  {
+   "id": "1818e811892f902b",
+   "type": "group",
+   "x": 0,
+   "y": 0,
+   "width": 480,
+   "height": 1035,
+   "label": "A. Intake",
+   "color": "5"
+  },
+  {
+   "id": "f2a74de452e6b438",
+   "type": "text",
+   "x": 20,
+   "y": 60,
+   "width": 440,
+   "height": 266,
+   "text": "## 0. State gate\n`python3 forge/next.py --state .img2threejs/state.json`\nRun at every start, resume and before every correction. Prints current step, exact next command, loop count. Exit 3 / status=stopped = HARD STOP: report and ask. Never rebuild progress from chat."
+  },
+  {
+   "id": "6513270e269e0d37",
+   "type": "text",
+   "x": 20,
+   "y": 351,
+   "width": 440,
+   "height": 212,
+   "text": "## 1. Analyze image (agent vision)\nBefore any script. Layered observation: classify, macro to meso to micro, part relationships, PBR material names, identity-defining features, what the view hides. Then `probe_image.py` (metadata only)."
+  },
+  {
+   "id": "0c5c7fd0a6a3a450",
+   "type": "text",
+   "x": 20,
+   "y": 588,
+   "width": 440,
+   "height": 185,
+   "text": "## 1a. Local spec search\n`new_pre_spec_assessment.py` runs BM25 over the `core_3d` collection (or the domain's). Pulls anatomy/PBR/wear/geometry evidence instead of inventing it."
+  },
+  {
+   "id": "d23f0824128b2f33",
+   "type": "text",
+   "x": 20,
+   "y": 798,
+   "width": 440,
+   "height": 212,
+   "text": "## 1b / 1c. Domain intake + adapters\nDomain plugin intake (manifest, classification) before pre-spec. Optional adapters only for weak points: SAM2 masks, MediaPipe landmarks, Depth Anything V2. MCP-only scene edits never count."
+  },
+  {
+   "id": "9531985d5d9dc9f8",
+   "type": "text",
+   "x": 540,
+   "y": 60,
+   "width": 440,
+   "height": 185,
+   "text": "## 2. Pre-spec assessment\nClassify object, score complexity (simple/moderate/complex/ultra-complex), write the `qualityContract`. Set primaryDomain: object / character / hybrid."
+  },
+  {
+   "id": "e8e25d940ed90475",
+   "type": "text",
+   "x": 540,
+   "y": 270,
+   "width": 440,
+   "height": 185,
+   "text": "## 2b. Detail inventory\n`build_detail_inventory.py --mode grid-3x3`. Every identity detail must map to a `localFeatures` or `localOverrides` entry, never prose only."
+  },
+  {
+   "id": "36f675cc81e74ef5",
+   "type": "text",
+   "x": 540,
+   "y": 480,
+   "width": 440,
+   "height": 212,
+   "text": "## 2c. Projection-first fidelity\nCharacters and painted surfaces: solve camera, DE-LIGHT the reference (hard requirement), project the crop and bake into UVs. Flat paint = solid albedo; patterned finish = real crop."
+  },
+  {
+   "id": "1600a35a099950d8",
+   "type": "text",
+   "x": 540,
+   "y": 717,
+   "width": 440,
+   "height": 185,
+   "text": "## 2d. Reference-free humanoid\nNo image to measure: `humanoid_proportions.py --style-heads 8`. Writes anatomy.source = canon-table so canon is never mistaken for measurement."
+  },
+  {
+   "id": "6b0d549b6f03675a",
+   "type": "text",
+   "x": 540,
+   "y": 927,
+   "width": 440,
+   "height": 212,
+   "text": "## 3. Author the spec\n`new_sculpt_spec.py ... --assessment ... --domain <profile>`. Real featureReviewTargets (max 5 critical, 3 important per pass), 3D vocabulary only, topologyClass per component."
+  },
+  {
+   "id": "3d9c172411e20b8f",
+   "type": "text",
+   "x": 540,
+   "y": 1164,
+   "width": 440,
+   "height": 212,
+   "text": "## 4. Material evidence\n`analyze_texture.py` (finish + palette + MeshPhysicalMaterial scalars), `extract_pbr_evidence.py` (confidence under 0.7 = stop/refine, not pass), region analysis, material gate."
+  },
+  {
+   "id": "8d116ece1738f7d9",
+   "type": "text",
+   "x": 540,
+   "y": 1401,
+   "width": 440,
+   "height": 185,
+   "text": "## 5. Validate\n`validate_sculpt_spec.py`, then `--strict-quality`. Strict blocks shallow specs: a complex object with one root, no repetition, no local overrides is NOT ready.",
+   "color": "4"
+  },
+  {
+   "id": "90c192cfd3ac94af",
+   "type": "text",
+   "x": 1060,
+   "y": 60,
+   "width": 440,
+   "height": 320,
+   "text": "## 6. Locked build passes\nblockout, structure, form, material, lighting, interaction, optimization. `orchestrate_passes.py status`, then `generate_threejs_factory.py spec --out src/createObjectModel.ts`. Fail-closed: strict-quality must pass; later passes locked until earlier ones reviewed `continue`. Carry hand edits back into the spec before `--force`."
+  },
+  {
+   "id": "f28c105d1fb17c23",
+   "type": "text",
+   "x": 1060,
+   "y": 405,
+   "width": 440,
+   "height": 212,
+   "text": "## 6a. Triangle budget\n`performanceBudget.targetTriangles` picks a tessellation tier (low 6k, standard 60k, else hero). Fine tuning: `geometryDescriptor.decimate {targetRatio}` before skin binding. Refused on authored UVs."
+  },
+  {
+   "id": "953f48f1a09f76b5",
+   "type": "text",
+   "x": 1580,
+   "y": 60,
+   "width": 440,
+   "height": 131,
+   "text": "## 7. Render + screenshot\nBrowser/preview render of the current pass at a review viewpoint."
+  },
+  {
+   "id": "0fd630f1f29d0da9",
+   "type": "text",
+   "x": 1580,
+   "y": 216,
+   "width": 440,
+   "height": 212,
+   "text": "## 7a. Off-axis and placement gates\nOne viewpoint is not evidence. Turntable gate (4 azimuths), `self_intersection.py`, `attachment_anchor.py`. Exit 0 clean / 1 fail / 2 error. A failure blocks `continue`."
+  },
+  {
+   "id": "95e60af593bd04cf",
+   "type": "text",
+   "x": 1580,
+   "y": 453,
+   "width": 440,
+   "height": 239,
+   "text": "## 8. Deterministic gates BEFORE AI vision\nSee the deep dive below. `diagnose_render.py --in-place` (Tier 1), multi-angle for non-planar forms, then `orchestrate_passes.py check`. Tier 2 never runs on a render that failed Tier 1.",
+   "color": "1"
+  },
+  {
+   "id": "0cb1e29c658cda14",
+   "type": "text",
+   "x": 1580,
+   "y": 717,
+   "width": 440,
+   "height": 185,
+   "text": "## 9. Comparison sheet\n`make_comparison_sheet.py --reference img --render shot --out cmp.png`. Inspect once with agent vision, score global image, layers and each selected feature."
+  },
+  {
+   "id": "3898d190f9ebdacc",
+   "type": "text",
+   "x": 1580,
+   "y": 927,
+   "width": 440,
+   "height": 212,
+   "text": "## 10. Record review\n`append_review.py` with fidelity, action, summary, screenshot, comparison sheet, AI vision score, layer + feature scores. Domain review report attached if a plugin has one."
+  },
+  {
+   "id": "2217beaddbc496cb",
+   "type": "text",
+   "x": 2100,
+   "y": 60,
+   "width": 440,
+   "height": 320,
+   "text": "## Decision (exactly one)\n`continue` pass and unlock next\n`refine-spec` spec wrong/missing/shallow\n`refine-code` spec fine, geometry/material wrong\n`request-input` image hides geometry\n`stop` target reached or needs non-procedural work\nLimits: 3 corrections per pass, 6 total = hard stop.",
+   "color": "3"
+  },
+  {
+   "id": "6b4cb2424a23d596",
+   "type": "text",
+   "x": 2100,
+   "y": 405,
+   "width": 440,
+   "height": 158,
+   "text": "## 11. Sync + re-gate\n`orchestrate_passes.py sync --in-place`, then `next.py` again. Record checklist evidence."
+  },
+  {
+   "id": "8a6a63ec24ede6a4",
+   "type": "text",
+   "x": 2100,
+   "y": 588,
+   "width": 440,
+   "height": 239,
+   "text": "## 12. Completion\n`check_part_coverage.py --spec --manifest parts.json`. Every model must be explodable AND clickable. Proves you built what you specified, never that you specified enough. Mark part-coverage and action-ready with evidence."
+  },
+  {
+   "id": "ae97ba94d0eda82f",
+   "type": "text",
+   "x": 20,
+   "y": 1921,
+   "width": 480,
+   "height": 212,
+   "text": "## What step 8 is\nThe cheap, zero-token, deterministic referee that runs BEFORE any AI vision judgment. Rule: Tier 2 (AI vision) never runs on a render that has not passed Tier 1. `orchestrate_passes.py check` refuses otherwise.",
+   "color": "1"
+  },
+  {
+   "id": "1a61dbe22e44158b",
+   "type": "text",
+   "x": 580,
+   "y": 1921,
+   "width": 480,
+   "height": 185,
+   "text": "## 8a. diagnose_render.py\nTier 1. Silhouette IoU, proportion, symmetry, per-part colour. Record with `--spec spec.json --pass-id <pass> --in-place` so the result lives in the spec."
+  },
+  {
+   "id": "923a736994e3bf91",
+   "type": "text",
+   "x": 1140,
+   "y": 1921,
+   "width": 480,
+   "height": 239,
+   "text": "## 8b. Multi-angle\n`diagnose_render_multi_angle.py`: fixed view + at least 2 orbit views for non-planar forms. Flags `degenerate-view` when an orbited silhouette collapses (a flat plane faking a volume). Orbits are scored reference-free, by self-consistency."
+  },
+  {
+   "id": "301850c5a38fd547",
+   "type": "text",
+   "x": 20,
+   "y": 2158,
+   "width": 480,
+   "height": 293,
+   "text": "## 8c. Divine Eye\n`divine_eye.py`: zero-token ensemble. HARD: IoU, scale. Soft: proportion, symmetry, pHash, SSIM, edges, blowout, tonal. Routes to continue / refine-spec / refine-code / probe. VLM is last layer: never consulted on a hard fail, voted over samples, can rescue a near-threshold soft reject, never a hard geometric fail."
+  },
+  {
+   "id": "18f135d25f557203",
+   "type": "text",
+   "x": 580,
+   "y": 2131,
+   "width": 480,
+   "height": 239,
+   "text": "## 8d. Interior difference\n`interior_difference.py` per visual pass. Silhouette IoU only sees about 11% of figure cells (the outline). A finished face and the same model with the face DELETED both scored 0.8803. Never optimise a loop on outline metrics for interior work. Reports `cellsCompared`."
+  },
+  {
+   "id": "b64ce4228c38fb29",
+   "type": "text",
+   "x": 1140,
+   "y": 2185,
+   "width": 480,
+   "height": 212,
+   "text": "## 8e. Other hard gates\nChirality (-l/-r must MIRROR, spec time). Scalp exposure (hair, geometric, before render). Region/vertex gates for flat colour boundaries. `swept_arc_gate` for curve claims. Rig payload validation for characters."
+  },
+  {
+   "id": "907a70c31012f037",
+   "type": "text",
+   "x": 20,
+   "y": 2476,
+   "width": 480,
+   "height": 266,
+   "text": "## Photo vs procedural caveat\nSSIM and edge overlap vs a photo are dominated by framing, background, scale, lighting. Do NOT chase the global score. Trust palette DeltaE, pHash, part presence; IoU only after scale + translation alignment. Objectness signal downgrades a framing-only reject to `probe`, never an auto-pass."
+  },
+  {
+   "id": "9e7769b10f4205b4",
+   "type": "text",
+   "x": 580,
+   "y": 2395,
+   "width": 480,
+   "height": 239,
+   "text": "## Passing is not done\n2D gates are blind to 3D realism: edge sharpness, cross-section, bevel/grind, material response. Fidelity 0.83 can still read as a flat toy at three-quarter view. Always judge a three-quarter render and say what the gate does NOT measure.",
+   "color": "1"
+  },
+  {
+   "id": "7f15052434b9b5df",
+   "type": "text",
+   "x": 1140,
+   "y": 2422,
+   "width": 480,
+   "height": 239,
+   "text": "## Outputs and routing\nHard-gate fail routes to `refine-code`. Repeated defects / oscillation route to `refine-spec`. `correction_loop.py` ends on success, repeated-defect, oscillation, plateau or hard ceiling, then `request-input`. Pass: go to step 9 (comparison sheet)."
+  },
+  {
+   "id": "881ed162ae2eb154",
+   "type": "text",
+   "x": 20,
+   "y": 2977,
+   "width": 440,
+   "height": 482,
+   "text": "- State file is the checklist authority, never chat\n- Obey every hard stop\n- Never skip a step silently (skip needs --reason)\n- Scripts never SCORE visuals, agent vision does\n- Never claim done when only improved\n- State approximate/stylized/low-poly explicitly\n- Every model ships explodable AND clickable\n- Left/right = mirror (-x only), not rotation\n- Hair roots bind to scalp (u,v), plane-card banned"
+  },
+  {
+   "id": "7731af10506bf2ef",
+   "type": "text",
+   "x": 580,
+   "y": 2977,
+   "width": 440,
+   "height": 455,
+   "text": "- `generic`: any object\n- `character`: landmarks, head before hair, anatomy gates\n- `animated-character`: + Stage R animation gates (G1 binding delta). Pick when the rig must MOVE\n- Domain plugins (e.g. cs2) raise quality floors, never lower\n- GLB-mediated v2 track: probe_glb, render-profile.v2, 6 passes per view, ONE correction group per loop: camera, silhouette, face, clothing, accessory, materials, lighting\n- Optional Python render bridge for evidence; browser Three.js stays the renderer"
+  },
+  {
+   "id": "5c90a9587403e430",
+   "type": "text",
+   "x": 1140,
+   "y": 2977,
+   "width": 440,
+   "height": 374,
+   "text": "- Analysis-only: verdict, hierarchy, geometry + material plan, risks\n- Implementation: brief plan, edit code, typecheck + screenshot\n- Not feasible: name the blocker, ask for more views. 'Cannot reach this fidelity from this image' is valid\n- Fidelity scale: 0.2 placeholder, 0.4 silhouette, 0.6 macro+meso, 0.75 reads right, 0.85 strong, 0.95 near-reference (needs multi-view)\n- No 0.9+ from one ambiguous image"
+  },
+  {
+   "id": "2e05319acb5c7427",
+   "type": "text",
+   "x": 0,
+   "y": -260,
+   "width": 1500,
+   "height": 190,
+   "color": "6",
+   "text": "# img2threejs workflow\nReference image to procedural, code-only Three.js model. Sculpt in locked passes, verify every pass against the photo, self-correct with bounded loops.\n**Read left to right A to E. Red = step 8. The state file `.img2threejs/state.json` governs every step; chat is never the source.**"
+  }
+ ],
+ "edges": [
+  {
+   "id": "c7a2ea20b2f14c94",
+   "fromNode": "f2a74de452e6b438",
+   "toNode": "6513270e269e0d37",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "14f4733f3e7d1bfb",
+   "fromNode": "6513270e269e0d37",
+   "toNode": "0c5c7fd0a6a3a450",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "4cdd2055930d6eaf",
+   "fromNode": "0c5c7fd0a6a3a450",
+   "toNode": "d23f0824128b2f33",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "7ebff20686734721",
+   "fromNode": "d23f0824128b2f33",
+   "toNode": "9531985d5d9dc9f8",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "57ee05cde00902c7",
+   "fromNode": "9531985d5d9dc9f8",
+   "toNode": "e8e25d940ed90475",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "72e6cc3ababced20",
+   "fromNode": "e8e25d940ed90475",
+   "toNode": "36f675cc81e74ef5",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "9be4bcfc49b64a08",
+   "fromNode": "36f675cc81e74ef5",
+   "toNode": "1600a35a099950d8",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "12bd4acefaecbd38",
+   "fromNode": "1600a35a099950d8",
+   "toNode": "6b0d549b6f03675a",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "830e07bc1e398f10",
+   "fromNode": "6b0d549b6f03675a",
+   "toNode": "3d9c172411e20b8f",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "2a3af4d46b0a18e8",
+   "fromNode": "3d9c172411e20b8f",
+   "toNode": "8d116ece1738f7d9",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "5790f82ec1d3fcff",
+   "fromNode": "8d116ece1738f7d9",
+   "toNode": "90c192cfd3ac94af",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "eeeacbe226e87555",
+   "fromNode": "90c192cfd3ac94af",
+   "toNode": "f28c105d1fb17c23",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "6bf46c697d2caf82",
+   "fromNode": "f28c105d1fb17c23",
+   "toNode": "953f48f1a09f76b5",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "f646e1f40a097c97",
+   "fromNode": "953f48f1a09f76b5",
+   "toNode": "0fd630f1f29d0da9",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "13deef86ab1031d0",
+   "fromNode": "0fd630f1f29d0da9",
+   "toNode": "95e60af593bd04cf",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "8ede0d7ac3baea9e",
+   "fromNode": "95e60af593bd04cf",
+   "toNode": "0cb1e29c658cda14",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "ca02135e92b1d3f2",
+   "fromNode": "0cb1e29c658cda14",
+   "toNode": "3898d190f9ebdacc",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "d17f9acae01f5057",
+   "fromNode": "3898d190f9ebdacc",
+   "toNode": "2217beaddbc496cb",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "571242425051c1cc",
+   "fromNode": "2217beaddbc496cb",
+   "toNode": "6b4cb2424a23d596",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "label": "continue"
+  },
+  {
+   "id": "59a54a7bb1fee08f",
+   "fromNode": "6b4cb2424a23d596",
+   "toNode": "8a6a63ec24ede6a4",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "7f26144b98289fcd",
+   "fromNode": "2217beaddbc496cb",
+   "fromSide": "top",
+   "toNode": "90c192cfd3ac94af",
+   "toSide": "top",
+   "label": "refine-code / refine-spec (max 3 per pass)",
+   "color": "1"
+  },
+  {
+   "id": "cc011cdd9474031b",
+   "fromNode": "95e60af593bd04cf",
+   "fromSide": "bottom",
+   "toNode": "ae97ba94d0eda82f",
+   "toSide": "top",
+   "label": "expanded below",
+   "color": "1"
+  },
+  {
+   "id": "119a72d174c9df6a",
+   "fromNode": "7f15052434b9b5df",
+   "fromSide": "right",
+   "toNode": "0cb1e29c658cda14",
+   "toSide": "bottom",
+   "label": "pass",
+   "color": "4"
+  }
+ ]
+}

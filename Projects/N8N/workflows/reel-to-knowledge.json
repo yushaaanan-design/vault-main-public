@@ -1,0 +1,1824 @@
+{
+  "name": "Reel to Knowledge",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## 1 · Intake and normalise\n\nThe bot receives *anything*: a forwarded reel, a link, a screenshot, or typed text.\n\n**Config** is the only node you edit to retune this workflow - paths, model, base URL, limits.\n\n**Normalise Input** collapses every possible Telegram message into one flat shape\n(`input_type`, `work_dir`, `telegram_file_id`, `source_url`, ...). Nothing after this node\never reads `$json.message` again - it reads `$('Normalise Input')`.\n\n`work_dir` contains a random run id, so two reels arriving at the same second\ncannot overwrite each other.",
+        "width": 660,
+        "height": 420,
+        "color": 7
+      },
+      "id": "nd-001",
+      "name": "Note: 1 · Intake and normalise",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1180,
+        -180
+      ]
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {
+          "download": false
+        }
+      },
+      "id": "nd-002",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1140,
+        300
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      },
+      "webhookId": "reel-to-knowledge-webhook"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-Config-0",
+              "name": "llm_base_url",
+              "value": "https://generativelanguage.googleapis.com/v1beta/openai",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-1",
+              "name": "llm_model",
+              "value": "gemini-2.5-flash",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-2",
+              "name": "work_root",
+              "value": "/tmp/reels",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-3",
+              "name": "vault_repo",
+              "value": "/opt/vault",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-4",
+              "name": "vault_dir",
+              "value": "Codebase and learning/Inbox",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-5",
+              "name": "whisper_bin",
+              "value": "/opt/whisper.cpp/build/bin/whisper-cli",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-6",
+              "name": "whisper_model",
+              "value": "/opt/whisper.cpp/models/ggml-base.en.bin",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-7",
+              "name": "max_frames",
+              "value": 8,
+              "type": "number"
+            },
+            {
+              "id": "asg-Config-8",
+              "name": "frame_every_seconds",
+              "value": 3,
+              "type": "number"
+            },
+            {
+              "id": "asg-Config-9",
+              "name": "max_download_mb",
+              "value": 60,
+              "type": "number"
+            },
+            {
+              "id": "asg-Config-10",
+              "name": "min_confidence",
+              "value": 0.55,
+              "type": "number"
+            },
+            {
+              "id": "asg-Config-11",
+              "name": "ytdlp_extra",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-12",
+              "name": "git_user",
+              "value": "n8n reel bot",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-13",
+              "name": "git_email",
+              "value": "n8n@localhost",
+              "type": "string"
+            },
+            {
+              "id": "asg-Config-14",
+              "name": "git_branch",
+              "value": "main",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-003",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -920,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// Turn any Telegram message into ONE shape the rest of the workflow can rely on.\n// Nothing downstream should ever read $json.message again - it reads this node instead.\nconst cfg = $('Config').first().json;\nconst msg = $('Telegram Trigger').first().json.message || {};\n\nconst VIDEO_HOSTS = [\n  'instagram.com', 'instagr.am', 'youtube.com', 'youtu.be',\n  'tiktok.com', 'vm.tiktok.com', 'facebook.com', 'fb.watch', 'x.com', 'twitter.com',\n];\n\nconst text = (msg.text || msg.caption || '').trim();\n\n// Telegram Bot API refuses to serve files bigger than 20 MB.\nconst TG_LIMIT = 20 * 1024 * 1024;\n\n// A unique run id: message id + epoch + random. Two reels arriving at once cannot collide.\nconst runId = [\n  msg.message_id || 0,\n  Date.now(),\n  Math.random().toString(36).slice(2, 8),\n].join('-').replace(/[^A-Za-z0-9_-]/g, '');\n\nconst out = {\n  run_id: runId,\n  work_dir: cfg.work_root + '/' + runId,\n  chat_id: (msg.chat && msg.chat.id) || null,\n  message_id: msg.message_id || null,\n  user_text: text,\n  input_type: 'text',      // video | photo | link | text | error\n  telegram_file_id: null,\n  source_url: '',\n  error_message: '',\n};\n\n// --- find a usable URL in the text, and refuse anything shell-unsafe -------------\n// The URL is interpolated into a single-quoted shell argument for yt-dlp, so a\n// single quote, backslash or whitespace would break out of the quoting. Reject those\n// outright instead of trying to escape them.\nconst urlMatch = text.match(/https?:\\/\\/[^\\s]+/i);\nlet url = urlMatch ? urlMatch[0].replace(/[).,]+$/, '') : '';\nlet urlHost = '';\nlet urlUnsafe = false;\nif (url) {\n  if (/['\"\\\\\\x60$;|&<>\\s]/.test(url)) { urlUnsafe = true; }\n  try { urlHost = new URL(url).hostname.replace(/^www\\./, ''); } catch (e) { url = ''; }\n}\nconst isVideoLink = !!url && VIDEO_HOSTS.some((h) => urlHost === h || urlHost.endsWith('.' + h));\n\n// --- decide the branch ----------------------------------------------------------\nconst videoPart =\n  msg.video ||\n  msg.animation ||\n  (msg.document && /^video\\//.test(msg.document.mime_type || '') ? msg.document : null) ||\n  (msg.video_note || null);\n\nif (videoPart) {\n  out.input_type = 'video';\n  out.telegram_file_id = videoPart.file_id;\n  out.source_url = url || 'telegram:' + videoPart.file_id;\n  if ((videoPart.file_size || 0) > TG_LIMIT) {\n    out.input_type = 'error';\n    out.error_message =\n      'That video is ' + Math.round((videoPart.file_size || 0) / 1048576) + ' MB. Telegram bots can only ' +\n      'download files up to 20 MB. Send the reel as a LINK instead and yt-dlp will fetch it.';\n  }\n} else if (Array.isArray(msg.photo) && msg.photo.length) {\n  // photo is an array of sizes, last entry is the largest\n  out.input_type = 'photo';\n  out.telegram_file_id = msg.photo[msg.photo.length - 1].file_id;\n  out.source_url = url || 'telegram-photo';\n} else if (msg.document && /^image\\//.test(msg.document.mime_type || '')) {\n  out.input_type = 'photo';\n  out.telegram_file_id = msg.document.file_id;\n  out.source_url = url || 'telegram-photo';\n} else if (urlUnsafe) {\n  out.input_type = 'error';\n  out.error_message = 'That link contains characters I will not pass to a shell (quote, backslash, ;, &, |, $). Send a plain URL.';\n} else if (isVideoLink) {\n  out.input_type = 'link';\n  out.source_url = url;\n} else if (text) {\n  // plain text, or a URL that is not a known video host: still worth classifying\n  out.input_type = 'text';\n  out.source_url = url || '';\n} else {\n  out.input_type = 'error';\n  out.error_message = 'I got a message with no video, no photo, no link and no text. Nothing to work with.';\n}\n\nif (!out.chat_id) {\n  out.input_type = 'error';\n  out.error_message = 'No chat id on that update - cannot reply. Check the trigger is set to \"message\".';\n}\n\nreturn [{ json: out }];"
+      },
+      "id": "nd-004",
+      "name": "Normalise Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -700,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=mkdir -p '{{ $('Normalise Input').item.json.work_dir }}' && echo '{{ $('Normalise Input').item.json.work_dir }}'"
+      },
+      "id": "nd-005",
+      "name": "Make Work Dir",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        300
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-001",
+                    "leftValue": "={{ $('Normalise Input').item.json.input_type }}",
+                    "rightValue": "video",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "video"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-002",
+                    "leftValue": "={{ $('Normalise Input').item.json.input_type }}",
+                    "rightValue": "photo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "photo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-003",
+                    "leftValue": "={{ $('Normalise Input').item.json.input_type }}",
+                    "rightValue": "link",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "link"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-004",
+                    "leftValue": "={{ $('Normalise Input').item.json.input_type }}",
+                    "rightValue": "text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "text"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-005",
+                    "leftValue": "={{ $('Normalise Input').item.json.input_type }}",
+                    "rightValue": "error",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "error"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "id": "nd-006",
+      "name": "Route By Input Type",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -260,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 2 · Acquire the media\n\n**Uploaded video** -> Telegram `file:get` (binary) -> written to disk. Bot API caps\ndownloads at 20 MB, which `Normalise Input` already checks for.\n\n**Link** -> `yt-dlp`. Handles Instagram reels/posts/TV, YouTube Shorts, TikTok and more.\nIt is allowed to fail: `Download OK?` inspects the exit code instead of the node throwing,\nso a private or deleted post produces a Telegram reply, not a dead execution.\n\nBoth paths end with `video.mp4` inside `work_dir`, then meet at **Media Ready**.",
+        "width": 620,
+        "height": 360,
+        "color": 4
+      },
+      "id": "nd-007",
+      "name": "Note: 2 · Acquire the media",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        -400
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "fileId": "={{ $('Normalise Input').item.json.telegram_file_id }}",
+        "download": true
+      },
+      "id": "nd-008",
+      "name": "Download Telegram Video",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        60
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Normalise Input').item.json.work_dir }}/video.mp4",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "id": "nd-009",
+      "name": "Save Video To Disk",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        60
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=set -e\nD='{{ $('Normalise Input').item.json.work_dir }}'\ncd \"$D\"\nyt-dlp --no-playlist --no-warnings --no-progress --no-part \\\n  --max-filesize {{ $('Config').item.json.max_download_mb }}M \\\n  -S \"res:720,ext:mp4:m4a\" --merge-output-format mp4 \\\n  {{ $('Config').item.json.ytdlp_extra }} \\\n  -o 'src.%(ext)s' -- '{{ $('Normalise Input').item.json.source_url }}' 2>&1 | tail -n 8\nf=$(ls -1 src.* 2>/dev/null | head -n 1)\nif [ -z \"$f\" ]; then echo \"yt-dlp produced no file (private, removed, rate-limited, or over the size cap)\"; exit 1; fi\nmv -- \"$f\" video.mp4\necho \"downloaded $(du -h video.mp4 | cut -f1)\""
+      },
+      "id": "nd-010",
+      "name": "yt-dlp Download",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        240
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-006",
+              "leftValue": "={{ $json.exitCode }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "nd-011",
+      "name": "Download OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        240,
+        240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "nd-012",
+      "name": "Media Ready",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        500,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 3 · Understand the video\n\n`ffmpeg` pulls a 16 kHz mono wav; `whisper.cpp` transcribes it locally (free, no API).\n\nBoth nodes are allowed to fail softly. A reel with **no speech** yields an empty\ntranscript and the run continues on frames alone - that is the common case, not an error.\n\n`Extract Frames` samples 1 frame every `frame_every_seconds`, caps at `max_frames`,\nscales to 512 px, and base64-encodes them to stdout - one frame per line. That keeps the\nimages entirely inside the item stream; no extra binary plumbing.",
+        "width": 620,
+        "height": 360,
+        "color": 5
+      },
+      "id": "nd-013",
+      "name": "Note: 3 · Understand the video",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        660,
+        -400
+      ]
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=D='{{ $('Normalise Input').item.json.work_dir }}'\ncd \"$D\" || exit 1\nif [ ! -f video.mp4 ]; then echo \"video.mp4 missing\"; exit 1; fi\nffmpeg -y -loglevel error -i video.mp4 -vn -ac 1 -ar 16000 audio.wav 2>&1 | tail -n 3\nif [ -f audio.wav ]; then echo \"audio ok\"; else echo \"no audio stream in this video\"; fi\nexit 0"
+      },
+      "id": "nd-014",
+      "name": "Extract Audio",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        720,
+        140
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=D='{{ $('Normalise Input').item.json.work_dir }}'\nW='{{ $('Config').item.json.whisper_bin }}'\nM='{{ $('Config').item.json.whisper_model }}'\nif [ -f \"$D/audio.wav\" ] && [ -x \"$W\" ]; then\n  \"$W\" -m \"$M\" -f \"$D/audio.wav\" -nt -otxt -of \"$D/transcript\" >/dev/null 2>&1 || true\nfi\nif [ -f \"$D/transcript.txt\" ]; then cat \"$D/transcript.txt\"; fi\nexit 0"
+      },
+      "id": "nd-015",
+      "name": "Transcribe Audio",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        940,
+        140
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=D='{{ $('Normalise Input').item.json.work_dir }}'\ncd \"$D\" || exit 1\nffmpeg -y -loglevel error -i video.mp4 \\\n  -vf \"fps=1/{{ $('Config').item.json.frame_every_seconds }},scale=512:-2\" \\\n  -frames:v {{ $('Config').item.json.max_frames }} -q:v 4 'frame_%02d.jpg' >/dev/null 2>&1 || true\nfor f in frame_*.jpg; do\n  [ -f \"$f\" ] || continue\n  base64 -w 0 \"$f\"\n  echo \"\"\ndone\nexit 0"
+      },
+      "id": "nd-016",
+      "name": "Extract Frames",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        140
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-VideoBundle-0",
+              "name": "transcript",
+              "value": "={{ $('Transcribe Audio').item.json.stdout }}",
+              "type": "string"
+            },
+            {
+              "id": "asg-VideoBundle-1",
+              "name": "frames_b64",
+              "value": "={{ $json.stdout }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-017",
+      "name": "Video Bundle",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1380,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 4 · Screenshots and plain text\n\nA **photo** has no audio and no motion, so it skips ffmpeg/whisper entirely: download,\nsave as `frame_01.jpg`, base64 it, empty transcript. The vision model does the rest.\n\n**Plain text** skips media altogether - the typed text becomes the \"transcript\" and gets\nclassified and filed just like a reel. Typing \"try htmx on the Fable admin\" files a to-do.\n\nAll three paths converge on the same shape: `{ transcript, frames_b64 }`.",
+        "width": 620,
+        "height": 320,
+        "color": 6
+      },
+      "id": "nd-018",
+      "name": "Note: 4 · Screenshots and plain text",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "fileId": "={{ $('Normalise Input').item.json.telegram_file_id }}",
+        "download": true
+      },
+      "id": "nd-019",
+      "name": "Download Telegram Photo",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -40,
+        900
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Normalise Input').item.json.work_dir }}/frame_01.jpg",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "id": "nd-020",
+      "name": "Save Photo To Disk",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        900
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=D='{{ $('Normalise Input').item.json.work_dir }}'\nif [ -f \"$D/frame_01.jpg\" ]; then base64 -w 0 \"$D/frame_01.jpg\"; echo \"\"; fi\nexit 0"
+      },
+      "id": "nd-021",
+      "name": "Encode Photo",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        500,
+        900
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-PhotoBundle-0",
+              "name": "transcript",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "asg-PhotoBundle-1",
+              "name": "frames_b64",
+              "value": "={{ $json.stdout }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-022",
+      "name": "Photo Bundle",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-TextBundle-0",
+              "name": "transcript",
+              "value": "={{ $('Normalise Input').item.json.user_text }}",
+              "type": "string"
+            },
+            {
+              "id": "asg-TextBundle-1",
+              "name": "frames_b64",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-023",
+      "name": "Text Bundle",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 5 · Classify with a free LLM (the routing brain)\n\n**Default: Google Gemini 2.5 Flash on the free tier** - native vision, free, and it speaks\nthe OpenAI chat/completions dialect, so the request body is provider-neutral.\n\n**To swap provider, change TWO things in the Config node and ONE credential:**\n| provider | llm_base_url | llm_model |\n|---|---|---|\n| Gemini (default) | `https://generativelanguage.googleapis.com/v1beta/openai` | `gemini-2.5-flash` |\n| Groq | `https://api.groq.com/openai/v1` | `meta-llama/llama-4-scout-17b-16e-instruct` |\n| OpenRouter | `https://openrouter.ai/api/v1` | `google/gemini-2.0-flash-exp:free` |\n| Ollama (same VPS) | `http://127.0.0.1:11434/v1` | `llama3.2-vision` |\n\nThe credential is a generic **Header Auth**: `Authorization: Bearer <key>`. Same node works\nfor all four. `Classify` never throws: `neverError` + `fullResponse` hand the status code to\n`Parse Classification`, which strips fences, retries the widest `{...}` span, coerces every\nfield, and forces low-confidence results to the to-do path flagged `#needs-review`.",
+        "width": 700,
+        "height": 480,
+        "color": 3
+      },
+      "id": "nd-024",
+      "name": "Note: 5 · Classify with a free LLM (the routing brain)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1620,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// Build ONE OpenAI-compatible chat/completions body: transcript + frames in a single call.\n// Because the body is OpenAI-shaped, swapping provider = change the Header Auth credential\n// + llm_base_url + llm_model in the Config node. Nothing here changes.\nconst cfg = $('Config').first().json;\nconst norm = $('Normalise Input').first().json;\nconst inp = $input.first().json;\n\nconst transcript = (inp.transcript || '').trim().slice(0, 6000);\nconst frames = (inp.frames_b64 || '')\n  .split('\\n')\n  .map((s) => s.trim())\n  .filter((s) => s.length > 100)     // drop blank / truncated lines\n  .slice(0, Number(cfg.max_frames) || 8);\n\nconst SCHEMA = [\n  '{',\n  '  \"category\": \"skill\" | \"todo\" | \"design\" | \"reference\" | \"discard\",',\n  '  \"title\": \"short title, max 80 chars\",',\n  '  \"summary\": \"2-4 sentences\",',\n  '  \"key_points\": [\"...\"],',\n  '  \"actions\": [\"imperative steps the owner should take, may be empty\"],',\n  '  \"install_command\": \"exact command or repo URL if one is visible, else empty string\",',\n  '  \"confidence\": 0.0,',\n  '  \"tags\": [\"lowercase-kebab\"],',\n  '  \"source_url\": \"...\",',\n  '  \"needs_review\": false',\n  '}',\n].join('\\n');\n\nconst system = [\n  'You triage short videos, screenshots and notes into a personal knowledge system.',\n  'You receive an optional speech transcript, optional sampled video frames, and the text the owner typed.',\n  '',\n  'Categories:',\n  '- \"skill\": describes a Claude Code skill/plugin/MCP server/CLI tool the owner could install or use.',\n  '- \"todo\": an action the owner should take later (a technique to try, a procedure to run, a thing to buy/read).',\n  '- \"design\": a fashion, brand, typography, UI or visual reference. Capture the VISUAL takeaways.',\n  '- \"reference\": genuinely worth keeping but there is nothing to do with it.',\n  '- \"discard\": noise, engagement bait, or nothing intelligible could be extracted.',\n  '',\n  'Rules:',\n  '- Reply with ONE JSON object and nothing else. No markdown fences, no prose.',\n  '- Never invent an install_command. If no command or repo URL is actually visible or spoken, use \"\".',\n  '- confidence is your own honest 0-1 estimate that the category is right.',\n  '- Set needs_review true if the input was too thin to judge, or the category was a coin flip.',\n  '- If frames are present, read on-screen text out of them; many reels are visual-only.',\n  '',\n  'Exact shape:',\n  SCHEMA,\n].join('\\n');\n\nconst userParts = [];\nuserParts.push({\n  type: 'text',\n  text: [\n    'source_url: ' + (norm.source_url || '(none)'),\n    'input_type: ' + norm.input_type,\n    '',\n    'owner typed:',\n    norm.user_text || '(nothing)',\n    '',\n    'speech transcript (' + (transcript ? transcript.length + ' chars' : 'NO SPEECH DETECTED') + '):',\n    transcript || '(silent, or speech could not be transcribed - rely on the frames)',\n    '',\n    frames.length\n      ? frames.length + ' frames sampled from the video follow, in order.'\n      : 'No frames available for this input.',\n  ].join('\\n'),\n});\nfor (const b64 of frames) {\n  userParts.push({ type: 'image_url', image_url: { url: 'data:image/jpeg;base64,' + b64 } });\n}\n\nconst body = {\n  model: cfg.llm_model,\n  temperature: 0.2,\n  max_tokens: 1200,\n  response_format: { type: 'json_object' },   // JSON mode: Gemini / Groq / OpenRouter all honour this\n  messages: [\n    { role: 'system', content: system },\n    { role: 'user', content: userParts },\n  ],\n};\n\nreturn [{ json: { body, frame_count: frames.length, transcript_chars: transcript.length } }];"
+      },
+      "id": "nd-025",
+      "name": "Build LLM Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1660,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').item.json.llm_base_url }}/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}",
+        "options": {
+          "timeout": 180000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true
+            }
+          }
+        }
+      },
+      "id": "nd-026",
+      "name": "Classify",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1880,
+        400
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_YOUR_HEADER_AUTH_CRED_ID",
+          "name": "LLM Provider (Header Auth)"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "\n// One job: turn whatever the provider returned into a trustworthy object, or say it failed.\n// Handles: HTTP error, empty choices, markdown-fenced JSON, JSON with prose around it.\nconst norm = $('Normalise Input').first().json;\nconst res = $input.first().json || {};\n\nconst fail = (why, detail) => [{\n  json: { parse_failed: true, failure_stage: 'classify', failure_reason: why, failure_detail: String(detail || '').slice(0, 600) },\n}];\n\nconst status = res.statusCode;\nconst payload = res.body !== undefined ? res.body : res;\n\nif (res.error && status === undefined) return fail('The LLM request never completed.', JSON.stringify(res.error));\nif (typeof status === 'number' && (status < 200 || status >= 300)) {\n  return fail('The LLM API returned HTTP ' + status + '.', typeof payload === 'string' ? payload : JSON.stringify(payload));\n}\n\nlet raw = '';\ntry {\n  raw = payload.choices[0].message.content;\n  if (Array.isArray(raw)) raw = raw.map((p) => p.text || '').join('');\n} catch (e) {\n  return fail('The response had no choices[0].message.content.', JSON.stringify(payload));\n}\nif (!raw || !String(raw).trim()) return fail('The model returned an empty message.', JSON.stringify(payload).slice(0, 400));\n\n// --- repair path: strip fences, then fall back to the widest {...} span ---------\nlet parsed = null;\nconst attempts = [];\nattempts.push(String(raw).trim());\nattempts.push(String(raw).replace(/^\\s*```(?:json)?/i, '').replace(/```\\s*$/, '').trim());\nconst first = String(raw).indexOf('{');\nconst last = String(raw).lastIndexOf('}');\nif (first !== -1 && last > first) attempts.push(String(raw).slice(first, last + 1));\n\nfor (const a of attempts) {\n  try { const p = JSON.parse(a); if (p && typeof p === 'object') { parsed = p; break; } } catch (e) { /* next */ }\n}\nif (!parsed) return fail('The model did not return parseable JSON, even after repair.', raw);\n\n// --- validate / coerce every field so downstream nodes cannot crash -------------\nconst ALLOWED = ['skill', 'todo', 'design', 'reference', 'discard'];\nconst arr = (v) => (Array.isArray(v) ? v.map((x) => String(x)).filter(Boolean) : v ? [String(v)] : []);\nconst MIN_CONFIDENCE = Number($('Config').first().json.min_confidence) || 0.55;\n\nlet category = String(parsed.category || '').toLowerCase().trim();\nlet confidence = Number(parsed.confidence);\nif (!isFinite(confidence)) confidence = 0;\nconfidence = Math.max(0, Math.min(1, confidence));\n\nlet needsReview = parsed.needs_review === true;\nconst notes = [];\n\nif (!ALLOWED.includes(category)) {\n  notes.push('model returned category \"' + category + '\", which is not one of ' + ALLOWED.join('/'));\n  category = 'todo';\n  needsReview = true;\n}\nif (confidence < MIN_CONFIDENCE && category !== 'discard') {\n  notes.push('confidence ' + confidence.toFixed(2) + ' is below the ' + MIN_CONFIDENCE + ' bar');\n  needsReview = true;\n}\n// Low confidence / flagged never guesses a destination: it lands in the to-do file flagged.\nif (needsReview && category !== 'discard' && category !== 'todo') {\n  notes.push('re-routed from \"' + category + '\" to todo for review');\n  category = 'todo';\n}\n\nreturn [{\n  json: {\n    parse_failed: false,\n    category,\n    title: String(parsed.title || 'Untitled').slice(0, 120),\n    summary: String(parsed.summary || '').slice(0, 2000),\n    key_points: arr(parsed.key_points).slice(0, 12),\n    actions: arr(parsed.actions).slice(0, 12),\n    install_command: String(parsed.install_command || '').slice(0, 400),\n    confidence,\n    tags: arr(parsed.tags).map((t) => t.toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-|-$/g, '')).filter(Boolean).slice(0, 8),\n    source_url: String(parsed.source_url || norm.source_url || ''),\n    needs_review: needsReview,\n    review_notes: notes,\n    run_id: norm.run_id,\n    input_type: norm.input_type,\n    frame_count: $('Build LLM Request').first().json.frame_count,\n    transcript_chars: $('Build LLM Request').first().json.transcript_chars,\n  },\n}];"
+      },
+      "id": "nd-027",
+      "name": "Parse Classification",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-007",
+              "leftValue": "={{ $json.parse_failed }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "nd-028",
+      "name": "Classification OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2320,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 6 · Route to one of four destinations\n\nThe four branch nodes do one thing each: pick the target note and tag the entry kind.\nAll the formatting and all the git work is shared below, so there is one copy of it.\n\n- **skill** -> `SKILLS-INBOX.md` - install command + a verification step.\n  n8n *cannot* install a Claude Code skill on your laptop. It writes a paste-ready command.\n- **todo** -> `TODO.md` - checkbox list you read each morning. Low-confidence lands here.\n- **design** -> `DESIGN.md` - visual takeaways.\n- **reference** -> `REFERENCE.md` - keep, nothing to do.\n- **discard** -> no file written, just a Telegram note so you know it was seen.",
+        "width": 640,
+        "height": 400,
+        "color": 2
+      },
+      "id": "nd-029",
+      "name": "Note: 6 · Route to one of four destinations",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2560,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-008",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "skill",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "skill"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-009",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "todo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "todo"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-010",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "design",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "design"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-011",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "reference",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "reference"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-012",
+                    "leftValue": "={{ $json.category }}",
+                    "rightValue": "discard",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "discard"
+            }
+          ]
+        },
+        "looseTypeValidation": true,
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "id": "nd-030",
+      "name": "Route Category",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2540,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-SkillBranch-0",
+              "name": "note_file",
+              "value": "={{ $('Config').item.json.vault_dir }}/SKILLS-INBOX.md",
+              "type": "string"
+            },
+            {
+              "id": "asg-SkillBranch-1",
+              "name": "entry_kind",
+              "value": "skill",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-031",
+      "name": "Skill Branch",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-TodoBranch-0",
+              "name": "note_file",
+              "value": "={{ $('Config').item.json.vault_dir }}/TODO.md",
+              "type": "string"
+            },
+            {
+              "id": "asg-TodoBranch-1",
+              "name": "entry_kind",
+              "value": "todo",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-032",
+      "name": "Todo Branch",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-DesignBranch-0",
+              "name": "note_file",
+              "value": "={{ $('Config').item.json.vault_dir }}/DESIGN.md",
+              "type": "string"
+            },
+            {
+              "id": "asg-DesignBranch-1",
+              "name": "entry_kind",
+              "value": "design",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-033",
+      "name": "Design Branch",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "manual",
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "asg-ReferenceBranch-0",
+              "name": "note_file",
+              "value": "={{ $('Config').item.json.vault_dir }}/REFERENCE.md",
+              "type": "string"
+            },
+            {
+              "id": "asg-ReferenceBranch-1",
+              "name": "entry_kind",
+              "value": "reference",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "nd-034",
+      "name": "Reference Branch",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2780,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Normalise Input').item.json.chat_id }}",
+        "text": "=[-] Looked at it, nothing worth keeping.\n\n{{ $json.title }}\n{{ $json.summary }}\n\nNothing was written to the vault. run: {{ $json.run_id }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "nd-035",
+      "name": "Discard Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2780,
+        780
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 7 · Get it into the Obsidian vault (git)\n\nThe vault lives on the **laptop**; n8n runs on the **VPS**. A VPS cannot write to\n`C:\\OBSIDIAN VAULT`. So: the vault is a private git repo, the VPS holds a clone at\n`vault_repo`, n8n appends + commits + pushes, and the **Obsidian Git plugin** on the\nlaptop pulls every few minutes.\n\nWhy git and not OneDrive/local n8n: it is the only option that survives the laptop being\noff, needs no tunnel or open port, and gives a full history plus real conflict handling.\nCost: one extra `git pull` step, and merge conflicts if you edit the same note at the\nsame second (`--autostash` + append-only writes make that very unlikely).\n\n**Security:** the model's output goes into a FILE and is appended with `cat`. It is never\ninterpolated into a shell command. The only interpolated value is `note_file`, a fixed\nstring from the four branch nodes.",
+        "width": 680,
+        "height": 460,
+        "color": 7
+      },
+      "id": "nd-036",
+      "name": "Note: 7 · Get it into the Obsidian vault (git)",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3020,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "\n// Render the markdown that gets appended to the vault note.\n// NOTE: model output is written to a FILE, never interpolated into a shell command.\n// The only thing the git node interpolates is note_file, which comes from the four\n// branch nodes above and is a fixed string I control.\nconst c = $input.first().json;\nconst norm = $('Normalise Input').first().json;\n\nconst stamp = new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC';\nconst bullets = (a) => (a.length ? a.map((x) => '- ' + x).join('\\n') : '- (none given)');\nconst flag = c.needs_review ? ' #needs-review' : '';\nconst tags = c.tags.length ? c.tags.map((t) => '#' + t).join(' ') : '';\n\nconst L = [];\nL.push('');\nL.push('---');\nL.push('');\nL.push('## ' + c.title + flag);\nL.push('');\nL.push('- **captured:** ' + stamp + '  ·  **confidence:** ' + c.confidence.toFixed(2) + '  ·  **run:** `' + c.run_id + '`');\nL.push('- **source:** ' + (c.source_url || '(sent straight to the bot, no URL)'));\nif (tags) L.push('- **tags:** ' + tags);\nif (c.review_notes && c.review_notes.length) L.push('- **why flagged:** ' + c.review_notes.join('; '));\nL.push('');\nL.push(c.summary || '(no summary)');\nL.push('');\n\nif (c.entry_kind === 'skill') {\n  L.push('### What it claims to do');\n  L.push(bullets(c.key_points));\n  L.push('');\n  L.push('### Install (paste this yourself - see below)');\n  L.push('```bash');\n  L.push(c.install_command || '# no install command was visible in the reel - open the source and find it');\n  L.push('```');\n  L.push('');\n  L.push('### Verify it actually worked');\n  L.push(bullets(c.actions.length ? c.actions : ['Run the command, then confirm the tool appears in claude plugin list or /help.', 'Use it once on a throwaway task before trusting it.']));\n  L.push('');\n  L.push('> [!warning] n8n cannot install this for you.');\n  L.push('> The pipeline runs on the VPS; Claude Code runs on your laptop. This entry is a');\n  L.push('> ready-to-paste command plus a check, nothing was installed anywhere.');\n} else if (c.entry_kind === 'design') {\n  L.push('### Visual takeaways');\n  L.push(bullets(c.key_points));\n  L.push('');\n  L.push('### Could steal for');\n  L.push(bullets(c.actions));\n} else if (c.entry_kind === 'todo') {\n  L.push('### Do');\n  L.push(c.actions.length ? c.actions.map((x) => '- [ ] ' + x).join('\\n') : '- [ ] decide what to do with this');\n  L.push('');\n  L.push('### Context');\n  L.push(bullets(c.key_points));\n} else {\n  L.push('### Key points');\n  L.push(bullets(c.key_points));\n  if (c.actions.length) { L.push(''); L.push('### Possible follow-ups'); L.push(bullets(c.actions)); }\n}\nL.push('');\n\nreturn [{\n  json: {\n    note_file: c.note_file,\n    entry_kind: c.entry_kind,\n    title: c.title,\n    category: c.category,\n    needs_review: c.needs_review,\n    confidence: c.confidence,\n    run_id: norm.run_id,\n    entry_md: L.join('\\n'),\n  },\n}];"
+      },
+      "id": "nd-037",
+      "name": "Render Entry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3060,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "entry_md",
+        "binaryPropertyName": "data",
+        "options": {
+          "fileName": "entry.md",
+          "encoding": "utf8"
+        }
+      },
+      "id": "nd-038",
+      "name": "Entry To File",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3280,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('Normalise Input').item.json.work_dir }}/entry.md",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "id": "nd-039",
+      "name": "Write Entry File",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        3500,
+        360
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=set -e\nD='{{ $('Normalise Input').item.json.work_dir }}'\nR='{{ $('Config').item.json.vault_repo }}'\nB='{{ $('Config').item.json.git_branch }}'\nF='{{ $('Render Entry').item.json.note_file }}'\ncd \"$R\"\ngit config --local user.name '{{ $('Config').item.json.git_user }}'\ngit config --local user.email '{{ $('Config').item.json.git_email }}'\ngit fetch -q origin \"$B\"\ngit checkout -q \"$B\"\ngit pull -q --rebase --autostash origin \"$B\"\nmkdir -p \"$(dirname \"$F\")\"\nif [ ! -f \"$F\" ]; then printf '# %s\\n' \"$(basename \"$F\" .md)\" > \"$F\"; fi\ncat \"$D/entry.md\" >> \"$F\"\ngit add -- \"$F\"\nif git diff --cached --quiet; then echo \"nothing changed\"; exit 0; fi\ngit commit -q -m \"reel-bot: {{ $('Normalise Input').item.json.run_id }}\"\ngit push -q origin \"$B\"\necho \"committed to $F\""
+      },
+      "id": "nd-040",
+      "name": "Commit To Vault",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        360
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cond-013",
+              "leftValue": "={{ $json.exitCode }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "nd-041",
+      "name": "Vault Write OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3940,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## 8 · Reply, then always clean up\n\nEvery path ends in a Telegram message - success, discard, or failure. Silence is a bug.\n\n**Build Failure Message** has four inputs (bad input, download failed, classifier failed,\nvault write failed) and works out which one fired from the fields on the item, so there is\none failure node instead of four.\n\n**Cleanup** has three inputs and runs on every path, including failures, so `/tmp/reels`\nnever fills up. The `case` guard means an empty expression can never turn this into\n`rm -rf /`.",
+        "width": 620,
+        "height": 380,
+        "color": 1
+      },
+      "id": "nd-042",
+      "name": "Note: 8 · Reply, then always clean up",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4160,
+        -420
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Normalise Input').item.json.chat_id }}",
+        "text": "=[ok] {{ $('Render Entry').item.json.category }}{{ $('Render Entry').item.json.needs_review ? \"  (flagged #needs-review)\" : \"\" }}\n\n{{ $('Render Entry').item.json.title }}\n\nFiled in: {{ $('Render Entry').item.json.note_file }}\nConfidence: {{ $('Render Entry').item.json.confidence }}\n\nrun: {{ $('Render Entry').item.json.run_id }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "nd-043",
+      "name": "Success Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        4180,
+        240
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// Every failure path in the workflow lands here. Work out what broke from whatever\n// fields are on the item, and write one plain-English Telegram message.\n// Four inputs feed this node, so it must not assume any particular shape.\nconst norm = $('Normalise Input').first().json;\nconst j = $input.first().json || {};\n\nconst clip = (s, n = 500) => String(s == null ? '' : s).replace(/\\s+$/,'').slice(0, n);\nlet headline = 'Something broke and I could not finish.';\nlet detail = '';\nlet hint = '';\n\n// NOTE: read error_message off Normalise Input, not off $json. An Execute Command node\n// REPLACES the item json with { exitCode, stdout, stderr }, so by the time the \"error\"\n// branch of the Switch reaches here, the normalised fields are gone from $json.\nif (norm.error_message) {\n  // Normalise Input rejected the input up front\n  headline = 'I cannot use what you sent.';\n  detail = norm.error_message;\n} else if (j.parse_failed) {\n  headline = 'The classifier failed: ' + (j.failure_reason || 'unknown reason');\n  detail = clip(j.failure_detail);\n  hint = /HTTP 4[0-9][0-9]/.test(j.failure_reason || '')\n    ? 'HTTP 4xx is usually a bad/expired API key or the wrong model name - check the Config node and the Header Auth credential.'\n    : /HTTP 429/.test(j.failure_reason || '') ? 'Rate limited. Wait a minute and resend.'\n    : 'Open the execution in n8n and look at the Classify node output.';\n} else if (j.exitCode !== undefined && j.exitCode !== 0) {\n  const out = clip(j.stderr) || clip(j.stdout);\n  if (/yt-dlp|unavailable|private|login|rate|429|Unsupported URL/i.test(out) || norm.input_type === 'link') {\n    headline = 'Download failed.';\n    hint = 'Usually: the post is private or deleted, Instagram is rate-limiting the VPS, or the URL is not supported. '\n      + 'If it is a private post, set ytdlp_extra in the Config node to --cookies /opt/n8n/cookies.txt.';\n  } else {\n    headline = 'Could not write the entry into the vault.';\n    hint = 'The git step failed. Check the vault repo on the VPS: it may need a pull, or the deploy key expired.';\n  }\n  detail = out || 'exit code ' + j.exitCode + ' with no output';\n} else if (j.error) {\n  detail = clip(typeof j.error === 'string' ? j.error : JSON.stringify(j.error));\n}\n\nconst lines = ['[x] ' + headline];\nif (detail) lines.push('', detail);\nif (hint) lines.push('', 'Likely fix: ' + hint);\nlines.push('', 'run: ' + norm.run_id + '  (temp files have been cleaned up)');\n\nreturn [{ json: { failure_text: lines.join('\\n') } }];"
+      },
+      "id": "nd-044",
+      "name": "Build Failure Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4180,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Normalise Input').item.json.chat_id }}",
+        "text": "={{ $json.failure_text }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "nd-045",
+      "name": "Fail Reply",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        4400,
+        620
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_WITH_YOUR_TELEGRAM_CRED_ID",
+          "name": "Reel Bot (Telegram)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "executeOnce": false,
+        "command": "=D='{{ $('Normalise Input').item.json.work_dir }}'\ncase \"$D\" in\n  {{ $('Config').item.json.work_root }}/?*) rm -rf -- \"$D\" ;;\n  *) echo \"refusing to delete unexpected path: $D\" ;;\nesac\nexit 0"
+      },
+      "id": "nd-046",
+      "name": "Cleanup",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        4640,
+        420
+      ],
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Normalise Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalise Input": {
+      "main": [
+        [
+          {
+            "node": "Make Work Dir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Make Work Dir": {
+      "main": [
+        [
+          {
+            "node": "Route By Input Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route By Input Type": {
+      "main": [
+        [
+          {
+            "node": "Download Telegram Video",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Telegram Photo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "yt-dlp Download",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Text Bundle",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Telegram Video": {
+      "main": [
+        [
+          {
+            "node": "Save Video To Disk",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Video To Disk": {
+      "main": [
+        [
+          {
+            "node": "Media Ready",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "yt-dlp Download": {
+      "main": [
+        [
+          {
+            "node": "Download OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download OK?": {
+      "main": [
+        [
+          {
+            "node": "Media Ready",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Media Ready": {
+      "main": [
+        [
+          {
+            "node": "Extract Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Audio": {
+      "main": [
+        [
+          {
+            "node": "Transcribe Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe Audio": {
+      "main": [
+        [
+          {
+            "node": "Extract Frames",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Frames": {
+      "main": [
+        [
+          {
+            "node": "Video Bundle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Bundle": {
+      "main": [
+        [
+          {
+            "node": "Build LLM Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Telegram Photo": {
+      "main": [
+        [
+          {
+            "node": "Save Photo To Disk",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Photo To Disk": {
+      "main": [
+        [
+          {
+            "node": "Encode Photo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Encode Photo": {
+      "main": [
+        [
+          {
+            "node": "Photo Bundle",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Photo Bundle": {
+      "main": [
+        [
+          {
+            "node": "Build LLM Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Bundle": {
+      "main": [
+        [
+          {
+            "node": "Build LLM Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build LLM Request": {
+      "main": [
+        [
+          {
+            "node": "Classify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classify": {
+      "main": [
+        [
+          {
+            "node": "Parse Classification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Classification": {
+      "main": [
+        [
+          {
+            "node": "Classification OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classification OK?": {
+      "main": [
+        [
+          {
+            "node": "Route Category",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Category": {
+      "main": [
+        [
+          {
+            "node": "Skill Branch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Todo Branch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Design Branch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Reference Branch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Discard Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skill Branch": {
+      "main": [
+        [
+          {
+            "node": "Render Entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Todo Branch": {
+      "main": [
+        [
+          {
+            "node": "Render Entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Design Branch": {
+      "main": [
+        [
+          {
+            "node": "Render Entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reference Branch": {
+      "main": [
+        [
+          {
+            "node": "Render Entry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Render Entry": {
+      "main": [
+        [
+          {
+            "node": "Entry To File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entry To File": {
+      "main": [
+        [
+          {
+            "node": "Write Entry File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Entry File": {
+      "main": [
+        [
+          {
+            "node": "Commit To Vault",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Commit To Vault": {
+      "main": [
+        [
+          {
+            "node": "Vault Write OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vault Write OK?": {
+      "main": [
+        [
+          {
+            "node": "Success Reply",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build Failure Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Success Reply": {
+      "main": [
+        [
+          {
+            "node": "Cleanup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Discard Reply": {
+      "main": [
+        [
+          {
+            "node": "Cleanup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Failure Message": {
+      "main": [
+        [
+          {
+            "node": "Fail Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fail Reply": {
+      "main": [
+        [
+          {
+            "node": "Cleanup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 900
+  }
+}

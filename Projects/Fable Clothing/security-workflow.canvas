@@ -1,0 +1,63 @@
+{
+	"nodes":[
+		{"id":"grp-customer","type":"group","x":-40,"y":-40,"width":1900,"height":480,"color":"#8A7355","label":"Customer order — every step and the guard that protects it"},
+		{"id":"grp-admin","type":"group","x":-40,"y":520,"width":1900,"height":480,"color":"#5C3A21","label":"Admin — how the founders get in, and what stops anyone else"},
+		{"id":"grp-gates","type":"group","x":-40,"y":1080,"width":1900,"height":520,"color":"1","label":"Before launch — none of these are done yet"},
+		{"id":"grp-note","type":"group","x":-40,"y":1680,"width":1900,"height":320,"color":"6","label":"Accepted for now — revisit when the store grows"},
+
+		{"id":"c1","type":"text","text":"## 1. Browse\nShopper opens the site from an Instagram ad.\n\nNothing private is involved yet.","x":0,"y":20,"width":320,"height":150,"color":"#8A7355"},
+		{"id":"c2","type":"text","text":"## 2. Cart\nThe cart lives in the browser. It stores only variant ids and quantities.\n\n**No prices are kept here.**","x":380,"y":20,"width":320,"height":150,"color":"#8A7355"},
+		{"id":"c3","type":"text","text":"## 3. Checkout\nName, mobile, address, district, payment choice.","x":760,"y":20,"width":320,"height":150,"color":"#8A7355"},
+		{"id":"c4","type":"text","text":"## 4. Order stored\nThe order is written to the store and stock comes down.","x":1140,"y":20,"width":320,"height":150,"color":"#8A7355"},
+		{"id":"c5","type":"text","text":"## 5. Confirmed by phone\nYou call before anything ships. This is also a fraud check.","x":1520,"y":20,"width":300,"height":150,"color":"#8A7355"},
+
+		{"id":"g2","type":"text","text":"**The server prices it**\nEvery quote is computed from the server's own catalogue. A price sent by the browser is never read.","x":380,"y":230,"width":320,"height":170,"color":"4"},
+		{"id":"g3","type":"text","text":"**Validated, then rate limited**\nMobile must be a real BD number. Every field has a length and a format. Forms are capped per IP.","x":760,"y":230,"width":320,"height":170,"color":"4"},
+		{"id":"g4","type":"text","text":"**One write, no overselling**\nPrice, stock check and stock decrement happen inside a single write, so two shoppers cannot take the last piece.\n\nDelivery is computed from the zone. *(Bug found and fixed 28 Sep: it was being dropped, so every order shipped free.)*","x":1140,"y":230,"width":320,"height":170,"color":"4"},
+		{"id":"g5","type":"text","text":"**Lookup needs two facts**\nTracking an order needs the order number **and** the matching phone. Rate limited, so numbers cannot be walked through.","x":1520,"y":230,"width":300,"height":170,"color":"4"},
+
+		{"id":"a1","type":"text","text":"## Admin opens /admin","x":0,"y":580,"width":320,"height":110,"color":"#5C3A21"},
+		{"id":"a2","type":"text","text":"## Types the password","x":380,"y":580,"width":320,"height":110,"color":"#5C3A21"},
+		{"id":"a3","type":"text","text":"## Gets a session cookie","x":760,"y":580,"width":320,"height":110,"color":"#5C3A21"},
+		{"id":"a4","type":"text","text":"## Reads and changes data\nOrders, stock, products, prices, settings.","x":1140,"y":580,"width":320,"height":110,"color":"#5C3A21"},
+		{"id":"a5","type":"text","text":"## Uploads a photo","x":1520,"y":580,"width":300,"height":110,"color":"#5C3A21"},
+
+		{"id":"b2","type":"text","text":"**Never stored as text**\nThe password is kept as a scrypt hash with its own salt, compared in constant time.\n\n5 wrong tries per 15 minutes and that address is locked out.","x":380,"y":740,"width":320,"height":210,"color":"4"},
+		{"id":"b3","type":"text","text":"**httpOnly and signed**\nPage scripts cannot read the cookie. The signature is keyed to the password hash, so changing the password signs out every device.","x":760,"y":740,"width":320,"height":210,"color":"4"},
+		{"id":"b4","type":"text","text":"**Two locks on every write**\nA valid session, plus the request must come from the real storefront (Origin check). A hostile site cannot make your browser change stock.\n\nOnly whitelisted fields can be written.","x":1140,"y":740,"width":320,"height":210,"color":"4"},
+		{"id":"b5","type":"text","text":"**Checked by content, not by name**\nThe file's real signature must be JPEG, PNG or WebP. Max 6 MB. Saved under a random name and served so it can never run as a script.","x":1520,"y":740,"width":300,"height":210,"color":"4"},
+
+		{"id":"k1","type":"text","text":"## Set a real admin password\n`cd server && npm run admin:password`\n\nUntil this runs, a random dev password sits in `server/data/ADMIN_DEV_PASSWORD.txt`. Delete that file afterwards.","x":0,"y":1140,"width":360,"height":200,"color":"1"},
+		{"id":"k2","type":"text","text":"## Set the production environment\n`NODE_ENV=production` so the cookie is HTTPS-only, plus a long random `ADMIN_SESSION_SECRET`.","x":420,"y":1140,"width":360,"height":200,"color":"1"},
+		{"id":"k3","type":"text","text":"## Back up the orders\n`server/data/store.json` is the only copy of every order and address. Put it on a schedule before the first real sale.","x":840,"y":1140,"width":360,"height":200,"color":"1"},
+		{"id":"k4","type":"text","text":"## Move the photos off the server disk\nUploads live in `server/uploads/`. A redeploy can lose them. Hostinger over SFTP, or object storage.","x":1260,"y":1140,"width":360,"height":200,"color":"1"},
+
+		{"id":"k5","type":"text","text":"## When payments go live\nVerify the provider's signature on the **raw** body before believing any \"payment succeeded\" callback. Make it idempotent, because providers retry. Never mark an order paid from a browser redirect.","x":0,"y":1380,"width":780,"height":180,"color":"1"},
+		{"id":"k6","type":"text","text":"## Every deploy\n`npm audit` in `client/` and `server/`. Check HTTPS is on end to end. Never paste real credentials into chat, notes or screenshots.","x":840,"y":1380,"width":780,"height":180,"color":"1"},
+
+		{"id":"n1","type":"text","text":"**One JSON file, one server.** Fine while the catalogue and order volume are small. Postgres is required before running more than one server instance.","x":0,"y":1740,"width":560,"height":200,"color":"6"},
+		{"id":"n2","type":"text","text":"**No customer accounts yet.** There is no customer login to attack. Order tracking by number plus phone is the only lookup.","x":620,"y":1740,"width":560,"height":200,"color":"6"},
+		{"id":"n3","type":"text","text":"**No gateway connected.** Nothing charges a card today. Orders are confirmed by phone, and prepaid choices wait for that call.","x":1240,"y":1740,"width":560,"height":200,"color":"6"},
+
+		{"id":"ref","type":"file","file":"Codebase and learning/Projects/Fable Clothing/security-checklist.md","x":1660,"y":1380,"width":200,"height":180}
+	],
+	"edges":[
+		{"id":"e1","fromNode":"c1","fromSide":"right","toNode":"c2","toSide":"left"},
+		{"id":"e2","fromNode":"c2","fromSide":"right","toNode":"c3","toSide":"left"},
+		{"id":"e3","fromNode":"c3","fromSide":"right","toNode":"c4","toSide":"left"},
+		{"id":"e4","fromNode":"c4","fromSide":"right","toNode":"c5","toSide":"left"},
+		{"id":"e5","fromNode":"c2","fromSide":"bottom","toNode":"g2","toSide":"top","color":"4"},
+		{"id":"e6","fromNode":"c3","fromSide":"bottom","toNode":"g3","toSide":"top","color":"4"},
+		{"id":"e7","fromNode":"c4","fromSide":"bottom","toNode":"g4","toSide":"top","color":"4"},
+		{"id":"e8","fromNode":"c5","fromSide":"bottom","toNode":"g5","toSide":"top","color":"4"},
+
+		{"id":"f1","fromNode":"a1","fromSide":"right","toNode":"a2","toSide":"left"},
+		{"id":"f2","fromNode":"a2","fromSide":"right","toNode":"a3","toSide":"left"},
+		{"id":"f3","fromNode":"a3","fromSide":"right","toNode":"a4","toSide":"left"},
+		{"id":"f4","fromNode":"a4","fromSide":"right","toNode":"a5","toSide":"left"},
+		{"id":"f5","fromNode":"a2","fromSide":"bottom","toNode":"b2","toSide":"top","color":"4"},
+		{"id":"f6","fromNode":"a3","fromSide":"bottom","toNode":"b3","toSide":"top","color":"4"},
+		{"id":"f7","fromNode":"a4","fromSide":"bottom","toNode":"b4","toSide":"top","color":"4"},
+		{"id":"f8","fromNode":"a5","fromSide":"bottom","toNode":"b5","toSide":"top","color":"4"}
+	]
+}

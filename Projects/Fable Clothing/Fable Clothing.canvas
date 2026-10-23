@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"f1a2b3c4d5e6f701","type":"text","x":-170,"y":-80,"width":340,"height":160,"color":"#cc9900","text":"# Fable Clothing\n\n[[Fable Clothing]]"},
+		{"id":"f1a2b3c4d5e6f702","type":"text","x":-750,"y":-400,"width":300,"height":150,"color":"#cc9900","text":"## PRD\n\n[[PRD]]"},
+		{"id":"f1a2b3c4d5e6f703","type":"text","x":350,"y":-400,"width":300,"height":150,"color":"#cc9900","text":"## Design\n\n[[design]]"},
+		{"id":"f1a2b3c4d5e6f704","type":"text","x":350,"y":300,"width":300,"height":150,"color":"#cc9900","text":"## Tech Stack\n\n[[tech-stack]]"},
+		{"id":"f1a2b3c4d5e6f705","type":"text","x":-750,"y":300,"width":300,"height":150,"color":"#cc9900","text":"## Architecture\n\n[[architecture]]"},
+		{"id":"f1a2b3c4d5e6f706","type":"group","x":-1500,"y":-150,"width":400,"height":300,"label":"Business (separate branch)","color":"6"},
+		{"id":"f1a2b3c4d5e6f707","type":"text","x":-1450,"y":-80,"width":300,"height":150,"color":"6","text":"## Business\n\n[[Business]]"}
+	],
+	"edges":[
+		{"id":"e1a2b3c4d5e6f701","fromNode":"f1a2b3c4d5e6f701","toNode":"f1a2b3c4d5e6f702","color":"#cc9900","fromSide":"top","toSide":"bottom"},
+		{"id":"e1a2b3c4d5e6f702","fromNode":"f1a2b3c4d5e6f701","toNode":"f1a2b3c4d5e6f703","color":"#cc9900","fromSide":"top","toSide":"bottom"},
+		{"id":"e1a2b3c4d5e6f703","fromNode":"f1a2b3c4d5e6f701","toNode":"f1a2b3c4d5e6f704","color":"#cc9900","fromSide":"bottom","toSide":"top"},
+		{"id":"e1a2b3c4d5e6f704","fromNode":"f1a2b3c4d5e6f701","toNode":"f1a2b3c4d5e6f705","color":"#cc9900","fromSide":"bottom","toSide":"top"},
+		{"id":"e1a2b3c4d5e6f705","fromNode":"f1a2b3c4d5e6f701","toNode":"f1a2b3c4d5e6f707","color":"6","fromSide":"left","toSide":"right"}
+	]
+}

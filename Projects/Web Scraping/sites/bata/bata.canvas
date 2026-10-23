@@ -1,0 +1,1210 @@
+{
+ "nodes": [
+  {
+   "id": "n001",
+   "type": "group",
+   "label": "Loafers and moccasins",
+   "x": 0,
+   "y": 0,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n002",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-athens-mens-casual-5/bata-bata-men-athens-mens-casual-5-1.jpg",
+   "x": 30,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n003",
+   "type": "text",
+   "text": "**BATA (MEN) ATHENS MENS CASUAL**\nBata | Tk 1599 | batabd.com",
+   "x": 30,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n005",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-athens-mens-casual-7/bata-bata-men-athens-mens-casual-7-1.jpg",
+   "x": 320,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n006",
+   "type": "text",
+   "text": "**BATA (MEN) ATHENS MENS CASUAL**\nBata | Tk 2159 | batabd.com",
+   "x": 320,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n008",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-canon-mens-dress-1/bata-bata-men-canon-mens-dress-1-1.jpg",
+   "x": 610,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n009",
+   "type": "text",
+   "text": "**BATA (MEN) CANON MENS DRESS**\nBata | Tk 2799 | batabd.com",
+   "x": 610,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n011",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-moscow-mens-hp-closed-loafer/bata-hush-puppies-moscow-mens-hp-closed-loafer-1.jpg",
+   "x": 900,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n012",
+   "type": "text",
+   "text": "**HUSH PUPPIES MOSCOW MENS HP CLOSED LOAFER**\nHush Puppies | Tk 4799 | batabd.com",
+   "x": 900,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n014",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-sm-terrano-mens-dress-men-shoe-1/bata-bata-men-sm-terrano-mens-dress-men-shoe-1-1.jpg",
+   "x": 1190,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n015",
+   "type": "text",
+   "text": "**BATA (MEN) SM-TERRANO MENS DRESS MEN SHOE**\nBata | Tk 7999 | batabd.com",
+   "x": 1190,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n017",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-amazon-mens-hp-closed-moccasin-1/bata-hush-puppies-amazon-mens-hp-closed-moccasin-1-1.jpg",
+   "x": 1480,
+   "y": 50,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n018",
+   "type": "text",
+   "text": "**HUSH PUPPIES AMAZON MENS HP CLOSED MOCCASIN**\nHush Puppies | Tk 10399 | batabd.com",
+   "x": 1480,
+   "y": 320,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n020",
+   "type": "group",
+   "label": "Formal and closed shoes",
+   "x": 0,
+   "y": 490,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n021",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-smith-mens-dress-2/bata-bata-men-smith-mens-dress-2-1.jpg",
+   "x": 30,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n022",
+   "type": "text",
+   "text": "**BATA (MEN) SMITH MENS DRESS**\nBata | Tk 1599 | batabd.com",
+   "x": 30,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n024",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-klap-mens-hp-closed-mens-closed-1/bata-hush-puppies-klap-mens-hp-closed-mens-closed-1-1.jpg",
+   "x": 320,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n025",
+   "type": "text",
+   "text": "**HUSH PUPPIES KLAP MENS HP CLOSED MENS CLOSED**\nHush Puppies | Tk 3599 | batabd.com",
+   "x": 320,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n027",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-gladiator-mens-hp-closed-2/bata-hush-puppies-gladiator-mens-hp-closed-2-1.jpg",
+   "x": 610,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n028",
+   "type": "text",
+   "text": "**HUSH PUPPIES GLADIATOR MENS HP CLOSED**\nHush Puppies | Tk 4799 | batabd.com",
+   "x": 610,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n030",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-comet-mens-hp-closed-1/bata-hush-puppies-comet-mens-hp-closed-1-1.jpg",
+   "x": 900,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n031",
+   "type": "text",
+   "text": "**HUSH PUPPIES COMET MENS HP CLOSED**\nHush Puppies | Tk 7999 | batabd.com",
+   "x": 900,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n033",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-super-mens-hp-closed-2/bata-hush-puppies-super-mens-hp-closed-2-1.jpg",
+   "x": 1190,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n034",
+   "type": "text",
+   "text": "**HUSH PUPPIES SUPER MENS HP CLOSED**\nHush Puppies | Tk 11999 | batabd.com",
+   "x": 1190,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n036",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-banker-waterproof-formal-slip-on-shoe-for-men/bata-hush-puppies-banker-waterproof-formal-slip-on-shoe-for-men-1.jpg",
+   "x": 1480,
+   "y": 540,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n037",
+   "type": "text",
+   "text": "**Hush Puppies Banker Waterproof Formal Slip-On Shoe for Men**\nHush Puppies | Tk 13599 | batabd.com",
+   "x": 1480,
+   "y": 810,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n039",
+   "type": "group",
+   "label": "Sandals",
+   "x": 0,
+   "y": 980,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n040",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-partha-mens-toe-ring-sandal/bata-bata-partha-mens-toe-ring-sandal-1.jpg",
+   "x": 30,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n041",
+   "type": "text",
+   "text": "**Bata PARTHA Men's Toe-Ring Sandal**\nBata | Tk 559 | batabd.com",
+   "x": 30,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n043",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-scholl-curve-sandal-for-men-3/bata-scholl-curve-sandal-for-men-3-1.jpg",
+   "x": 320,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n044",
+   "type": "text",
+   "text": "**Scholl CURVE Sandal for Men**\nScholl | Tk 2399 | batabd.com",
+   "x": 320,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n046",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-scholl-albans-mens-scholl/bata-scholl-albans-mens-scholl-1.jpg",
+   "x": 610,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n047",
+   "type": "text",
+   "text": "**SCHOLL ALBANS MENS SCHOLL**\nScholl | Tk 2799 | batabd.com",
+   "x": 610,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n049",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-samuel-belt-sandal-for-men/bata-hush-puppies-samuel-belt-sandal-for-men-1.jpg",
+   "x": 900,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n050",
+   "type": "text",
+   "text": "**Hush Puppies SAMUEL Belt Sandal for Men**\nHush Puppies | Tk 3439 | batabd.com",
+   "x": 900,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n052",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-oakland-mens-hp-sandals-1/bata-hush-puppies-oakland-mens-hp-sandals-1-1.jpg",
+   "x": 1190,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n053",
+   "type": "text",
+   "text": "**HUSH PUPPIES OAKLAND MENS HP SANDALS**\nHush Puppies | Tk 3599 | batabd.com",
+   "x": 1190,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n055",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-sm-alessio-mens-casual-mens-sabot/bata-bata-men-sm-alessio-mens-casual-mens-sabot-1.jpg",
+   "x": 1480,
+   "y": 1030,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n056",
+   "type": "text",
+   "text": "**BATA (MEN) SM-ALESSIO MENS CASUAL MENS SABOT**\nBata | Tk 7999 | batabd.com",
+   "x": 1480,
+   "y": 1300,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n058",
+   "type": "group",
+   "label": "Casual and other",
+   "x": 0,
+   "y": 1470,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n059",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-ap2-mens-casual/bata-bata-men-ap2-mens-casual-1.jpg",
+   "x": 30,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n060",
+   "type": "text",
+   "text": "**BATA (MEN) AP2 MENS CASUAL**\nBata | Tk 2959 | batabd.com",
+   "x": 30,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n062",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-weinbrenner-sharjah-boots-for-men-1/bata-weinbrenner-sharjah-boots-for-men-1-1.jpg",
+   "x": 320,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n063",
+   "type": "text",
+   "text": "**WEINBRENNER SHARJAH Boots for Men**\nWeinbrenner | Tk 3439 | batabd.com",
+   "x": 320,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n065",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-seventy-eight-mens-hp-closed-sneaker/bata-hush-puppies-seventy-eight-mens-hp-closed-sneaker-1.jpg",
+   "x": 610,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n066",
+   "type": "text",
+   "text": "**HUSH PUPPIES SEVENTY EIGHT MENS HP CLOSED SNEAKER**\nHush Puppies | Tk 4799 | batabd.com",
+   "x": 610,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n068",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-milo-loafer-for-men-1/bata-hush-puppies-milo-loafer-for-men-1-1.jpg",
+   "x": 900,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n069",
+   "type": "text",
+   "text": "**Hush Puppies MILO Loafer for MEN**\nHush Puppies | Tk 7999 | batabd.com",
+   "x": 900,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n071",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-wes-lace-up-mens-hp-closed/bata-hush-puppies-wes-lace-up-mens-hp-closed-1.jpg",
+   "x": 1190,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n072",
+   "type": "text",
+   "text": "**HUSH PUPPIES WES LACE-UP MENS HP CLOSED**\nHush Puppies | Tk 10399 | batabd.com",
+   "x": 1190,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n074",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-dekwon-mens-dress-casual-shoe/bata-bata-men-dekwon-mens-dress-casual-shoe-1.jpg",
+   "x": 1480,
+   "y": 1520,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n075",
+   "type": "text",
+   "text": "**BATA (MEN) DEKWON MENS DRESS CASUAL SHOE**\nBata | Tk 11999 | batabd.com",
+   "x": 1480,
+   "y": 1790,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n077",
+   "type": "group",
+   "label": "Belts",
+   "x": 0,
+   "y": 1960,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n078",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-economy-belt-2/bata-bata-men-economy-belt-2-1.jpg",
+   "x": 30,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n079",
+   "type": "text",
+   "text": "**BATA (MEN) ECONOMY BELT 2**\nBata | Tk 639 | batabd.com",
+   "x": 30,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n081",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-belt-accessories-1/bata-bata-men-belt-accessories-1-1.jpg",
+   "x": 320,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n082",
+   "type": "text",
+   "text": "**BATA (MEN) BELT ACCESSORIES**\nBata | Tk 799 | batabd.com",
+   "x": 320,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n084",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-mens-belt-2/bata-bata-mens-belt-2-1.jpg",
+   "x": 610,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n085",
+   "type": "text",
+   "text": "**Bata MEN'S BELT**\nBata | Tk 1039 | batabd.com",
+   "x": 610,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n087",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-straight-line/bata-bata-men-straight-line-1.jpg",
+   "x": 900,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n088",
+   "type": "text",
+   "text": "**BATA (MEN) STRAIGHT LINE**\nBata | Tk 1199 | batabd.com",
+   "x": 900,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n090",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-weinbrenner-belt-hp-nft-1/bata-weinbrenner-belt-hp-nft-1-1.jpg",
+   "x": 1190,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n091",
+   "type": "text",
+   "text": "**WEINBRENNER BELT HP NFT**\nWeinbrenner | Tk 1359 | batabd.com",
+   "x": 1190,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n093",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-mens-belt-3/bata-hush-puppies-mens-belt-3-1.jpg",
+   "x": 1480,
+   "y": 2010,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n094",
+   "type": "text",
+   "text": "**Hush Puppies MEN'S BELT**\nHush Puppies | Tk 1599 | batabd.com",
+   "x": 1480,
+   "y": 2280,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n096",
+   "type": "group",
+   "label": "Wallets",
+   "x": 0,
+   "y": 2450,
+   "width": 1770,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n097",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-economy-wallet-1/bata-bata-men-economy-wallet-1-1.jpg",
+   "x": 30,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n098",
+   "type": "text",
+   "text": "**BATA (MEN) ECONOMY Wallet**\nBata | Tk 559 | batabd.com",
+   "x": 30,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n100",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-wallet-accessories-wallet-1/bata-bata-men-wallet-accessories-wallet-1-1.jpg",
+   "x": 320,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n101",
+   "type": "text",
+   "text": "**BATA (MEN) WALLET ACCESSORIES WALLET**\nBata | Tk 799 | batabd.com",
+   "x": 320,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n103",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-premium-leather-wallet-9/bata-hush-puppies-premium-leather-wallet-9-1.jpg",
+   "x": 610,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n104",
+   "type": "text",
+   "text": "**Hush Puppies Premium Leather Wallet**\nHush Puppies | Tk 1039 | batabd.com",
+   "x": 610,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n106",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-wallet-accessories-wallet-2/bata-bata-men-wallet-accessories-wallet-2-1.jpg",
+   "x": 900,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n107",
+   "type": "text",
+   "text": "**BATA (MEN) WALLET ACCESSORIES WALLET**\nBata | Tk 1039 | batabd.com",
+   "x": 900,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n109",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-hush-puppies-premium-leather-wallet/bata-hush-puppies-premium-leather-wallet-1.jpg",
+   "x": 1190,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n110",
+   "type": "text",
+   "text": "**Hush Puppies Premium Leather Wallet**\nHush Puppies | Tk 1199 | batabd.com",
+   "x": 1190,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n112",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-executive-long-wallet/bata-bata-men-executive-long-wallet-1.jpg",
+   "x": 1480,
+   "y": 2500,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n113",
+   "type": "text",
+   "text": "**BATA (MEN) EXECUTIVE Long Wallet**\nBata | Tk 1359 | batabd.com",
+   "x": 1480,
+   "y": 2770,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n115",
+   "type": "group",
+   "label": "Bags",
+   "x": 0,
+   "y": 2940,
+   "width": 1480,
+   "height": 430,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n116",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-guanto-bags-3/bata-bata-men-guanto-bags-3-1.jpg",
+   "x": 30,
+   "y": 2990,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n117",
+   "type": "text",
+   "text": "**BATA (MEN) GUANTO BAGS**\nBata | Tk 5999 | batabd.com",
+   "x": 30,
+   "y": 3260,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n119",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-guanto-bags-1/bata-bata-men-guanto-bags-1-1.jpg",
+   "x": 320,
+   "y": 2990,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n120",
+   "type": "text",
+   "text": "**BATA (MEN) GUANTO BAGS**\nBata | Tk 5999 | batabd.com",
+   "x": 320,
+   "y": 3260,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n122",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-guanto-bags/bata-bata-men-guanto-bags-1.jpg",
+   "x": 610,
+   "y": 2990,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n123",
+   "type": "text",
+   "text": "**BATA (MEN) GUANTO BAGS**\nBata | Tk 5999 | batabd.com",
+   "x": 610,
+   "y": 3260,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n125",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-guanto-bags-2/bata-bata-men-guanto-bags-2-1.jpg",
+   "x": 900,
+   "y": 2990,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n126",
+   "type": "text",
+   "text": "**BATA (MEN) GUANTO BAGS**\nBata | Tk 7599 | batabd.com",
+   "x": 900,
+   "y": 3260,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n128",
+   "type": "link",
+   "url": "file:///C:/Users/yusha/OneDrive/Desktop/Web%20Scraping/sites/bata/data/photos/bata/bata-bata-men-indian-nappa-bags/bata-bata-men-indian-nappa-bags-1.jpg",
+   "x": 1190,
+   "y": 2990,
+   "width": 260,
+   "height": 260,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n129",
+   "type": "text",
+   "text": "**BATA (MEN) INDIAN NAPPA BAGS**\nBata | Tk 7599 | batabd.com",
+   "x": 1190,
+   "y": 3260,
+   "width": 260,
+   "height": 80,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n131",
+   "type": "group",
+   "label": "Scraper flow (bata_fetch, clean, photos, load_db)",
+   "x": 0,
+   "y": 3430,
+   "width": 1230,
+   "height": 200,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n132",
+   "type": "text",
+   "text": "1 FETCH\nShopify products.json, 11 men's collections, 26 requests",
+   "x": 30,
+   "y": 3470,
+   "width": 270,
+   "height": 130,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n133",
+   "type": "text",
+   "text": "2 PARSE\nvariants -> price, sizes, colours; spec line -> material",
+   "x": 330,
+   "y": 3470,
+   "width": 270,
+   "height": 130,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n135",
+   "type": "text",
+   "text": "3 FILTER\nmen only; leather yes / check / no",
+   "x": 630,
+   "y": 3470,
+   "width": 270,
+   "height": 130,
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n137",
+   "type": "text",
+   "text": "4 SAVE\nproducts.jsonl -> products.csv, check.csv, photos, bata_market.db",
+   "x": 930,
+   "y": 3470,
+   "width": 270,
+   "height": 130,
+   "color": "#00C2B8"
+  }
+ ],
+ "edges": [
+  {
+   "id": "n004",
+   "fromNode": "n002",
+   "toNode": "n003",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n007",
+   "fromNode": "n005",
+   "toNode": "n006",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n010",
+   "fromNode": "n008",
+   "toNode": "n009",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n013",
+   "fromNode": "n011",
+   "toNode": "n012",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n016",
+   "fromNode": "n014",
+   "toNode": "n015",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n019",
+   "fromNode": "n017",
+   "toNode": "n018",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n023",
+   "fromNode": "n021",
+   "toNode": "n022",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n026",
+   "fromNode": "n024",
+   "toNode": "n025",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n029",
+   "fromNode": "n027",
+   "toNode": "n028",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n032",
+   "fromNode": "n030",
+   "toNode": "n031",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n035",
+   "fromNode": "n033",
+   "toNode": "n034",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n038",
+   "fromNode": "n036",
+   "toNode": "n037",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n042",
+   "fromNode": "n040",
+   "toNode": "n041",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n045",
+   "fromNode": "n043",
+   "toNode": "n044",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n048",
+   "fromNode": "n046",
+   "toNode": "n047",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n051",
+   "fromNode": "n049",
+   "toNode": "n050",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n054",
+   "fromNode": "n052",
+   "toNode": "n053",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n057",
+   "fromNode": "n055",
+   "toNode": "n056",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n061",
+   "fromNode": "n059",
+   "toNode": "n060",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n064",
+   "fromNode": "n062",
+   "toNode": "n063",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n067",
+   "fromNode": "n065",
+   "toNode": "n066",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n070",
+   "fromNode": "n068",
+   "toNode": "n069",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n073",
+   "fromNode": "n071",
+   "toNode": "n072",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n076",
+   "fromNode": "n074",
+   "toNode": "n075",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n080",
+   "fromNode": "n078",
+   "toNode": "n079",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n083",
+   "fromNode": "n081",
+   "toNode": "n082",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n086",
+   "fromNode": "n084",
+   "toNode": "n085",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n089",
+   "fromNode": "n087",
+   "toNode": "n088",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n092",
+   "fromNode": "n090",
+   "toNode": "n091",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n095",
+   "fromNode": "n093",
+   "toNode": "n094",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n099",
+   "fromNode": "n097",
+   "toNode": "n098",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n102",
+   "fromNode": "n100",
+   "toNode": "n101",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n105",
+   "fromNode": "n103",
+   "toNode": "n104",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n108",
+   "fromNode": "n106",
+   "toNode": "n107",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n111",
+   "fromNode": "n109",
+   "toNode": "n110",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n114",
+   "fromNode": "n112",
+   "toNode": "n113",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n118",
+   "fromNode": "n116",
+   "toNode": "n117",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n121",
+   "fromNode": "n119",
+   "toNode": "n120",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n124",
+   "fromNode": "n122",
+   "toNode": "n123",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n127",
+   "fromNode": "n125",
+   "toNode": "n126",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n130",
+   "fromNode": "n128",
+   "toNode": "n129",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n134",
+   "fromNode": "n132",
+   "toNode": "n133",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n136",
+   "fromNode": "n133",
+   "toNode": "n135",
+   "color": "#00C2B8"
+  },
+  {
+   "id": "n138",
+   "fromNode": "n135",
+   "toNode": "n137",
+   "color": "#00C2B8"
+  }
+ ]
+}

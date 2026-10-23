@@ -1,0 +1,186 @@
+{
+ "nodes": [
+  {
+   "id": "intake",
+   "type": "text",
+   "text": "## 1. Intake\nFront + both profiles, **mouth closed**, neutral.\nAsk which photos count. Note haircut/camera differences.\nUser's words = checks, not changes.",
+   "x": 0,
+   "y": 0,
+   "width": 360,
+   "height": 230
+  },
+  {
+   "id": "measure",
+   "type": "text",
+   "text": "## 2. Measure the person\n`face_ratios.py` front ratios\n`head_widths.py` width per height\n`grid.py` profile in u (nasion-menton)\nHair/skin colour as RATIOS + HSV\n-> fill REQUIREMENTS.md",
+   "x": 420,
+   "y": 0,
+   "width": 360,
+   "height": 230
+  },
+  {
+   "id": "probe",
+   "type": "text",
+   "text": "## 3. Probe the controls\n`target_probe` / `width_probe` / `eye_probe`\nEffect per unit, same ratios as step 2.\nNo target? Shape key with the measured profile, or edit the proxy mesh.",
+   "x": 840,
+   "y": 0,
+   "width": 360,
+   "height": 230
+  },
+  {
+   "id": "plan",
+   "type": "text",
+   "text": "## 4a. Show targets\nTell the user the numbers + planned changes **before** the round.\nSize each change: needed % / effect per unit.",
+   "x": 1260,
+   "y": 0,
+   "width": 360,
+   "height": 230,
+   "color": "5"
+  },
+  {
+   "id": "build",
+   "type": "text",
+   "text": "## 4b. Build (quick test)\nEdit PARAMS only.\n`MARLON_SHOTS=face_front,face_side`\n`MARLON_STRANDS=0`\n~15 s per shot (RTX 3060)",
+   "x": 0,
+   "y": 330,
+   "width": 360,
+   "height": 230,
+   "color": "5"
+  },
+  {
+   "id": "check",
+   "type": "text",
+   "text": "## 4c. Measure the render\nSame tools, fill the round column.\nSide-by-side sheet too: numbers miss *staring eyes*, *popcorn hair*.",
+   "x": 420,
+   "y": 330,
+   "width": 360,
+   "height": 230,
+   "color": "5"
+  },
+  {
+   "id": "review",
+   "type": "text",
+   "text": "## 4d. Log + user review\nREQUIREMENTS + run-log + STATE.\nAsk for a rating (model-log).",
+   "x": 840,
+   "y": 330,
+   "width": 360,
+   "height": 230,
+   "color": "5"
+  },
+  {
+   "id": "style",
+   "type": "text",
+   "text": "## 7. Stylise last\nPS2 look = decimate + small textures + simple shading on the finished model.\nExpressions = shape keys.",
+   "x": 1260,
+   "y": 330,
+   "width": 360,
+   "height": 230
+  },
+  {
+   "id": "hair",
+   "type": "text",
+   "text": "### Hair (short crop)\nCurves, strand by strand.\nDirection projected onto the scalp.\nFade in u: full above the skull corner, 25 % at the bottom.\nClumps 15 strands / 0.3.",
+   "x": 210,
+   "y": 660,
+   "width": 360,
+   "height": 270,
+   "color": "4"
+  },
+  {
+   "id": "pitfalls",
+   "type": "text",
+   "text": "### Pitfalls\n- unmeasured 'stronger' -> block face\n- searches without a body-part window (chin -> toe)\n- comment mid-line kills dict entries\n- 10x render time -> kill, test feature off\n- front photo for head height: use the profile",
+   "x": 630,
+   "y": 660,
+   "width": 360,
+   "height": 270,
+   "color": "4"
+  },
+  {
+   "id": "dirs",
+   "type": "text",
+   "text": "### Known target directions\ncorner1 = outer eye corner\npush1-in: outer corner in 11 %/unit\nheight2-incr: +28 % opening\nbrows-trans-down closes the eye\nhead-scale-vert-decr squashes the face too",
+   "x": 1050,
+   "y": 660,
+   "width": 360,
+   "height": 270,
+   "color": "4"
+  },
+  {
+   "id": "kit",
+   "type": "text",
+   "x": 0,
+   "y": -150,
+   "width": 780,
+   "height": 100,
+   "color": "6",
+   "text": "**Kit:** `C:\\dev\\avatar\\kit\\README.md`\n**Notes:** [[3d-likeness-framework]] / [[3d-sculpting-lessons]]"
+  }
+ ],
+ "edges": [
+  {
+   "id": "intake-measure",
+   "fromNode": "intake",
+   "toNode": "measure",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "measure-probe",
+   "fromNode": "measure",
+   "toNode": "probe",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "probe-plan",
+   "fromNode": "probe",
+   "toNode": "plan",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "plan-build",
+   "fromNode": "plan",
+   "toNode": "build",
+   "fromSide": "bottom",
+   "toSide": "top"
+  },
+  {
+   "id": "build-check",
+   "fromNode": "build",
+   "toNode": "check",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "check-review",
+   "fromNode": "check",
+   "toNode": "review",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "review-style",
+   "fromNode": "review",
+   "toNode": "style",
+   "fromSide": "right",
+   "toSide": "left"
+  },
+  {
+   "id": "loop",
+   "fromNode": "review",
+   "toNode": "plan",
+   "fromSide": "top",
+   "toSide": "bottom",
+   "label": "next round"
+  },
+  {
+   "id": "probe-dirs",
+   "fromNode": "probe",
+   "toNode": "dirs",
+   "fromSide": "bottom",
+   "toSide": "top"
+  }
+ ]
+}
